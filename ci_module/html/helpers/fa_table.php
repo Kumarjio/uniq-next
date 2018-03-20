@@ -379,14 +379,14 @@ function display_db_pager(&$pager)
 
         if($option_html != "") {
           // $option_html = '<button type="button" class="button operation-button"><i class="fa fa-ellipsis-v"></i></button><div class="operation-container">'.$option_html.'</div>';
-          $option_html =
-          '<button type="button" class="button operation-button"><i class="fa fa-ellipsis-v"></i></button><div class="operation-modal"><div class="operation-content">'.
-          '<h4><span synlang="syncard-language">Option menu</span></h4>'.
-          '<hr/>'.
-          '<div class="operation-dumb">'.
-          $option_html.
-          '</div></div></div>';
-          label_cell($option_html, "align='center'");
+          // $option_html =
+          // '<button type="button" class="button operation-button"><i class="fa fa-ellipsis-v"></i></button><div class="operation-modal"><div class="operation-content">'.
+          // '<h4><span synlang="syncard-language">Option menu</span></h4>'.
+          // '<hr/>'.
+          // '<div class="operation-dumb">'.
+          // $option_html.
+          // '</div></div></div>';
+          // label_cell($option_html, "align='center'");
         }
         end_row();
     }
