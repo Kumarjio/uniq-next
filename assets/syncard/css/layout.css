@@ -1,0 +1,46 @@
+/* Global */
+.main { padding-left:300px; margin-bottom: 65px; }
+.main nav { padding-right:300px }
+.page-footer { position: fixed; bottom: 0; left: 0; width: 100%; padding-left: 300px; z-index: 990; }
+
+.card-panel { display: inline-block; width: 100%; }
+
+/* RESPONSIVE ================================================================ */
+/* mobile size */
+@media (max-width: 600px) {
+
+}
+
+/* mobile & tablet size */
+@media (max-width: 992px) {
+  .main, .page-footer { padding-left: 0; margin-bottom: 0; }
+  .main nav { padding-right: 0; }
+
+  .page-footer { position: relative; }
+}
+
+/* tablet size */
+@media (min-width: 601px) and (max-width: 992px) {
+
+}
+/* desktop size */
+@media (min-width: 993px) {
+  /* Home */
+  .card.home { min-height: 260px; }
+}
+
+/* large desktop size */
+@media (min-width: 1200px) {
+
+}
+
+/* 2k desktop size */
+@media (min-width: 1400px) {
+  /* Home */
+  .card.home { min-height: 240px; }
+}
+
+@media (min-width: 1600px) {
+  /* Home */
+  .card.home { min-height: auto; }
+}

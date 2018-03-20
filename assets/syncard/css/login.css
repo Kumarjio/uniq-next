@@ -1,0 +1,451 @@
+/*
+ * #a2abb7
+ */
+
+ul li { list-style: none; }
+
+/* partner login */
+.accountbook-list { padding: 0; }
+.accountbook-list .access-list-button {
+  text-align: left;
+}
+
+ .uniq-login-place input:-webkit-autofill {
+     -webkit-box-shadow: inset 0 0 0px 9999px rgba(255,255,255,0.9);
+ }
+
+ .uniq-login-place input:focus,
+ .uniq-login-place input:-webkit-autofill:focus {
+     -webkit-box-shadow: inset 0 0 0px 9999px rgba(13,35,49,0.9), 0 0 8px rgba(102, 175, 233, 0.6);
+     color: #fff !important;
+ }
+
+ .uniq-login-place input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+   color: #fff !important;
+ }
+
+ button[disabled], html input[disabled] {
+   cursor: not-allowed !important;
+ }
+
+.login a {
+  color: #d9ecf9 !important;
+  text-decoration: underline;
+}
+
+.login .logo {
+  margin: 80px auto 0;
+  padding: 15px;
+  text-align: center; }
+
+.login .content {
+  width: 400px;
+  margin: 10px auto; }
+
+.login .form-title {
+  margin-bottom: 20px;
+  color: #d9ecf9;
+  font-size: 19px;
+  font-weight: 400 !important; }
+
+.login .form-subtitle {
+  color: #c9dce9;
+  font-size: 17px;
+  font-weight: 300 !important;
+  padding-left: 10px; }
+
+.login .content h4 {
+  color: #555; }
+
+.login .content .hint {
+  color: #b7d1e2;
+  padding: 0;
+  font-size: 14px;
+  margin: 15px 0 7px; }
+
+.login .content .forget-form, .login .content .login-form {
+  padding: 0;
+  margin: 0; }
+
+.login .content .form-control {
+  background-color: #6ba3c8;
+  height: 43px;
+  color: #d9ecf9; }
+
+.login .content .form-control::-moz-placeholder {
+  color: #d9ecf9;
+  opacity: 1; }
+
+.login .content .form-control:-ms-input-placeholder {
+  color: #d9ecf9; }
+
+.login .content .form-control::-webkit-input-placeholder {
+  color: #d9ecf9; }
+
+.login .content select.form-control {
+  padding-left: 9px;
+  padding-right: 9px; }
+
+.login .content .forget-form, .login .content .register-form {
+  display: none; }
+
+.login .content .form-title {
+  font-weight: 300;
+  margin-bottom: 25px; }
+
+.login .content .form-actions {
+  clear: both;
+  border: 0;
+  padding: 0 30px 25px;
+  margin-left: -30px;
+  margin-right: -30px; }
+
+.form-actions .forget-password-block {
+  padding-top: 7px; }
+
+.login-options {
+  margin-top: 30px;
+  padding-top: 20px;
+  padding-bottom: 50px; }
+
+.login-options h4 {
+  margin-top: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #b7d1e2 !important; }
+
+.login .forget-password {
+  font-size: 14px; }
+
+.login-options .social-icons {
+  float: right;
+  padding-top: 3px; }
+
+.login-options .social-icons li a {
+  border-radius: 15px !important;
+  -moz-border-radius: 15px !important;
+  -webkit-border-radius: 15px !important; }
+
+.login .content .forget-form .form-actions {
+  border: 0;
+  margin-bottom: 0;
+  padding-bottom: 20px; }
+
+.login .content .register-form .form-actions {
+  border: 0;
+  margin-bottom: 0;
+  padding-bottom: 0; }
+
+.login .content .form-actions .checkbox {
+  margin-top: 8px;
+  display: inline-block; }
+
+.login .content .form-actions .btn {
+  margin-top: 1px; }
+
+.login .content .forget-password {
+  color: #d7eaf7;
+  font-size: 15px; }
+
+.login .content .rememberme {
+  margin-top: 8px; }
+
+.login .content .mt-checkbox {
+  color: #c9dce9 !important; }
+
+.login .content .mt-checkbox > span:after {
+  border-color: #c9dce9 !important; }
+
+.login .content .create-account {
+  text-align: center;
+  margin-top: 20px; }
+
+.login .content .create-account p a {
+  font-weight: 300;
+  font-size: 16px;
+  color: #fff; }
+
+.login .content .create-account a {
+  display: inline-block;
+  margin-top: 5px; }
+
+.login .copyright {
+  text-align: center;
+  margin: 10px auto 30px 0;
+  padding: 10px;
+  color: #c9dce9;
+  font-size: 13px; }
+
+.form-title p {
+  margin: 10px 0; }
+
+ .time {
+  -webkit-transition: all 0.2s ease-out 0s;
+  -moz-transition: all 0.2s ease-out 0s;
+  -ms-transition: all 0.2s ease-out 0s;
+  -o-transition: all 0.2s ease-out 0s;
+  transition: all 0.2s ease-out 0s;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  cursor: default;
+  font: 14px 'Roboto', sans-serif;
+}
+.uniq-login-bag {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: url(../img/uniq-login-bag.jpg) no-repeat;
+  background-size: cover;
+  -webkit-transition: all 0.2s ease-out 0s;
+  -moz-transition: all 0.2s ease-out 0s;
+  -ms-transition: all 0.2s ease-out 0s;
+  -o-transition: all 0.2s ease-out 0s;
+  transition: all 0.2s ease-out 0s;
+}
+.uniq-login-bag.grey {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+.uniq-login-place form { position: relative;}
+
+.uniq-login-place {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.uniq-login-place .uniq-login-container {
+  width: 100%;
+  max-width: 800px;
+}
+.uniq-login-place .uniq-logo {
+  padding: 85px 5px 78px 5px;
+  /*background: rgba(29, 45, 55, 0.4);*/
+  color: #fff;
+  text-align: left;
+  font-size: 12px;
+}
+.uniq-login-place .uniq-logo strong {
+  font-size: 18px;
+  display: inline-block;
+  padding-top: 5px;
+}
+.uniq-login-place .uniq-logo img {
+  width: 70px;
+}
+.uniq-login-place form {
+  padding: 25px 40px;
+  background: rgba(13,35,49,0.9);
+  text-align: center;
+  color: #fff;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.7);
+}
+.uniq-login-place form strong {
+  font-size: 16px;
+}
+.uniq-login-place form input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: transparent!important;
+  border: 1px solid #fff;
+  outline: none;
+  color: #fff;
+  -webkit-appearance: none;
+  -webkit-transition: all 0.2s ease-out 0s;
+  -moz-transition: all 0.2s ease-out 0s;
+  -ms-transition: all 0.2s ease-out 0s;
+  -o-transition: all 0.2s ease-out 0s;
+  transition: all 0.2s ease-out 0s;
+}
+
+.uniq-login-place form img {
+  display: inline-block;
+  margin-bottom: 40px;
+}
+.uniq-login-place form .uniq-field {
+  display: block;
+  margin-bottom: 10px;
+  -webkit-transition: all 0.2s ease-out 0s;
+  -moz-transition: all 0.2s ease-out 0s;
+  -ms-transition: all 0.2s ease-out 0s;
+  -o-transition: all 0.2s ease-out 0s;
+  transition: all 0.2s ease-out 0s;
+}
+
+.uniq-login-place form .uniq-group { position: relative; }
+.uniq-login-place form .uniq-group .uniq-field:first-child {
+    border-right: 40px solid;
+}
+.uniq-login-place form .uniq-group .uniq-field.button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+}
+
+.uniq-login-place form .uniq-field.focus i {
+  color: #14a1db;
+}
+.uniq-login-place form .uniq-field i {
+  display: block;
+  float: left;
+  margin: 10px 0 0 -30px;
+  font-size: 21px;
+  -webkit-transition: all 0.2s ease-out 0s;
+  -moz-transition: all 0.2s ease-out 0s;
+  -ms-transition: all 0.2s ease-out 0s;
+  -o-transition: all 0.2s ease-out 0s;
+  transition: all 0.2s ease-out 0s;
+}
+.uniq-login-place form .uniq-field.button button {
+  background: #14a1db !important;
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #14a1db;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease-out 0s;
+  -moz-transition: all 0.2s ease-out 0s;
+  -ms-transition: all 0.2s ease-out 0s;
+  -o-transition: all 0.2s ease-out 0s;
+  transition: all 0.2s ease-out 0s;
+}
+.uniq-login-place form .uniq-field.button button:hover {
+  background-color: #0b5383 !important;
+}
+
+/* led lights blink */
+.led-box {
+  display: inline-block;
+  text-align: left;
+  position: absolute;
+  top: -70px;
+  left: 0;
+}
+
+.led-box .led-container { display: inline-block; position: relative; }
+.led-box .led-container span {
+  display: none;
+  position: absolute;
+  left: 30px;
+  top: -11px;
+  white-space: nowrap;
+  background: #fff;
+  padding: 10px;
+  color: #111;
+  border: 1px solid #111;
+}
+
+.led-box .led-container span:after {
+  content: " ";
+  position: absolute;
+  left: -10px;
+  top: 7px;
+  border-right: 10px solid #fff;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+.led-box .led-container:hover span {
+  display: block;
+}
+
+.led-red {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background-color: #F00;
+  border-radius: 50% !important;
+  -webkit-animation: blinkRed 0.8s infinite;
+  -moz-animation: blinkRed 0.8s infinite;
+  -ms-animation: blinkRed 0.8s infinite;
+  -o-animation: blinkRed 0.8s infinite;
+  animation: blinkRed 0.8s infinite;
+}
+
+@-webkit-keyframes blinkRed {
+    from { background-color: #F00; }
+    50% { background-color: #A00; }
+    to { background-color: #F00; }
+}
+
+@-moz-keyframes blinkRed {
+    from { background-color: #F00; }
+    50% { background-color: #A00; }
+    to { background-color: #F00; }
+}
+@-ms-keyframes blinkRed {
+    from { background-color: #F00; }
+    50% { background-color: #A00; }
+    to { background-color: #F00; }
+}
+@-o-keyframes blinkRed {
+    from { background-color: #F00; }
+    50% { background-color: #A00; }
+    to { background-color: #F00; }
+}
+@keyframes blinkRed {
+    from { background-color: #F00; }
+    50% { background-color: #A00; }
+    to { background-color: #F00; }
+}
+
+.led-green {
+  margin: 0 auto;
+  width: 15px;
+  height: 15px;
+  background-color: #ABFF00;
+  border-radius: 50% !important;
+}
+
+@media (max-width: 991px) {
+    .uniq-login-place,
+    .uniq-login-place .uniq-logo,
+    .uniq-login-place form {
+        display: block;
+        margin: 0;
+        max-width: 100%;
+        border-radius: 0;
+    }
+
+    .uniq-login-place {
+        position: absolute;
+    }
+
+    .uniq-login-place form { width: 100%; }
+
+	*{
+ 	box-sizing: border-box;
+	}
+}
+
+@media (max-width: 1400px) {
+  .login .logo {
+    margin-top: 60px; } }
+
+@media (max-width: 480px) {
+  .login .logo {
+    margin-top: 30px;
+    padding: 0; }
+  .login .content {
+    width: 245px; }
+  .login .content h3 {
+    font-size: 22px; }
+  .login .checkbox {
+    font-size: 13px; } }

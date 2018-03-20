@@ -1,0 +1,54 @@
+<!-- <div class="row"> -->
+	 <!-- <div class="jumbotron">
+	    <h1>WELCOME</h1>
+    <p>to UNIQ365 Best cloud accounting ever.</p>
+ 	 </div> -->
+ 	 <!-- <h3 class="text-center"><span synlang="syncard-language">QUICK MENU</span></h3> -->
+	<!-- {$b = 1}
+	{if isset($app) AND $app|count > 0}{foreach $app AS $name=>$a} -->
+	<!-- <div class="col-xs-6 col-sm-4 col-md-4 col-lg-3 menu-style" > -->
+
+	<!-- <div class="col-lg-2 col-md-4 col-sm-6" style="margin: 40px 0;">
+		<div class="menu-style">
+			<div class="menu-number">
+				<span class="menu-number-number"><b>{$b++}</b></span>
+			</div>
+
+			<a class="portlet light homeblock" href="{site_url uri=$a[0]}" > -->
+				<!-- {*<span class="dashboard-home-{$name}" ></span>*} -->
+				<!-- <span>
+					<span class="home-icon" ><i class="fa fa-{$a[3]} fa-4x menu-icon"></i></span> -->
+					<!-- <h4>{$a[1]}</h4> -->
+					<!-- <h5 synlang="syncard-language">{$a[1]}</h5>
+					<span synlang="syncard-language">{$a[2]}</span>
+				</span>
+			</a>
+		</div>
+	</div> -->
+	<!-- {/foreach}{/if} -->
+<!-- </div> -->
+
+{$b = 1}
+{if isset($app) AND $app|count > 0}{foreach $app AS $name=>$a}
+<div class="col s12 m6 l4">
+		<!-- <ul class="collection waves-effect col s12 white z-depth-1">
+		    <li class="collection-item avatar">
+		      <i class="material-icons circle orange">{$a[3]}</i>
+		      <p><span class="title syncard-language">{$a[1]}</span></p>
+					<p><span synlang="syncard-language">{$a[2]}</span></p>
+		    </li>
+		</ul> -->
+		<a href="{site_url uri=$a[0]}" class="black-text">
+		<div class="card home white col s12 waves-effect hoverable">
+      <div class="card-content">
+				<p><i class="material-icons medium orange-text">{$a[3]}</i></p>
+        <span class="card-title syncard-language">{$a[1]}</span>
+        <p><span synlang="syncard-language">{$a[2]}</span></p>
+      </div>
+      <!-- <div class="card-action">
+        <span synlang="syncard-language">Go</span>
+      </div> -->
+    </div>
+		</a>
+</div>
+{/foreach}{/if}

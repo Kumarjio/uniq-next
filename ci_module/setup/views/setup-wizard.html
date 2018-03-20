@@ -1,0 +1,30 @@
+	<div class="setupwizard" data-spacing="60">
+		<div class="rowline">
+			<div class="events-wrapper">
+				<div class="events wizard-steps">
+					<div class="col-md-12">
+					<h4>Wizard Steps.</h4>
+					<p>1. Company Setting</p>
+					<p>2. Bank Accounts</p>
+				</div>
+				<div class="col-md-12">
+					<hr/>
+					<button class="btn btn-success" id="nextWizard">Next <i class="fa fa-arrow-right"></i></button>
+					&nbsp; | &nbsp; Note : Click "Next" to continue, You can not continue if the steps are not met.
+				</div>
+				<div class="clearfix"></div>
+			</div>
+
+				<!-- .events -->
+		</div>
+			<!-- .events-wrapper -->
+	</div>
+</div>
+
+<script>
+	$(function(){
+		$("#nextWizard").on("click", function(){
+			location.reload();
+		});
+	});
+</script>

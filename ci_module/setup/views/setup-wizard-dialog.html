@@ -1,0 +1,36 @@
+<div id="atmodal"  class="modal fade modal-xl" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm" role="document" style="margin-top: 10%" >
+    <div class="modal-content">
+      <div class="modal-body">
+
+      	<center><div style="margin-right: 10px; margin-left: 10px;">
+      		<h4><b>Welcome</b></h4>
+      		<i class="fa fa-rocket menu-icon" style="margin-top: 45px; margin-bottom: 45px; font-size: 90px; color: rgba(95, 100, 100, 0.9);"></i>
+      		<p>Before starting with the system, you need to complete the neccessary setting</p>
+      	</div>
+      	</center>
+      	
+
+      	<!-- <p>Before starting with the system, you need to complete the neccessary setting and key in the initial master data such as : Products, Suppliers, Customers, Bank Accounts, etc. <br/><br/>This Setup Wizard helps you to complate one by one setting for the system , you can skip this setup wizard as long as you can not proceed the transactions.</p> -->
+		<div class="setupwizard" data-spacing="60">
+			<div class="rowline">
+				<div class="events-wrapper">
+					<div class="events row" style="width: 100%; transform: translateX(0px);">
+						
+					</div>
+
+					<!-- .events -->
+				</div>
+				<!-- .events-wrapper -->
+			</div>
+		</div>
+      </div>
+      <div class="modal-footer" style="text-align: left">
+      	<form action="/setup/wizard" method="post" >
+	      	<center><button type="submit" class="btn btn-success" name="start" value="1" >Next &nbsp;<span class="fa fa-arrow-right"></span></button></center>
+	        <!-- <button type="button" class="btn btn-warning" name="skip" value=1 >Skip</button> -->
+		</form>
+      </div>
+    </div>
+  </div>
+</div>
