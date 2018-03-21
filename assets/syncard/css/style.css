@@ -368,7 +368,8 @@ fieldset {
 .mt-element-list ul li { list-style: none; }
 
 /* OPERATION COMMAND */
-.operation-modal {
+/* .operation-modal.bottom-sheet { bottom: 0 } */
+/* .operation-modal {
   display: none;
   position: fixed;
   top: 0;
@@ -378,9 +379,9 @@ fieldset {
   background-color: rgba(0,0,0,0.5);
   padding: 55px;
   z-index: 99;
-}
+} */
 
-.operation-modal h4 { margin-top: 20px; }
+/* .operation-modal h4 { margin-top: 20px; }
 .operation-modal .operation-content {
   position: absolute;
   top: 0;
@@ -416,7 +417,7 @@ fieldset {
 .operation-modal .operation-content button:hover { background-color: #FC9A1A;  color: #FFF; border-color:#FC9A1A }
 .operation-button {
 
-}
+}*/
 
 .operation-modal.active {
   display: block;
