@@ -188,14 +188,15 @@ function input_money ($label, $name, $value = null, $currency = NULL, $post_labe
         $currency = get_company_currency();
     }
 
-    $html = '<div class="input-group left">
+    $html = '<div class="">
+                <div class="input-group">
                 <span class="input-group-btn">
                     <button class="btn btn-info" >' .
              $currency .
              '</button>
                 </span>
                 <input class="form-control input-money amount" dec="2" type="text" name="' .
-             $name . '" value="' . number_total($value) . '"  ></div>';
+             $name . '" value="' . number_total($value) . '"  ></div></div>';
     form_group_bootstrap($label, $html);
 
     if ($post_label) {

@@ -152,7 +152,7 @@ class bootrap_smarty {
                 // 		    case 'stock_search':
                 // 		        return $ci->finput->product_items(null,$name, $value); break;
             case 'textarea':
-                return '<textarea rows="4" name="'.$name.'" >'.$value.'</textarea>'; break;
+                return '<textarea rows="4" name="'.$name.'" class="materialize-textarea" >'.$value.'</textarea>'; break;
             default:
 
 

@@ -603,7 +603,8 @@
           if (that.options.hideDisabled && (this.disabled || this.parentElement.tagName === 'OPTGROUP' && this.parentElement.disabled)) return false;
 
           var $this = $(this),
-              icon = $this.data('icon') && that.options.showIcon ? '<i class="' + that.options.iconBase + ' ' + $this.data('icon') + '"></i> ' : '',
+              // icon = $this.data('icon') && that.options.showIcon ? '<i class="' + that.options.iconBase + ' ' + $this.data('icon') + '"></i> ' : '',
+              icon = $this.data('icon') && that.options.showIcon ? '<i class="material-icons">' + $this.data('icon') + '</i> ' : '',
               subtext;
 
           if (that.options.showSubtext && $this.data('subtext') && !that.multiple) {

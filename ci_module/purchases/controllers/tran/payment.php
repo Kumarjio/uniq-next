@@ -17,10 +17,12 @@ class PurchasesTranPayment
     {
 
         start_form();
-
+        echo "<div class=card-panel>";
         box_start();
         $this->payment_header();
         box_end();
+        echo "</div>";
+        echo "<div class=card-panel>";
         box_start();
         $this->payment_transactions();
         if( intval( $document_id = input_get('document')) > 0 ){
@@ -30,6 +32,7 @@ class PurchasesTranPayment
         submit('ProcessSuppPayment', _("Enter Payment"), true, '', 'default');
         box_footer_end();
         box_end();
+        echo "</div>";
         end_form();
     }
 
@@ -97,11 +100,13 @@ class PurchasesTranPayment
         div_end();
 
         row_start();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(6,'col s6');
             input_money('Amount of Discount', 'discount');
+        col_end();
+        col_start(6,'col s6');
             input_money('Amount of Payment', 'amount');
         col_end();
-        col_start(4, 'col-md-8 col-sm-6');
+        col_start('col s12');
             input_textarea_bootstrap('Memo', 'memo_');
         col_end();
         row_end();

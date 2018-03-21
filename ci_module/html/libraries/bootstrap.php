@@ -184,10 +184,10 @@ class HtmlBootstrapLib
 
         $html = NULL;
         if( $new_row ){
-            $html.= '<div class="row"><div class="col-md-12">';
+            $html.= '<div class=""><div class="col-md-12">';
         }
 
-        $html.= '<div class="clearfix portlet light portlet-fit portlet-form" '.(strlen($box_id) > 0 ? 'id="'.$box_id.'"' : NULL).' >';
+        $html.= '<div class="portlet light portlet-fit portlet-form" '.(strlen($box_id) > 0 ? 'id="'.$box_id.'"' : NULL).' >';
 
         if (strlen($title) > 0) {
             if( !$icon ){

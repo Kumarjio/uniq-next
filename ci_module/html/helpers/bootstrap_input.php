@@ -232,8 +232,9 @@ function input_textarea_bootstrap($label, $name, $value = NULL, $title = null, $
         $attributes['title'] = $title;
     }
 
-    $attributes['class'] = 'form-control';
+    $attributes['class'] = 'form-control materialize-textarea';
 
+    // $input = '<textarea ' . _parse_attributes($attributes) . ' >' . $value . '</textarea>';
     $input = '<textarea ' . _parse_attributes($attributes) . ' >' . $value . '</textarea>';
 
     $Ajax->addUpdate($name, $name, $value);

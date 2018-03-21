@@ -344,7 +344,7 @@ class form extends ci {
 	}
 
 	static function input_textarea($name=''){
-		return '<textarea class="form-control" rows="3" name="'.$name.'"></textarea>';
+		return '<textarea class="form-control materialize-textarea" rows="3" name="'.$name.'"></textarea>';
 	}
 
 	static function input_selectbox($name='',$value=null,$opts=null,$attributes=null){

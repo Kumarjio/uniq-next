@@ -17,8 +17,8 @@ class BankReconcile
 
         // ------------------------------------------------------------------------------------------------
         start_form();
-
-        box_start();
+        echo "<div class=card-panel>";
+        // box_start();
         row_start();
         col_start(12, 'col-md-6');
         bank_accounts(_("Account"), 'bank_account', null, true);
@@ -26,15 +26,18 @@ class BankReconcile
         col_start(12, 'col-md-4');
         bank_reconciliations(_("Bank Statement"), get_post('bank_account'),'bank_date', null, true, _("New"));
         row_end();
-
+        echo "</div>";
+        
+        echo "<div class=card-panel>";
         $this->bank = get_bank_account($_POST["bank_account"]);
-
         row_start();
         col_start(12, 'col-md-12');
         $this->form_header();
         col_end();
         row_end();
-
+        echo "</div>";
+        
+        echo "<div class=card-panel>";
         box_start();
         row_start();
         $this->form_detail($this->bank['bank_account_name'] . " - " . $this->bank['bank_curr_code']);
@@ -48,6 +51,7 @@ class BankReconcile
         submit('Reconcile', _("Reconcile"), true, '', 'default');
         box_footer_end();
         box_end();
+        echo "</div>";
 
         end_form();
     }
@@ -81,7 +85,6 @@ class BankReconcile
                 }
             }
         }
-        echo "<hr>";
 
         div_start('summary');
 

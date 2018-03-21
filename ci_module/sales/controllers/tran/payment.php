@@ -19,6 +19,7 @@ class SalesTranPayment
         hidden('trans_no');
         hidden('old_ref', $this->old_ref);
 
+        echo "<div class=card-panel>";
         row_start();
         col_start(4, "col-md-4 col-sm-6");
         bootstrap_set_label_column(5);
@@ -56,7 +57,7 @@ class SalesTranPayment
             input_ref('Customer Ref','source_ref');
         }
 
-        col_start(4, "col-md-4 col-sm-6");
+        col_start("col-md-6 col-sm-6 col s6");
 
         $comp_currency = get_company_currency();
         $cust_currency = $_SESSION['alloc']->set_person($_POST['customer_id'], PT_CUSTOMER);
@@ -69,11 +70,16 @@ class SalesTranPayment
             input_money(_("Payment Amount"), 'bank_amount', null, $bank_currency);
 
         }
+        col_end();
+        col_start("col-md-6 col-sm-6 col s6");
         input_money(_("Bank Charge"), 'charge', null, $bank_currency);
 //         amount_row(_("Bank Charge:"), 'charge', null, '', $bank_currency);
 
 //         end_outer_table(1);
+        col_end();
         row_end();
+        echo "</div>";
+        echo "<div class=card-panel>";
         row_start();
         col_start(8, "col-md-12");
         if (count($_SESSION['alloc']->allocs) > 0){
@@ -91,11 +97,17 @@ class SalesTranPayment
 
         row_end();
         row_start();
-        col_start(8, "col-md-4 col-sm-6");
+        col_start("col-md-6 col-sm-6 col s12");
         input_label(_("Customer prompt payment discount"), null, $display_discount_percent);
+        col_end();
+        col_start("col-md-6 col-sm-6 col s6");
         input_money(_("Amount of Discount"), 'discount',null,$cust_currency);
+        col_end();
+        col_start("col-md-6 col-sm-6 col s6");
         input_money(_("Amount"), 'amount',null,$cust_currency);
-        col_start(8, "col-md-8 col-sm-6");
+        col_end();
+        echo "<div class=clearfix></div>";
+        col_start("col-md-8 col-sm-6 col s12");
         input_textarea('Memo', 'memo_');
 
         if( intval( $document_id = input_get('document')) > 0 ){
@@ -110,8 +122,9 @@ class SalesTranPayment
         else
             submit('AddPaymentItem', _("Update Payment"), true, '', 'default');
 
-        echo "<hr />";
+
         box_footer_end();
+        echo "</div>";
         end_form();
     }
     var $new = 1;

@@ -14,18 +14,25 @@ class SalesTranCreditNote
     {
         start_form();
         hidden('cart_id');
+        echo "<div class=card-panel>";
         box_start();
         $customer_error = $this->form_header($_SESSION['Items']);
-
+        box_end();
+        echo "</div>";
         if ($customer_error == "") {
+            echo "<div class=card-panel>";
             box_start(_("Credit Note Items"));
             $this->form_items($_SESSION['Items']);
+            box_end();
+            echo "</div>";
+            echo "<div class=card-panel>";
             box_start();
             $this->form_details($_SESSION['Items']);
             // display_credit_items(_("Credit Note Items"), $_SESSION['Items']);
 //             credit_options_controls($_SESSION['Items']);
             // echo "</td></tr>";
             // end_table();
+            box_end();
         } else {
             display_error($customer_error);
         }
@@ -35,6 +42,7 @@ class SalesTranCreditNote
         submit('ProcessCredit', _("Process Credit Note"), true, null, 'default');
         box_footer_end();
         box_end();
+        echo "</div>";
         end_form();
     }
 
@@ -50,7 +58,6 @@ class SalesTranCreditNote
 
         if (! isset($_POST['customer_id']) && (get_global_customer() != ALL_TEXT))
             $_POST['customer_id'] = get_global_customer();
-
         row_start();
         col_start(4, 'col-md-4 col-sm-4');
         customer_list_bootstrap(_("Customer:"), 'customer_id', null, false, true, false, true);
@@ -278,7 +285,6 @@ class SalesTranCreditNote
 
         end_table();
         div_end();
-
         box_footer(false);
     }
 
