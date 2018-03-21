@@ -13,7 +13,7 @@ class AdminUser
     {}
 
     function index()
-    {   
+    {
         echo "<input type='hidden' id='activelimit' value=".file_get_contents(ACTIVE).">";
         start_form();
         box_start("");
@@ -91,19 +91,41 @@ class AdminUser
             elseif (check_value('show_inactive'))
                 label_cell('');
 
-            $option_html .= button("Edit" . $myrow["id"], _("Edit"));//edit_button_cell("Edit" . $myrow["id"], _("Edit")); 
+            $option_html .= button("Edit" . $myrow["id"], _("Edit"));//edit_button_cell("Edit" . $myrow["id"], _("Edit"));
             if ($not_me)
                 $option_html .= button("Delete" . $myrow["id"], _("Delete"));//delete_button_cell("Delete" . $myrow["id"], _("Delete"));
             //else
             //    label_cell('');
-                
+
+            // $option_html =
+            // '<button type="button" class="button operation-button"><i class="fa fa-ellipsis-v"></i></button>'.
+            // '<div class="operation-modal"><div class="operation-content">'.
+            // '<h4><span synlang="syncard-language">Option menu</span></h4>'.
+            // '<hr/>'.
+            // '<div class="operation-dumb">'.
+            // $option_html.
+            // '</div></div></div>';
+
             $option_html =
-            '<button type="button" class="button operation-button"><i class="fa fa-ellipsis-v"></i></button><div class="operation-modal"><div class="operation-content">'.
-            '<h4><span synlang="syncard-language">Option menu</span></h4>'.
-            '<hr/>'.
-            '<div class="operation-dumb">'.
-            $option_html.
-            '</div></div></div>';
+            '<button type="button" class="button operation-button"><i class="fa fa-ellipsis-v"></i></button>
+            <!-- Option Structure -->
+            <div class="operation-modal modal bottom-sheet">
+              <div class="modal-content">
+                <h4><span synlang="syncard-language">Option Menu</span></h4>
+                <!--ul class="collection">
+                  <li class="collection-item avatar">
+                    <i class="material-icons circle red">play_arrow</i>
+                    <span class="title">Title</span>
+                    <p>First Line <br>
+                       Second Line
+                    </p>
+                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                  </li>
+                </ul-->
+                '.$option_html.'
+              </div>
+            </div>';
+
             label_cell($option_html, "align='center'");
             end_row();
         } // END WHILE LIST LOOP

@@ -44,14 +44,14 @@ function edit_link($row)
     }
 
     if (strlen($uri) > 0) {
-        return anchor($uri, '<i class="fa fa-pencil"></i>', array(
+        return anchor($uri, '<i class="material-icons">edit</i>', array(
             'title' => 'Edit',
-            'class'=>'button text-info'
+            'class'=>'btn waves-effect'
         ));
     } else {
 //         return NULL;
         //return '<button class="button disable" disabled><i class="fa fa-edit"></i></button>';
-        return anchor($uri, '<i class="fa fa-pencil"></i>', array(
+        return anchor($uri, '<i class="material-icons">edit</i>', array(
                 'title' => 'Edit',
                 'class'=>'button text-info disable'
         ));
