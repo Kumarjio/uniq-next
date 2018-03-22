@@ -22,13 +22,13 @@ class SalesTranOrder
 
     function form()
     {
-        echo '<div class="card-panel">';
         start_form();
+        echo '<div class="card-panel">';
 
         hidden('cart_id');
         // box_start();
         $customer_error = $this->cart->display_order_header($_SESSION['Items'], ($_SESSION['Items']->any_already_delivered() == 0));
-
+        echo "<div class=clearfix></div>";
         if ($customer_error == "") {
             switch ($_SESSION['Items']->trans_type) {
                 case ST_SALESINVOICE:
@@ -44,10 +44,10 @@ class SalesTranOrder
                     box_start(_("Sales Order Items"));
                     break;
             }
-
             $this->cart->display_order_summary($_SESSION['Items'], true);
+            
+            echo "<div class=clearfix style='margin-bottom:10px'></div>";
             $this->cart->display_delivery_details($_SESSION['Items']);
-
             box_footer_start();
             $this->form_buttons();
             box_footer_end();
@@ -56,8 +56,8 @@ class SalesTranOrder
             box_footer();
         }
         // box_end();
-        end_form();
         echo "</div>";
+        end_form();
     }
 
     private function form_buttons()

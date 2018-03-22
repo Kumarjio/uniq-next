@@ -184,7 +184,6 @@ class Dashboard
     {
         page($title);
         $html = NULL;
-
         if (is_string($apps)) {
             $blocks = $this->model->items($apps, $uid = 1);
         } elseif (is_array($apps)) {
@@ -195,6 +194,7 @@ class Dashboard
         $column_right = NULL;
         $count = 0;
         $graph_type = null;
+        $html .= "<div class=card-panel>";
         foreach ($blocks as $wg) {
 
             if (method_exists($this, $wg->widget)) {
@@ -222,7 +222,6 @@ class Dashboard
                     }
             }
         }
-
         if ($column_right != NULL) {
             $html .= '<div class="col-md-6"><div class="row">' . $column_left . '</div></div>';
             $html .= '<div class="col-md-6"><div class="row">' . $column_right . '</div></div>';
@@ -230,6 +229,7 @@ class Dashboard
             $html .= '<div class="col-md-12">' . $column_left . '</div>';
         }
         echo '<div class="row">' . $html . '</div>';
+        $html .="</div>";
         end_page();
     }
 
