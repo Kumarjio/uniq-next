@@ -53,8 +53,11 @@ class AdminFiscalYears {
         ci_table_view($this->table_view,$this->model->items());
 
         box_start($title = NULL, $icon = NULL, $new_row=true, $box_id='fiscalyear-form');
-        $this->edit($selected_id);
-
+        if( post_edit('edit') ){
+            $this->edit($selected_id);
+        }else{
+            $this->add($selected_id);
+        }
         box_footer_start();
         submit_add_or_update_center(($selected_id >0) ? false : true, '', 'default');
         box_footer_end();
@@ -69,12 +72,21 @@ class AdminFiscalYears {
         'closed_text'=>array("Closed",null,50,),
         'items_action'=>array(NULL,'','AdminFiscalYears_Items')
     );
+
     var $field = array(
         'id'=>array(NULL,'HIDDEN'),
         'begin'=>array("Fiscal Year Begin",'qdate'),
         'end'=>array("Fiscal Year End",'qdate'),
         'closed'=>array("Is Closed",'checkbox'),
     );
+
+    var $field2 = array(
+        'id'=>array(NULL,'HIDDEN'),
+        'begin'=>array("Fiscal Year Begin",'qdate'),
+        'end'=>array("Fiscal Year End",'qdate'),
+        // 'closed'=>array("Is Closed",'checkbox'),
+    );
+
 
     private function submit(){
 
@@ -128,31 +140,55 @@ class AdminFiscalYears {
             'closed'=> ( $this->ci->input->post('closed') || $this->ci->input->post('closed')=='on' ) ? true : false
         );
 
-    	if (!is_date($data['begin']) || $this->model->in_fiscalyears($data['begin'])) {
-    		display_error( _("Invalid BEGIN date in fiscal year."));
-    		set_focus('from_date');
-    		return false;
-    	}
+        if (!is_date($data['begin']) || $this->model->in_fiscalyears($data['begin'])) {
+            display_error( _("Invalid BEGIN date in fiscal year."));
+            set_focus('from_date');
+            return false;
+        }
 
-    	if ( !is_date($data['end']) || $this->model->in_fiscalyears($data['end'])) {
-    		display_error( _("Invalid END date in fiscal year."));
-    		set_focus('to_date');
-    		return false;
-    	}
+        if ( !is_date($data['end']) || $this->model->in_fiscalyears($data['end'])) {
+            display_error( _("Invalid END date in fiscal year."));
+            set_focus('to_date');
+            return false;
+        }
 
-    	if (! $this->model->check_begin_end_date($data['begin'], $data['end'])) {
-    		display_error( _("Invalid BEGIN or END date in fiscal year."));
-    		set_focus('from_date');
-    		return false;
-    	}
+        if (! $this->model->check_begin_end_date($data['begin'], $data['end'])) {
+            display_error( _("Invalid BEGIN or END date in fiscal year."));
+            set_focus('from_date');
+            return false;
+        }
 
-    	if ( strtotime($data['begin']) >= strtotime($data['end']) ) {
-    		display_error( _("BEGIN date bigger than END date."));
-    		set_focus('from_date');
-    		return false;
-    	}
-    	$this->data = $data;
-    	return true;
+        if ( strtotime($data['begin']) >= strtotime($data['end']) ) {
+            display_error( _("BEGIN date bigger than END date."));
+            set_focus('from_date');
+            return false;
+        }
+        $this->data = $data;
+        return true;
+    }
+
+    private function add($id=0){
+
+
+        if( $id < 1 ){
+            $this->field['begin'][2] = NULL;
+
+            $max_fiscalyear = $this->db->select('MAX(end) AS end')->get('fiscal_year')->row();
+            if( $max_fiscalyear && isset($max_fiscalyear->end) ){
+                $this->field['begin'][2] = add_days(sql2date($max_fiscalyear->end), 1);
+                $this->field['end'][2] = end_month(add_months($this->field['begin'][2], 11));
+            }
+
+        } else {
+            $data = $this->db->where('id',$id)->get('fiscal_year')->row();
+            $this->field['begin'][2] = sql2date($data->begin);
+            $this->field['end'][2] = sql2date($data->end);
+            $this->field['closed'][2] = $data->closed;
+            $this->field['id'][2] = $data->id;
+        }
+
+        // bootstrap_set_label_column(6);
+        form_edit($this->field2,false,4);
     }
 
     private function edit($id=0){

@@ -105,21 +105,22 @@ $login_cek = "";
     <body class="login">
         <div class="uniq-login-bag"></div>
         <div class="uniq-login-place">
-					<div class="row uniq-login-container">
-						<div class="col-md-6">
+		<div class="row uniq-login-container">
+				<!-- <div class="col-md-6">
 	            <div class="uniq-logo">
 	                <img src="assets/images/bluecloud.png"/>
 	                <h3>Already using Uniq365?</h3>
 	                <h5>Best Accounting in the cloud ever.</h5>
 	                <h5>Feel free and,</h5>
 	                <h2>Join us.</h2>
-	                <p><a href="#">landing.uniq365.com</a></p>
+	                <p><a href="#">landing.uniq365.com</a></p> -->
 	                <!-- <p><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#partnerLogin">Login as partner.</button></p> -->
-	            </div>
-            	</div>
-						<div class="col-md-6">
+	            <!-- </div>
+            	</div> -->
+            	<div class="col-md-3"></div>
+				<div class="col-md-6">
 	            <?php start_form(false, false, $_SESSION['timeout']['uri'], "loginform");?>
-	             	<h4>Sign in</h4>
+	             	<h4>UNIQ365</h4>
 								<hr/>
 								<!-- <p>connect your company ID first, before sign in.</p> -->
 
@@ -185,9 +186,24 @@ $login_cek = "";
 	                      <button name=btn_login type="button" lang="btnlog-1" <?=$login_cek?>>Sign in</button>
 	                  </div>
 
-	                  <?php if (isset($_COOKIE['message_for_login']) != 'null'){ ?>
-											<p>If you can not sign in, check your username or password, otherwise your company is not linked in the plan.</p>
-	              		<?php } ?>
+	                  <!-- Modal accountbook list -->
+ 						<div id="accountbookList" hidden="">
+ 						    <!-- Modal content-->
+ 						    <!-- <div class="content"> -->
+ 						      <div class="uniq-field">
+ 						      <hr>
+ 						        <h5>Select accountbook.</h5>
+ 						      <!-- </div> -->
+ 						      <div class="body" style="overflow-y:scroll; height:68px; background-color: transparent;">&nbsp;</div>
+ 						    </div>
+ 						  <!-- </div> -->
+ 						</div>
+
+	                  <?php //if (isset($_COOKIE['message_for_login']) != 'null'){ ?>
+						<div id="message_for_login">
+							<p>If you can not sign in, check your username or password, otherwise your company is not linked in the plan.</p>
+						</div>
+	              		<?php //} ?>
 
 	                  <input type="hidden" name="company_login_name" value="0" />
 	         			</div>
@@ -198,11 +214,11 @@ $login_cek = "";
 
 					 <!-- Define partner login element -->
 					 <!-- Modal login -->
-						<div id="partnerLogin" class="modal fade" role="dialog">
-						  <div class="modal-dialog modal-sm">
+						<!-- <div id="partnerLogin" class="modal fade" role="dialog">
+						  <div class="modal-dialog modal-sm"> -->
 
 						    <!-- Modal content-->
-						    <div class="modal-content">
+						    <!-- <div class="modal-content">
 						      <div class="modal-header">
 						        <button type="button" class="close" data-dismiss="modal">&times;</button>
 						        <h4 class="modal-title">Partner login.</h4>
@@ -223,14 +239,14 @@ $login_cek = "";
 						    </div>
 
 						  </div>
-						</div>
+						</div> -->
 
 						<!-- Modal accountbook list -->
- 						<div id="accountbookList" class="modal fade" role="dialog">
- 						  <div class="modal-dialog modal-sm">
+ 						<!-- <div id="accountbookList" class="modal fade" role="dialog">
+ 						  <div class="modal-dialog modal-sm"> -->
 
  						    <!-- Modal content-->
- 						    <div class="modal-content">
+ 						    <!-- <div class="modal-content">
  						      <div class="modal-header">
  						        <button type="button" class="close" data-dismiss="modal">&times;</button>
  						        <h4 class="modal-title">Accountbook list.</h4>
@@ -242,14 +258,14 @@ $login_cek = "";
  						    </div>
 
  						  </div>
- 						</div>
+ 						</div> -->
 
  						<!-- modal capcha login -->
- 						<div id="selectidcomp" class="modal fade" role="dialog">
- 						  <div class="modal-dialog modal-sm">
+ 						<!-- <div id="selectidcomp" class="modal fade" role="dialog">
+ 						  <div class="modal-dialog modal-sm"> -->
 
  						     <!-- Modal content-->
- 						    <div class="modal-content">
+ 						    <!-- <div class="modal-content">
  						      <div class="modal-header">
  						        <button type="button" class="close" data-dismiss="modal">&times;</button>
  						        <h4 class="modal-title">Accountbook list.</h4>
@@ -261,7 +277,7 @@ $login_cek = "";
  						    </div>
 
  						  </div>
- 						</div>
+ 						</div> -->
 					 <!-- End -->
 
 					 <script language="javascript" type="text/javascript" src="/assets/js/jquery-min.1.9.1.js"></script>
@@ -334,44 +350,44 @@ $login_cek = "";
 							getAccountbook_();
 					});
 
-					function getAccountbook(){
-						var username = $("#accessForm [name=partner_user]").val();
-						var password = Base64.encode($("#accessForm [name=partner_pass]").val());
-						$.ajax({
-							url: "http://api.uniq365.com/uniq/accountbook/list",
-							type: 'post',
-							dataType: 'json',
-							async: false,
-							data: { username : username, password: password },
-							success: function(result){
-								console.log(result);
-								if(result.error != undefined) {
-									$(".modal").modal("hide");
+					// function getAccountbook(){
+					// 	var username = $("#accessForm [name=partner_user]").val();
+					// 	var password = Base64.encode($("#accessForm [name=partner_pass]").val());
+					// 	$.ajax({
+					// 		url: "http://api.uniq365.com/uniq/accountbook/list",
+					// 		type: 'post',
+					// 		dataType: 'json',
+					// 		async: false,
+					// 		data: { username : username, password: password },
+					// 		success: function(result){
+					// 			console.log(result);
+					// 			if(result.error != undefined) {
+					// 				$(".modal").modal("hide");
 
-									setTimeout(function(){
-										alert(result.error.text);
-										$("#partnerLogin").modal("show");
-									},300);
-								} else {
-									$("#partnerLogin").modal("hide");
-									$("#accountbookList .modal-body").html(generateList(result));
-									$("#accountbookList").modal({
-										backdrop: 'static',
-  									keyboard: false
-									});
-								}
-							},
-							complete: function(xhr,status) {  },
-							error: function(xhr,status,error) {
-								$(".modal").modal("hide");
+					// 				setTimeout(function(){
+					// 					alert(result.error.text);
+					// 					$("#partnerLogin").modal("show");
+					// 				},300);
+					// 			} else {
+					// 				$("#partnerLogin").modal("hide");
+					// 				$("#accountbookList .modal-body").html(generateList(result));
+					// 				$("#accountbookList").modal({
+					// 					backdrop: 'static',
+  			// 						keyboard: false
+					// 				});
+					// 			}
+					// 		},
+					// 		complete: function(xhr,status) {  },
+					// 		error: function(xhr,status,error) {
+					// 			$(".modal").modal("hide");
 
-								setTimeout(function(){
-									alert("Invalid login!");
-									$("#partnerLogin").modal("show");
-								},300);
-							}
-						});
-					}
+					// 			setTimeout(function(){
+					// 				alert("Invalid login!");
+					// 				$("#partnerLogin").modal("show");
+					// 			},300);
+					// 		}
+					// 	});
+					// }
 
 					function getAccountbook_(){
 						var username = $('[name="user_name_entry_field"]').val();
@@ -388,15 +404,20 @@ $login_cek = "";
 								if(result.error != undefined) {
 									alert(result.error.text);
 								} else {
-									$("#accountbookList .modal-body").html(generateList(result));
-									$("#accountbookList").modal({
-										backdrop: 'static',
-  									keyboard: false
-									});
+									$("#accountbookList .body").html(generateList(result));
+									$("#accountbookList").show();
+									$("#message_for_login").hide();
+									$("[name=btn_login]").hide();
+									// $("#accountbookList").modal({
+									// 	backdrop: 'static',
+  							// 		keyboard: false
+									// });
 								}
 							},
 							complete: function(xhr,status) {  },
-							error: function(xhr,status,error) { alert("Invalid login!"); }
+							error: function(xhr,status,error) { 
+								alert("Invalid login!"); 
+							}
 						});
 					}
 
@@ -406,7 +427,7 @@ $login_cek = "";
 						if(data.length > 0){
 							html = "<ul class='accountbook-list'>";
 							for(var loop=0; loop<data.length; loop++){
-								html = html + "<li><button type='button' class='btn btn-default form-control access-list-button' onclick='getAccount(this)' value='" + data[loop].id + "'>" + data[loop].name + "</button></li>";
+								html = html + "<li><button type='button' style='background-color:transparent; color:white;' class='btn btn-default form-control access-list-button' onclick='getAccount(this)' value='" + data[loop].id + "'>" + data[loop].name + "</button></li>";
 							}
 
 							html = html +  "</ul>";

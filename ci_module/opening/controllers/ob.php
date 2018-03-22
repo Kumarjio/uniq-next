@@ -370,7 +370,7 @@ class OpeningOb
             $customer_trans['type'] =ST_OPENING_CUSTOMER;
             $db_table = 'debtor_trans';
         } else if ($type == 'supplier'){
-            $customer_trans['ov_amount'] *= 1;
+            $customer_trans['ov_amount'] *= -1;
             $customer_trans['supplier_id'] =$opening_sale->customer;
             $customer_trans['type'] =ST_OPENING_SUPPLIER;
             $db_table = 'supp_trans';
