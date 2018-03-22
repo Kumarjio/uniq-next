@@ -5,6 +5,9 @@
 ul li { list-style: none; }
 
 /* partner login */
+
+.collection .collection-item { padding: 0 }
+
 .accountbook-list { padding: 0; }
 .accountbook-list .access-list-button {
   text-align: left;
@@ -276,7 +279,7 @@ body {
 
 .uniq-login-place form img {
   display: inline-block;
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
 }
 .uniq-login-place form .uniq-field {
   display: block;
@@ -314,11 +317,11 @@ body {
   transition: all 0.2s ease-out 0s;
 }
 .uniq-login-place form .uniq-field.button button {
-  background: #14a1db !important;
+  /* background: #14a1db !important; */
   color: #fff;
   width: 100%;
-  padding: 10px;
-  border: 1px solid #14a1db;
+  /* padding: 10px; */
+  /* border: 1px solid #14a1db; */
   cursor: pointer;
   -webkit-transition: all 0.2s ease-out 0s;
   -moz-transition: all 0.2s ease-out 0s;
@@ -327,7 +330,7 @@ body {
   transition: all 0.2s ease-out 0s;
 }
 .uniq-login-place form .uniq-field.button button:hover {
-  background-color: #0b5383 !important;
+  /* background-color: #0b5383 !important; */
 }
 
 /* led lights blink */

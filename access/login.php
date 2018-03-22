@@ -93,6 +93,9 @@ $login_cek = "";
         <link href="/assets/syncard/css/components.min.css" rel="stylesheet" type="text/css">
         <link href="/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="/assets/syncard/css/login.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+		    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" rel="stylesheet" type="text/css">
+        <link href="/assets/syncard/css/login.css" rel="stylesheet" type="text/css">
 
 				<style>
 					.g-recaptcha {
@@ -120,7 +123,8 @@ $login_cek = "";
             	<div class="col-md-3"></div>
 				<div class="col-md-6">
 	            <?php start_form(false, false, $_SESSION['timeout']['uri'], "loginform");?>
-	             	<h4>UNIQ365</h4>
+								<img class="responsive-img" src="/assets/images/bluecloud.png" style="max-width:70px"/>
+	             	<h5>UNIQ365</h5>
 								<hr/>
 								<!-- <p>connect your company ID first, before sign in.</p> -->
 
@@ -171,7 +175,7 @@ $login_cek = "";
 		            <div class="form-group">
 		                <div class="row uniq-field">
 			            	<?php // if (isset($_COOKIE['comp_name']) != ''){ ?>
-				            	<div class="col-md-12 c-container">
+				            	<div class="col s12 c-container" style="padding: 0 !important">
 				                	<div class="g-recaptcha" data-sitekey="6LfjHDYUAAAAACB4XaK_8o5hcTYVdRREw83UXwEu"></div>
 				            	</div>
 				            <?php // } ?>
@@ -183,7 +187,7 @@ $login_cek = "";
 											// }
 										?>
 	                  <div class="uniq-field button">
-	                      <button name=btn_login type="button" lang="btnlog-1" <?=$login_cek?>>Sign in</button>
+	                      <button class="btn waves-effect blue waves-light" name=btn_login type="button" lang="btnlog-1" <?=$login_cek?>>Sign in</button>
 	                  </div>
 
 	                  <!-- Modal accountbook list -->
@@ -192,17 +196,17 @@ $login_cek = "";
  						    <!-- <div class="content"> -->
  						      <div class="uniq-field">
  						      <hr>
- 						        <h5>Select accountbook.</h5>
+ 						        <p>Select accountbook. (Scroll)</p>
  						      <!-- </div> -->
- 						      <div class="body" style="overflow-y:scroll; height:68px; background-color: transparent;">&nbsp;</div>
+ 						      <div class="body" style="overflow-y:scroll; height:150px; background-color: transparent;">&nbsp;</div>
  						    </div>
  						  <!-- </div> -->
  						</div>
 
 	                  <?php //if (isset($_COOKIE['message_for_login']) != 'null'){ ?>
-						<div id="message_for_login">
+						<!-- <div id="message_for_login">
 							<p>If you can not sign in, check your username or password, otherwise your company is not linked in the plan.</p>
-						</div>
+						</div> -->
 	              		<?php //} ?>
 
 	                  <input type="hidden" name="company_login_name" value="0" />
@@ -284,6 +288,8 @@ $login_cek = "";
 					 <script language="javascript" type="text/javascript" src="/assets/bootstrap/js/bootstrap.min.js"></script>
 	         <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script> -->
 	         <script src='https://www.google.com/recaptcha/api.js'></script>
+	         <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
+	         <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js'></script>
            <script type="text/javascript">
 					 	//custom script
 						$(function() {
@@ -298,6 +304,8 @@ $login_cek = "";
 								alert("company ID - removed");
 								location.reload();
 							});
+
+							M.toast({html: 'If you can not sign in, check your username or password, otherwise your company is not linked in the plan.'})
 						});
 
 						function form_handle(){
@@ -415,8 +423,8 @@ $login_cek = "";
 								}
 							},
 							complete: function(xhr,status) {  },
-							error: function(xhr,status,error) { 
-								alert("Invalid login!"); 
+							error: function(xhr,status,error) {
+								alert("Invalid login!");
 							}
 						});
 					}
@@ -425,9 +433,9 @@ $login_cek = "";
 						var html = "<p>Accountbook undetected!</p>";
 
 						if(data.length > 0){
-							html = "<ul class='accountbook-list'>";
+							html = "<ul class='accountbook-list collection'>";
 							for(var loop=0; loop<data.length; loop++){
-								html = html + "<li><button type='button' style='background-color:transparent; color:white;' class='btn btn-default form-control access-list-button' onclick='getAccount(this)' value='" + data[loop].id + "'>" + data[loop].name + "</button></li>";
+								html = html + "<li class='collection-item'><button type='button' class='btn waves-effect waves-light form-control access-list-button' onclick='getAccount(this)' value='" + data[loop].id + "'>" + data[loop].name + "</button></li>";
 							}
 
 							html = html +  "</ul>";
