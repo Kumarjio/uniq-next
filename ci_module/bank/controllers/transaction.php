@@ -16,9 +16,12 @@ class BankTransaction
         $this->tran_cart = $_SESSION['pay_items'];
 
         start_form();
-        box_start();
+        echo "<div class=card-panel>";
+        // box_start();
         $this->bank_tran_header();
+        echo "</div>";
 
+        echo "<div class=card-panel>";
         if( $this->tran_cart->trans_type == ST_BANKPAYMENT ){
             box_start('Payment Items');
         }elseif( $this->tran_cart->trans_type == ST_BANKDEPOSIT ){
@@ -26,7 +29,6 @@ class BankTransaction
         } else {
             box_start();
         }
-
 
         if ($this->tran_cart->trans_type == ST_BANKPAYMENT && config_ci('kastam') ) {
             $title = "";
@@ -58,6 +60,7 @@ class BankTransaction
 
 
         box_end();
+        echo "</div>";
         end_form();
     }
 

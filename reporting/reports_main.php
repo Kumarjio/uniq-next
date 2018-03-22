@@ -588,18 +588,21 @@ add_custom_reports($reports);
 
 $icon = '';
 start_form($multi = false, $dummy = false, $action = "", $name = "", 'target="_blank" class="report"');
+echo "<div class=card-panel>";
 box_start();
-    fieldset_start( $icon." ".access_string($reports->report_current->name,true) );
+    // fieldset_start( $icon." ".access_string($reports->report_current->name,true) );
+    // echo "<div class=col s12>";
+    echo "<div class=row><h4>".access_string($reports->report_current->name,true)."</h4></div>";
     if($report_id == '107' || $report_id == '113' || $report_id == '110' || $report_id == '109' || $report_id == '111' || $report_id == '112' || $report_id == '209' || $report_id == '210'){
 	    	echo "<a class='btn green ajaxsubmit' href=".site_url().'report/report/manage_template/'.$report_id." >Manage Template ".access_string($reports->report_current->name, true)."</a>";
 	    }
     row_start('justify-content-md-center');
-    col_start(12,"col-md-6");
+    col_start(12,"col-md-12");
     echo $reports->getDisplay();
     row_end();
 
     //echo '<div class="printing_background" ><i class="fa fa-file-pdf-o" ></i></div>';
-    fieldset_end();
+    // fieldset_end();
 
     box_footer_start();
     echo submit("Rep$report_id", _("PDF: ") . access_string($reports->report_current->name, true), false, '', $pdf_debug ? false : 'default process','file-pdf-o');
@@ -624,6 +627,7 @@ box_start();
 	echo hidden('REP_ID', $report_id, false);
     box_footer_end();
 box_end();
+echo "</div>";
 end_form();
 end_page();
 ?>

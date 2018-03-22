@@ -17,7 +17,7 @@ class GlInquiryBalanceSheet
     function view ()
     {
         start_form();
-
+        echo "<div class=card-panel>";
         box_start();
         $this->filter();
 
@@ -29,6 +29,7 @@ class GlInquiryBalanceSheet
 
         box_footer();
         box_end();
+        echo "</div>";
         end_form();
     }
 

@@ -18,6 +18,7 @@ class GlInquiryProfitLoss
     function view()
     {
         start_form();
+        echo "<div class=card-panel>";
         box_start();
         $this->filter();
 
@@ -29,6 +30,7 @@ class GlInquiryProfitLoss
 
         box_footer();
         box_end();
+        echo "</div>";
         end_form();
     }
 

@@ -102,7 +102,6 @@ class GstForm3  {
         $date->modify('last day of this month');
         $date_first = new DateTime('now');
         $date_first->modify('first day of this month');
-
         $this->report->fields = array(
             'start_date' => array('type'=>'qdate','title'=>_('Start Date'),'value'=>$date_first->format('d-m-Y') ),
             'end_date' => array('type'=>'qdate','title'=>_('End Date'),'value'=>$date->format('d-m-Y') ),
@@ -113,8 +112,7 @@ class GstForm3  {
             'ouput_text'=>array('Export TAP',false)
         );
         $this->report->form('GST Form 3',$submit);
-
-
+        
     }
 
     function pdf_output(){

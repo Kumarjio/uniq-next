@@ -36,6 +36,7 @@ class Report {
         }
 //         $this->bootstrap->box_start();
         start_form($multi=false, $dummy=false, $action=get_instance()->uri->uri_string());
+        echo "<div class=card-panel>";
         $ci->temp_view($this->view,array('fields'=>$this->fields,'submit'=>$buttons,'area_width'=>$area_width),false,'report');
         // box_footer_start();
         // box_start();
@@ -46,6 +47,7 @@ class Report {
         }
         // box_footer_end();
         // box_end();
+        echo "</div>";
 		    end_form();
         end_page();
     }

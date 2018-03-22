@@ -15,10 +15,11 @@ class BankInquiryTrans
 
     function view()
     {
+        echo "<div class=card-panel>";
         box_start();
         $this->filter();
         box_end();
-
+        echo "</div>";
 
         if (! isset($_POST['bank_account']))
             $_POST['bank_account'] = "";
@@ -27,6 +28,7 @@ class BankInquiryTrans
 
         $act = get_bank_account($_POST["bank_account"]);
         // display_heading($act['bank_account_name']." - ".$act['bank_curr_code']);
+        echo "<div class=card-panel>";
         box_start($act['bank_account_name'] . " - " . $act['bank_curr_code']);
         $this->items();
 
@@ -34,6 +36,7 @@ class BankInquiryTrans
         box_footer_start();
         box_footer_end();
         box_end();
+        echo "</div>";
     }
 
     private function filter()
