@@ -14,25 +14,29 @@
 
 $(document).ready(function(){
 	$( "[name=bank_account]" ).prepend( "<option selected=''>--Select Bank Account--</option>" );
-	//jangpaging(0);
 	cleanstorage();
-	deletetag();
 	jangpaging(0);
+	deletetag();
 
     $('body').on('change', function(){
+		setTimeout(function(){
 		jangpaging(0);
+		}, 3000);
+    });
+
+    $('body').on('change', $('[name=customer_id]'), function(){
+		setTimeout(function(){
+		jangpaging(0);
+		}, 3000);
     });
 
     if(localStorage['isipaging'] != undefined || localStorage['isipaging'] != ""){	
 		var hasil = localStorage['isipaging'];
 		setTimeout(function(){
 			for(var a=0; a<hasil.length; a++){
-				// $('[name='+hasil[a].box+']').val(hasil[a].value);
 				price_format(hasil[a].box, hasil[a].value, user.pdec);
 			}
-			// $('[name=amount]').val(localStorage['totalpaging']);
 			price_format('amount', localStorage['totalpaging'], user.pdec);
-			// price_format('bank_amount', total, user.pdec);
 			
 		},2000);
 	}
@@ -78,6 +82,7 @@ function deletetag(){
 
 function jangpaging(trigger){
 	setTimeout(function(){
+		console.log("ngok");
     	var isian = $("#countnan").val();
         var a = 0;
         var count = 20;
