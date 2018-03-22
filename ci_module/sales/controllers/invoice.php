@@ -26,16 +26,19 @@ class SalesInvoice {
             $this->cart->cart = $_SESSION['Items'];
             $this->document_add();
             start_form();
+            echo "<div class=card-panel>";
             hidden('cart_id');
             box_start();
 
             $error = $this->cart->display_order_header($_SESSION['Items'],true);
-
             if ($error == "") {
+                echo "<div class=clearfix></div>";
                 box_start(_("Sales Invoice Items"));
 
                 $this->cart->overdue_items_box(true);
+                echo "<div class=clearfix style='margin-bottom:10px'></div>";
                 $this->cart->display_gl_items(true);
+                echo "<div class=clearfix style='margin-bottom:10px'></div>";
                 $this->cart->display_delivery_details($_SESSION['Items']);
 
                 box_footer_start();
@@ -50,6 +53,7 @@ class SalesInvoice {
                 hidden('document_id',$document_id);
             }
             box_end();
+            echo "</div>";
             end_form();
         }
 

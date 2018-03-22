@@ -13,7 +13,7 @@ class SalesInquiryTransactions
 
         if (!@$_GET['popup'])
             start_form();
-
+        echo "<div class=card-panel>";
         box_start();
         $this->fillter();
         $this->customer_totals('totals_tbl');
@@ -21,6 +21,7 @@ class SalesInquiryTransactions
 
         box_footer();
         box_end();
+        echo "</div>";
     }
 
     function popup(){
@@ -78,7 +79,7 @@ class SalesInquiryTransactions
         // }
 
         check_bootstrap('Voided', 'voided');
-
+        echo "<div class=clearfix></div>";
         col_start(12,'col-md-3 col-sm-6');
         submit_bootstrap('RefreshInquiry', _("Search"), _('Refresh Inquiry'), 'default','search');
         row_end();
