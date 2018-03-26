@@ -569,12 +569,12 @@ if (!defined('FA_LOGOUT_PHP_FILE')){
 
 				$succeed = ( isset($db_connections[$_POST["company_login_name"]]));
 
-			  $recaptcha_secret = "6LfjHDYUAAAAAPh2O4j2d22WemSsS9yVpuxMKD2h";
-		    $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$recaptcha_secret."&response=".$_POST['g-recaptcha-response']);
-		    
-		    $response = json_decode($response, true);
+			  // $recaptcha_secret = "6LfjHDYUAAAAAPh2O4j2d22WemSsS9yVpuxMKD2h";
+		    // $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$recaptcha_secret."&response=".$_POST['g-recaptcha-response']);
+				//
+		    // $response = json_decode($response, true);
 
-		    if($response["success"] === true){
+		    //if($response["success"] === true){
 
 		        $succeed = $_SESSION["wa_current_user"]->login($_POST["company_login_name"],$_POST["user_name_entry_field"], $_POST["password"]);
 	 			// select full vs fallback ui mode on login
@@ -585,7 +585,7 @@ if (!defined('FA_LOGOUT_PHP_FILE')){
 						setcookie('message_for_login', 'testing', time() + (86400 + 30), '/');
 						login_fail();
 					} elseif(isset($_SESSION['timeout']) && !$_SESSION['timeout']['post']) {
-					
+
 						setcookie('comp_name', $_POST['CompanyName'], time() + (86400 * 30 * 12), '/');
 						$member = file_get_contents(PLAN.$_POST['CompanyName']);
 						$plan = json_decode($member,true);
@@ -593,35 +593,10 @@ if (!defined('FA_LOGOUT_PHP_FILE')){
 
 						// in case of GET request redirect to avoid confirmation dialog
 						// after return from menu option
-						header("HTTP/1.1 303 See Other");
-						header("Location: ".$_SESSION['timeout']['uri']);
-						exit();
+						// header("HTTP/1.1 303 See Other");
+						// header("Location: ".$_SESSION['timeout']['uri']);
+						// exit();
 					}
-		    }else if($_POST["login_as"] == "partner"){
-			    $succeed = $_SESSION["wa_current_user"]->login($_POST["company_login_name"],$_POST["user_name_entry_field"], $_POST["password"]);
-	 			// select full vs fallback ui mode on login
-
-					$_SESSION["wa_current_user"]->ui_mode = $_POST['ui_mode'];
-					if (!$succeed) {
-					// Incorrect password
-						setcookie('message_for_login', 'testing', time() + (86400 + 30), '/');
-						login_fail();
-					} elseif(isset($_SESSION['timeout']) && !$_SESSION['timeout']['post']) {
-						setcookie('comp_name', $_POST['CompanyName'], time() + (86400 * 30 * 12), '/');
-						$member = file_get_contents(PLAN.$_POST['CompanyName']);
-						$plan = json_decode($member,true);
-						$_SESSION['apidumm'] = $plan;
-						// in case of GET request redirect to avoid confirmation dialog
-						// after return from menu option
-						header("HTTP/1.1 303 See Other");
-						header("Location: ".$_SESSION['timeout']['uri']);
-						exit();
-					}
-			}else{
-			    	setcookie('message_for_login', 'testing', time() + (86400 + 30), '/');
-			    	setcookie('message_for', null, -1, '/');
-			    	login_fail();
-				}
 
 			$_SESSION['company'] = $Session_manager->checkSubDirectory();
 			$lang = &$_SESSION['language'];

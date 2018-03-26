@@ -175,9 +175,9 @@ $login_cek = "";
 		            <div class="form-group">
 		                <div class="row uniq-field">
 			            	<?php // if (isset($_COOKIE['comp_name']) != ''){ ?>
-				            	<div class="col s12 c-container" style="padding: 0 !important">
+				            	<!-- <div class="col s12 c-container" style="padding: 0 !important">
 				                	<div class="g-recaptcha" data-sitekey="6LfjHDYUAAAAACB4XaK_8o5hcTYVdRREw83UXwEu"></div>
-				            	</div>
+				            	</div> -->
 				            <?php // } ?>
 		            		</div>
 										<?php

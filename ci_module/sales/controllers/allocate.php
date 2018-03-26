@@ -11,6 +11,7 @@ class SalesAllocate
 
     function main()
     {
+        echo "<div class=card-panel>";
         start_form();
         /* show all outstanding receipts and credits to be allocated */
 
@@ -29,7 +30,6 @@ class SalesAllocate
         col_start(3, 'col-md-4 col-sm-6');
         check_bootstrap('Show Settled Items', 'ShowSettled', null, true);
         row_end();
-
         /*
          * if (isset($_POST['customer_id'])) {
          * $custCurr = get_customer_currency($_POST['customer_id']);
@@ -98,6 +98,7 @@ class SalesAllocate
         box_footer();
         box_end();
         end_form();
+        echo "</div>";
     }
 
     function alloc_link($row)

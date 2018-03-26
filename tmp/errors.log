@@ -5,3 +5,23 @@
 [20-Mar-2018 12:30:21 Asia/Singapore] 0:megareceiver@gmail.com:smarty_resource.php:772: filemtime(): stat failed for /Applications/MAMP/htdocs/uniq-next/includes/../tmp/smarty-compile/eac598de13f651584da4f6152a7072e9d55f648c.file.page_header.html.php
 [20-Mar-2018 18:17:12 Asia/Singapore] 0:megareceiver@gmail.com:smarty_resource.php:772: filemtime(): stat failed for /Applications/MAMP/htdocs/uniq-next/includes/../tmp/smarty-compile/b90666727b1b7ff9ea269730920a36399c1425d8.file.form-reports.html.php
 [21-Mar-2018 21:41:56 Asia/Singapore] PHP Fatal error:  Call to a member function set_language() on null in /Applications/MAMP/htdocs/uniq-next/includes/session.inc on line 628
+[23-Mar-2018 14:53:31 Asia/Singapore] 0:megareceiver@gmail.com:smarty_resource.php:772: filemtime(): stat failed for /var/www/uniq-next/includes/../tmp/smarty-compile/4c26ea33b2fff88212456c97216db50fae869c83.file.header.html.php
+[23-Mar-2018 14:53:31 Asia/Singapore] 0:megareceiver@gmail.com:smarty_resource.php:772: filemtime(): stat failed for /var/www/uniq-next/includes/../tmp/smarty-compile/1d10cbc34b36917d155a6075e6509e3bb81e8683.file.page_header.html.php
+[23-Mar-2018 14:53:31 Asia/Singapore] 0:megareceiver@gmail.com:smarty_resource.php:772: filemtime(): stat failed for /var/www/uniq-next/includes/../tmp/smarty-compile/f27620184d9079bcf1a57e2381180f3a3dd536b7.file.page_footer.html.php
+[23-Mar-2018 14:54:18 Asia/Singapore] 0:megareceiver@gmail.com:smarty_resource.php:772: filemtime(): stat failed for /var/www/uniq-next/includes/../tmp/smarty-compile/8d1a7148b273e976281712595310ddca2a43dae0.file.home.html.php
+[23-Mar-2018 14:54:18 Asia/Singapore] 0:megareceiver@gmail.com:smarty_internal_write_file.php:44: file_put_contents(/var/www/uniq-next/includes/../tmp/smarty-compile/wrt5ab4a49a1f33c8_26064876): failed to open stream: Permission denied
+[23-Mar-2018 14:54:18 Asia/Singapore] PHP Fatal error:  Uncaught  --> Smarty: unable to write file /var/www/uniq-next/includes/../tmp/smarty-compile/wrt5ab4a49a1f33c8_26064876 <-- 
+  thrown in /var/www/uniq-next/ci/thirdparty/Smarty-3.1.21/sysplugins/smarty_internal_write_file.php on line 46
+[23-Mar-2018 14:54:21 Asia/Singapore] 0:megareceiver@gmail.com:smarty_resource.php:772: filemtime(): stat failed for /var/www/uniq-next/includes/../tmp/smarty-compile/8d1a7148b273e976281712595310ddca2a43dae0.file.home.html.php
+[23-Mar-2018 14:54:21 Asia/Singapore] 0:megareceiver@gmail.com:smarty_internal_write_file.php:44: file_put_contents(/var/www/uniq-next/includes/../tmp/smarty-compile/wrt5ab4a49de8f615_06161581): failed to open stream: Permission denied
+[23-Mar-2018 14:54:21 Asia/Singapore] PHP Fatal error:  Uncaught  --> Smarty: unable to write file /var/www/uniq-next/includes/../tmp/smarty-compile/wrt5ab4a49de8f615_06161581 <-- 
+  thrown in /var/www/uniq-next/ci/thirdparty/Smarty-3.1.21/sysplugins/smarty_internal_write_file.php on line 46
+[23-Mar-2018 14:54:31 Asia/Singapore] 0:megareceiver@gmail.com:smarty_resource.php:772: filemtime(): stat failed for /var/www/uniq-next/includes/../tmp/smarty-compile/8d1a7148b273e976281712595310ddca2a43dae0.file.home.html.php
+[23-Mar-2018 14:54:31 Asia/Singapore] 0:megareceiver@gmail.com:smarty_internal_write_file.php:44: file_put_contents(/var/www/uniq-next/includes/../tmp/smarty-compile/wrt5ab4a4a79f5f45_06683916): failed to open stream: Permission denied
+[23-Mar-2018 14:54:31 Asia/Singapore] PHP Fatal error:  Uncaught  --> Smarty: unable to write file /var/www/uniq-next/includes/../tmp/smarty-compile/wrt5ab4a4a79f5f45_06683916 <-- 
+  thrown in /var/www/uniq-next/ci/thirdparty/Smarty-3.1.21/sysplugins/smarty_internal_write_file.php on line 46
+[23-Mar-2018 14:54:37 Asia/Singapore] 0:megareceiver@gmail.com:smarty_resource.php:772: filemtime(): stat failed for /var/www/uniq-next/includes/../tmp/smarty-compile/8d1a7148b273e976281712595310ddca2a43dae0.file.home.html.php
+[23-Mar-2018 14:54:37 Asia/Singapore] 0:megareceiver@gmail.com:smarty_internal_write_file.php:44: file_put_contents(/var/www/uniq-next/includes/../tmp/smarty-compile/wrt5ab4a4ad5db8c6_00593089): failed to open stream: Permission denied
+[23-Mar-2018 14:54:37 Asia/Singapore] PHP Fatal error:  Uncaught  --> Smarty: unable to write file /var/www/uniq-next/includes/../tmp/smarty-compile/wrt5ab4a4ad5db8c6_00593089 <-- 
+  thrown in /var/www/uniq-next/ci/thirdparty/Smarty-3.1.21/sysplugins/smarty_internal_write_file.php on line 46
+[23-Mar-2018 15:46:58 Asia/Singapore] 0:megareceiver@gmail.com:smarty_resource.php:772: filemtime(): stat failed for /var/www/uniq-next/includes/../tmp/smarty-compile/90b6e3c8f075cae475c04493f944783686873f73.file.form-reports.html.php

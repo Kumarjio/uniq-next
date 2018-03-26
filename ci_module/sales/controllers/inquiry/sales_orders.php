@@ -15,29 +15,27 @@ class SalesInquirySalesOrders
     }
 
     function view(){
-
+      echo '<div class="card-panel">';
         if (!@$_GET['popup']){
             start_form();
             box_start();
         }
 
-        echo '<div class="card-panel">';
+
         $this->fillter();
-        echo "</div>";
-
-        echo '<div class="card-panel">';
+        // echo "</div>";
+        //
+        // echo '<div class="card-panel">';
         $this->transactions_table();
-        echo "</div>";
-
-
         if (!@$_GET['popup']){
             box_footer_start();
             submit('Update', _("Update"), true, '', true);
             box_footer_end();
             box_end();
-            end_form();
+            echo "</div>";
         }
-
+        end_form();
+        
     }
 
     private function get_val()

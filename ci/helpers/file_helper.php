@@ -102,7 +102,7 @@ function check_dir( $fpath ){
         $dir_check .= $dir.'/';
 
         if( !is_dir($dir_check) ){
-            mkdir($dir_check, 0777);
+            // mkdir($dir_check, 0777);
         }
     }
 

@@ -13,15 +13,16 @@ class SalesInquiryDelivery
 
         // -----------------------------------------------------------------------------------
         start_form(false, false, $_SERVER['PHP_SELF'] . "?OutstandingOnly=" . $_POST['OutstandingOnly']);
+        echo "<div class=card-panel>";
         box_start();
         $_POST['DeliveryAfterDate'] = '10-01-2015';
         $this->filter();
-
         // row_start();
         $this->items();
         // row_end();
         box_footer();
         box_end();
+        echo "</div>";
         end_form();
     }
 
@@ -55,7 +56,7 @@ class SalesInquiryDelivery
 
         hidden('OutstandingOnly', $_POST['OutstandingOnly']);
         row_end();
-        echo '<div class="clearfix"></div>';
+        echo '<div class="clearfix" style="margin-bottom:50px"></div>';
     }
 
     private function items()

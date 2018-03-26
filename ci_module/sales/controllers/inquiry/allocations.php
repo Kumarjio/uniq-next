@@ -15,9 +15,8 @@ class SalesInquiryAllocations
     function view(){
         if (!@$_GET['popup'])
             start_form();
-
+        echo "<div class=card-panel>";
         box_start();
-
         $this->fillter();
         set_global_customer($_POST['customer_id']);
 
@@ -25,6 +24,7 @@ class SalesInquiryAllocations
 
         box_footer();
         box_end();
+        echo "</div>";
         if (!@$_GET['popup']){
             end_form();
         }
@@ -76,10 +76,10 @@ class SalesInquiryAllocations
 
         col_start(12,'col-md-4 col-sm-6');
         check_bootstrap('show settled', 'settled');
-
+        echo "<div class=clearfix style='margin-top:50px'></div>";
         col_start(12,'col-md-4 col-sm-6');
         submit_bootstrap( 'RefreshInquiry', _("Search"), _('Refresh Inquiry'), 'default','search');
-
+        echo "<div class=clearfix style='margin-bottom:50px'></div>";
         row_end();
     }
 
