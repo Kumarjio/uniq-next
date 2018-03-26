@@ -49,6 +49,7 @@ class SetupCompanySetup
     function form()
     {
         start_form(true);
+        echo "<div class=card-panel>";
         $this->bootstrap->box_start("");
         $myrow = get_company_prefs();
 
@@ -62,52 +63,52 @@ class SetupCompanySetup
 
         $_POST['del_coy_logo'] = 0;
         row_start();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col s4 col-sm-6');
             input_text_bootstrap( "Company Name", 'coy_name', $value = null, $title = null, $submit_on_change = false, $size = NULL, $max = NULL,'To appear on reports');
         col_end();
-        col_start(4, 'col-md-8 col-sm-6');
+        col_start(4, 'col s8 col-sm-6');
             input_textarea_bootstrap(_("Address"), 'postal_address', $_POST['postal_address']);
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col s4 col-sm-6');
             input_text_bootstrap( "Country", 'domicile');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col s4 col-sm-6');
             input_text_bootstrap("Phone Number",'phone');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col s4 col-sm-6');
             input_text_bootstrap("Fax Number",'fax');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col s4 col-sm-6');
             input_text_bootstrap(_("Email Address"), 'email');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col s4 col-sm-6');
             input_text_bootstrap(_("BCC Address "), 'bcc_email',$value = null, $title = null, $submit_on_change = false, $size = NULL, $max = NULL,'For all outgoing mails');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col s4 col-sm-6');
             input_text_bootstrap(_("Official Company Number"), 'coy_no');
         col_end();
       row_end();
       row_start();
-        col_start(12, 'col-md-12'); echo "<hr/>"; col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(12, 'col s12'); echo "<hr style='margin-bottom:50px'/>"; col_end();
+        col_start(4, 'col s4 col-sm-6');
             input_text_bootstrap(_("GST No."), 'gst_no');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col s4 col-sm-6');
             currency_bootstrap(_("Home Currency"), 'curr_default');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col s4 col-sm-6');
             fiscalyear_bootstrap(_("Fiscal Year"), 'f_year', $_POST['f_year']);
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col s4 col-sm-6');
           input_text_addon_bootstrap(_("Tax Periods"), 'tax_prd',null,'Months');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col s4 col-sm-6');
             input_text_addon_bootstrap(_("Tax Last Period"), 'tax_last',null,'Months back');
         col_end();
 
             if ( config_ci('kastam') ) {
               col_end();
-              col_start(4, 'col-md-4 col-sm-6');
+              col_start(4, 'col 4 col-sm-6');
                 $this->bootstrap->fieldset_start("Self Bill");
                 input_text_bootstrap(_("Approval Ref"), 'self_bill_approval_ref');
                 input_date_bootstrap(_("Start Date"), 'self_bill_start_date');
@@ -121,12 +122,12 @@ class SetupCompanySetup
             }
 
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col s4 col-sm-6');
         /*language*/
         echo ' <input name="default_language" type="text" value="'.$_POST['coy_def_language'].'" hidden>
             <div class="input-group-sm row">
-                <label class="col-5 control-label">Select Language</label>
-                <div class="col-7 align-items-cente select-box">
+                <label class="col s5 control-label">Select Language</label>
+                <div class="col s7 align-items-cente select-box">
                     <select name="coy_def_language">
                     </select>
                 </div>
@@ -135,31 +136,31 @@ class SetupCompanySetup
         col_end();
       row_end();
       row_start();
-        col_start(12, 'col-md-12'); echo "<hr/>"; col_end();
-        col_start(4, 'col-md-4 col-sm-6');
-          input_label_bootstrap(_("Company Logo"),null, $myrow['coy_logo']);
-        // col_end();
-        // col_start(4, 'col-md-4 col-sm-6');
-          echo "<hr/>";
+        col_start(12, 'col s12'); echo "<hr style='margin-bottom:50px'/>"; col_end();
+        col_start(4, 'col s12 col-sm-6');
+          // input_label_bootstrap(_("Company Logo"),null, $myrow['coy_logo']);
           file_bootstrap(_("New Company Logo"), 'pic','(jpg|png)','pic');
+        // col_end();
+        // col_start(4, 'col s4 col-sm-6');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col s12 col-sm-6');
           check_bootstrap(_("Delete Company Logo"), 'del_coy_logo', $_POST['del_coy_logo']);
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col s4 col-sm-6');
           sales_types_bootstrap(_("Base for auto price calculations"), 'base_sales', $_POST['base_sales'], false, _('No base price list'));
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col s4 col-sm-6');
           input_text_addon_bootstrap(_("Add Price from Std Cost"), 'add_pct',null,'%');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col s4 col-sm-6');
           $curr = get_currency($_POST['curr_default']);
           input_text_addon_bootstrap(_("Round to nearest"), 'round_to',null,$curr['hundreds_name']);
         col_end();
+        echo "<hr style='margin-bottom:50px'/>";
       row_end();
       row_start();
-        col_start(12, 'col-md-12'); echo "<hr/>"; col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(12, 'col s12'); echo "<hr style='margin-bottom:50px'/>"; col_end();
+        col_start(4, 'col s4 col-sm-6');
 
 //         label_row("", "&nbsp;");
 
@@ -168,7 +169,7 @@ class SetupCompanySetup
         check_bootstrap(_("Search Customer List"), 'no_customer_list');
         check_bootstrap(_("Search Supplier List"), 'no_supplier_list');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col s4 col-sm-6');
 //         label_row("", "&nbsp;");
         $this->bootstrap->fieldset_start("Work Session");
         check_bootstrap(_("Automatic Revaluation Currency Accounts"), 'auto_curr_reval', $_POST['auto_curr_reval']);
@@ -185,6 +186,7 @@ class SetupCompanySetup
         //submit('update', _("Update"), true, '', 'default',"save");
         submit('update', _("Update"), true, '', false ,"save");
         $this->bootstrap->box_end();
+        echo "</div>";
         end_form();
         // -------------------------------------------------------------------------------------------------
 

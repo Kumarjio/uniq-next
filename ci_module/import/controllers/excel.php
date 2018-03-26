@@ -15,6 +15,7 @@ class ImportExcel
         start_form(TRUE);
 
         // -----------------------------------------------------------------------------------
+        echo "<div class=card-panel>";
         box_start('Upload Excel file to import data into system');
         file_bootstrap('Data file', 'excelfile', anchor('company/Data_Migration_Template.xls', 'File template & Guide'));
 
@@ -72,7 +73,7 @@ class ImportExcel
         // box_footer_start(NULL, NULL, true);
         // box_footer_end();
         // box_end();
-
+        echo "</div>";
         end_form();
     }
 

@@ -32,7 +32,7 @@ class HtmlBootstrapLib
      */
 
 
-    function col_start($md = 12, $attributes = NULL, $autoClose=true)
+    function col_start($md = 10, $attributes = NULL, $autoClose=true)
     {
         if( isset($this->mt_list_started) AND $this->mt_list_started ){
             $this->mt_list_end();
@@ -55,6 +55,7 @@ class HtmlBootstrapLib
         }
         if( is_numeric($md) ){
             $attributes['class'] .= " col-$md";
+            // $attributes['class'] .= " col offset-s1 s10";
         } else {
             $attributes['class'] .= " $md";
         }
@@ -297,7 +298,7 @@ class HtmlBootstrapLib
         echo "<div " . _parse_attributes($attributes) . " >";
 
         if( $show_back ){
-            echo anchor(get_instance()->url_back,'<span synlang="syncard-language">Back</span>','class="btn" ');
+            echo anchor(get_instance()->url_back,'<span synlang="syncard-language">Back</span>','class="btn waves-effect waves-light" ');
         }
 
         $this->tb_footer_started = true;

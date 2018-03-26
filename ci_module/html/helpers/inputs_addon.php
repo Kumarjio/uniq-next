@@ -31,7 +31,7 @@ function input_text_addon_bootstrap ($label, $name, $value = null, $addon = NULL
         $add = '<span class="input-group-addon">' . $addon . '</span>';
     }
 
-    $html = '<div class="input-group right">' . $html . $add . '</div>';
+    $html = '<div class="input-group">' . $html . $add . '</div>';
 
     form_group_bootstrap($label, $html, NULL, $help);
 }
