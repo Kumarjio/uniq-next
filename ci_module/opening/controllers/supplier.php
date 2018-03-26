@@ -19,6 +19,7 @@ class OpeningSupplier
         global $Ajax;
         page('Supplier Opening Balance');
         $Ajax->activate('_page_body');
+        echo "<div class=card-panel>";
         start_form();
         box_start();
         if (input_post('submit')) {
@@ -35,6 +36,7 @@ class OpeningSupplier
             }
         box_end();
         end_form();
+        echo "</div>";
         end_page();
     }
 

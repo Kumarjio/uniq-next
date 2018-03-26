@@ -58,6 +58,7 @@ class MaintenanceOpening {
 
         page( ucfirst($type).' Opening Balance');
         $Ajax->activate('_page_body');
+
         start_form();
 
         if( $this->ci->input->post('submit')  ){
@@ -116,6 +117,7 @@ class MaintenanceOpening {
         }
         $_POST['trans_date'] = $tran_date;
 
+        echo "<div class=card-panel>";
         box_start();
         start_form();
         start_table(TABLESTYLE2);
@@ -131,7 +133,7 @@ class MaintenanceOpening {
 
 
         $bank_account_posting = $this->ci->db->get('bank_accounts AS b')->result();
-        echo '<tr><td colspan=2 class="col-xl-9 col-sm-5 col-5"></td><td class="textright" >Amount</td></tr>';
+        echo '<tr><td colspan=2 class="col xl9 s5 l5"></td><td class="textright" >Amount</td></tr>';
 
 
         foreach ($bank_account_posting AS $group=>$bank){
@@ -160,6 +162,7 @@ class MaintenanceOpening {
         box_footer_end();
         end_form(1);
         box_end();
+        echo "</div>";
 
     }
 

@@ -18,6 +18,7 @@ class Opening extends ci {
 
 	var $stop = false;
 	function index(){
+        echo "<div class=card-panel>";
         $post_date = null;
         if( $this->ci->input->post('tran_date') ){
             $post_date = $this->ci->input->post('tran_date');
@@ -41,6 +42,7 @@ class Opening extends ci {
             case 'inventory' : $this->inventory($type); break;
             default :break;
         }
+        echo "</div>";
 	}
 
 	private function items_view($type='sale',$view_type='list'){

@@ -20,14 +20,15 @@ class SetupCompanySecurity
             $Ajax->activate('details');
         }
 
+        echo "<div class=card-panel>";
         box_start("");
         start_form();
         row_start();
 
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
         security_roles_bootstrap(_("Role"), 'role', null, true, true, check_value('show_inactive'));
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
         $new_role = get_post('role')=='';
         check_bootstrap('Show Inactive', 'show_inactive', null, true);
         col_end();
@@ -39,13 +40,13 @@ class SetupCompanySecurity
 
             fieldset_start("Role Information");
             row_start();
-            col_start(4, 'col-md-4 col-sm-6');
+            col_start(4, 'col l4 s6');
                 input_text_bootstrap(_("Role name"), 'name');
             col_end();
-            col_start(4, 'col-md-4 col-sm-6');
+            col_start(4, 'col l4 s6');
                 input_text_bootstrap(_("Role description"), 'description');
             col_end();
-            col_start(4, 'col-md-4 col-sm-6');
+            col_start(4, 'col l4 s6');
                 input_text_bootstrap(_("Role name"), 'name');
                 //         record_status_list_row(_("Current status:"), 'inactive');
             col_end();
@@ -53,7 +54,7 @@ class SetupCompanySecurity
 
             // echo "<hr>";
             // row_start();
-            col_start(8,'col-md-12');
+            col_start(8,'col l12');
 
                 $this->access_role();
 //                 $this->bootstrap->fieldset_end();
@@ -79,9 +80,9 @@ class SetupCompanySecurity
         div_end();
         box_footer_end();
 
-
         end_form();
         $this->bootstrap->box_end();
+        echo "</div>";
     }
 
     var $security_areas , $security_sections = NULL;
@@ -118,7 +119,7 @@ class SetupCompanySecurity
                 $this->bootstrap->fieldset_start($this->security_sections[$m].$checkBox ,'');
             }
             if (check_value('Section'.$m)) {
-                col_start(4, 'col-md-4 col-sm-6');
+                col_start(4, 'col l4 s6');
                 check_bootstrap($parms[1],'Area'.$parms[0], null, false, '');
                 col_end();
             } else {

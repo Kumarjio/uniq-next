@@ -21,7 +21,7 @@ class GstManageTaxes
         if( !in_ajax() ){
             display_notification(_("To avoid problems with manual journal entry all tax types should have unique Sales/Purchasing GL accounts."));
         }
-
+        echo "<div class=card-panel>";
         start_form();
 
         box_start("");
@@ -43,6 +43,7 @@ class GstManageTaxes
         box_end();
 
         end_form();
+        echo "</div>";
     }
 
     private function listview()
@@ -101,7 +102,7 @@ class GstManageTaxes
 
     private function detail()
     {
-        col_start(6, 'col-md-6');
+        col_start(6, 'col l6');
 
 
             $tax_type = NULL;

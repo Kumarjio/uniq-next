@@ -253,7 +253,7 @@ function icon_submit($name, $value, $button_type = 'secondary', $icon='save', $a
         if( strpos($icon, 'fa-') !== false ){
             $icon = "fa $icon";
         }
-        $icon_show = '<i class="'.$icon.'"></i> ';
+        $icon_show = '<i class="material-icons">'.$icon.'</i> ';
     }
 
     $button =  "<button "._parse_attributes($attributes)." >".$icon_show." $button_text</button>\n";
@@ -269,9 +269,9 @@ function tbl_add($name,$value= 'Add Item'){
 }
 function tbl_edit($name,$value = 'Edit',$td_inclue=true,$async=true){
     if( !$td_inclue ){
-        return icon_submit($name, $value , 'warning', 'icon-pencil', $async, _('Edit document line'));
+        return icon_submit($name, $value , 'warning', 'edit', $async, _('Edit document line'));
     }
-    return icon_submit_cells($name, $value , 'warning', 'icon-pencil', $async, _('Edit document line'));
+    return icon_submit_cells($name, $value , 'warning', 'edit', $async, _('Edit document line'));
 }
 function tbl_remove($name,$value= 'Delete',$td_inclue=true,$async=true){
     if( !$td_inclue ){

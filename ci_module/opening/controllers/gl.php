@@ -6,12 +6,12 @@ class OpeningGl
     {
         $this->ob_gl_model = module_model_load('gl');
     }
-    
+
     function index()
     {
         if (isset($_POST['submit']) ){
             $begin_fiscalyear = begin_fiscalyear();
-        
+
             $input_date = null;
             if( input_post('trans_date') ) {
                 $input_date = input_post('trans_date');
@@ -22,36 +22,37 @@ class OpeningGl
                 $this->submit_check();
             }
         }
-        
+
         page(_("System GL Accounts Opening Balance"));
         $this->form();
     }
-    
+
     private function form(){
+        echo "<div class=card-panel>";
         start_form();
         box_start();
         start_table(TABLESTYLE2);
-        
-        
+
+
         echo '<tr><td colspan=2 >Opening Balance Date</td>';
-        
+
         $_POST['trans_date'] = $this->check_tran_date();
         echo date_cells(null,'trans_date',$title = null, $check = null, $inc_days = 0, $inc_months = 0, $inc_years = 0, $params = array("class"=>'center'));
-        
+
         echo '</tr>';
-        
+
         $i = 1;
-        
+
         $gl_account_posting = $this->ob_gl_model->accounts();
 
         $debit_total = $credit_total = 0;
         foreach ($gl_account_posting AS $group=>$items){
-        
+
             echo '<tr><td colspan=3 class="tableheader" >'.$group.'</td></tr>';
             if( $i <= 1 ){
                 echo '<tr><td style="width:60%;"> </td><td class="textright" >Debit</td><td class="textright" >Credit</td></tr>';
             }
-        
+
             if( $items ){
 
                 foreach ($items as $code=>$item) {
@@ -68,7 +69,7 @@ class OpeningGl
                     $debit_total+=$item['debit'];
                     $credit_total+=$item['credit'];
                 }
-        
+
             }
             $i++;
         }
@@ -78,18 +79,19 @@ class OpeningGl
         echo '</tr>';
         echo '<input type="hidden" name="type" value="gl">';
         end_table(1);
-        
+
         box_footer_start();
         submit('submit', _("Submit"), true, '', 'default','save');
         //submit('submit', _("Submit"), true, '', false);
         box_footer_end();
         box_end();
         end_form(1);
+        echo "</div>";
     }
-    
+
     private function check_tran_date(){
         $exist_date = get_instance()->db->select('tran_date')->where('amount !=',0)->get('opening_gl',1)->row();
-        
+
         if( $exist_date && isset($exist_date->tran_date) ){
             $tran_date = date('d-m-Y',strtotime($exist_date->tran_date) );
         } else {
@@ -100,7 +102,7 @@ class OpeningGl
         }
         return $tran_date;
     }
-    
+
     private function submit_check(){
         global $ci;
 
@@ -117,12 +119,12 @@ class OpeningGl
                      $amount = strtonumber($ob['debit']);
                      $ob_type = "debit";
                  }
-                 
+
                  if( isset($ob['credit']) AND floatval($ob['credit']) > 0 ){
                      $amount = -strtonumber($ob['credit']);
                      $ob_type = "credit";
                  }
-                 
+
                  if( $ob_type != NULL AND floatval($amount) != 0 ){
                      $newData = array(
                              'amount' =>$amount,
@@ -130,10 +132,10 @@ class OpeningGl
                              'account'=>$account_code,
                              'tran_date'=>$tran_date
                      );
-                      
+
                      $this->ob_gl_model->update_gl_account($newData,$ob_type);
                  }
-                 
+
             }
         }
         //die();
@@ -146,12 +148,12 @@ class OpeningGl
                             'account'=>$acc_code,
                             'tran_date'=>$tran_date
                     );
-        
+
                     $model->update_gl_account($newData,'debit');
                 }
             }
         }
-        
+
         if( is_array($credits) ){
             foreach ($credits AS $acc_code=>$credit){ if( $credit != '' ){
                 $newData = array(

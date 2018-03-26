@@ -12,6 +12,7 @@ class ManagePrinter
 
     function index()
     {
+        echo "<div class=card-panel>";
         start_form();
         box_start("");
         $this->listview();
@@ -25,6 +26,7 @@ class ManagePrinter
 
         box_end();
         end_form();
+        echo "</div>";
     }
 
     private function listview()
@@ -86,22 +88,22 @@ class ManagePrinter
         }
 
         row_start();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
         input_text(_("Printer Name"), 'name');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
         input_text(_("Printer Description"), 'descr');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
         input_text(_("Host name or IP"), 'host');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
         input_text(_("Port"), 'port');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
         input_text(_("Printer Queue"), 'queue');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
         input_text(_("Timeout"), 'tout');
 
         col_end();

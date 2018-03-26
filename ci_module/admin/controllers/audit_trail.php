@@ -24,11 +24,12 @@ class AdminAuditTrail
         $Ajax->activate('_page_body');
 
         page(_("Audit Trail"));
+        echo "<div class=card-panel>";
         start_form();
         box_start();
         row_start();
 
-        col_start('col-md-4 col-sm-6');
+        col_start('col l4 s6');
         module_view('audit_trail_filter', array(
             'fillter_title' => input_val('type')
         ));
@@ -48,6 +49,7 @@ class AdminAuditTrail
         box_footer();
         box_end();
         end_form();
+        echo "</end>";
         end_page();
     }
 

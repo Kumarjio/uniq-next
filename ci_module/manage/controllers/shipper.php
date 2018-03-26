@@ -12,6 +12,7 @@ class ManageShipper
 
     function index()
     {
+        echo "<div class=card-panel>";
         start_form();
         box_start("");
         $this->listview();
@@ -26,6 +27,7 @@ class ManageShipper
 
         box_end();
         end_form();
+        echo "</div>";
     }
 
     private function listview()
@@ -74,7 +76,7 @@ class ManageShipper
     private function detail()
     {
         row_start();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
 
         if ($this->selected_id != - 1) {
             if ($this->mode == 'Edit') {
@@ -93,16 +95,16 @@ class ManageShipper
 
         input_text(_("Name"), 'shipper_name');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
         input_text(_("Contact Person"), 'contact');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
         input_text(_("Phone Number"), 'phone');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
         input_text(_("Secondary Phone Number"), 'phone2');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
         input_text(_("Address"), 'address');
 
         col_end();

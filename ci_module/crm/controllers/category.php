@@ -12,6 +12,7 @@ class CrmCategory
 
     function index()
     {
+        echo "<div class=card-panel>";
         start_form();
         box_start("");
         $this->listview();
@@ -26,6 +27,7 @@ class CrmCategory
 
         box_end();
         end_form();
+        echo "</div>";
     }
 
     private function listview()
@@ -96,26 +98,26 @@ class CrmCategory
         row_start();
 
         if ( $this->mode == 'Edit' && $myrow['system']) {
-            col_start(4, 'col-md-4 col-sm-6');
+            col_start(4, 'col l4 s6');
             input_label_bootstrap( _("Contact Category Type"), 'type' );
             col_end();
-            col_start(4, 'col-md-4 col-sm-6');
+            col_start(4, 'col l4 s6');
             input_label_bootstrap(_("Contact Category Subtype"), 'subtype' );
             col_end();
         } else {
             //	crm_category_type_list_row(_("Contact Category Type:"), 'type', null, _('Other'));
-            col_start(4, 'col-md-4 col-sm-6');
+            col_start(4, 'col l4 s6');
             input_text( _("Contact Category Type"), 'type');
             col_end();
-            col_start(4, 'col-md-4 col-sm-6');
+            col_start(4, 'col l4 s6');
             input_text(_("Contact Category Subtype"), 'subtype');
             col_end();
         }
 
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
         input_text(_("Category Short Name"), 'name');
         col_end();
-        col_start(4, 'col-md-8 col-sm-6');
+        col_start(4, 'col l8 s6');
         input_textarea_bootstrap(_("Category Description"), 'description');
 
 

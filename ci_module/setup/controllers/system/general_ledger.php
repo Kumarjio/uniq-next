@@ -11,6 +11,7 @@ class SetupSystemGeneralLedger
     }
 
     function index(){
+        echo "<div class=card-panel>";
         start_form();
         box_start("");
 
@@ -22,6 +23,7 @@ class SetupSystemGeneralLedger
         box_form_end();
         box_end();
         end_form(2);
+        echo "</div>";
     }
 
     private function load_data(){
@@ -92,7 +94,7 @@ class SetupSystemGeneralLedger
         $this->load_data();
 
         row_start();
-        col_start(6, 'col-md-6');
+        col_start(6, 'col l6');
         // ---------------
         if ( config_ci('kastam') ) {
             fieldset_start(_("Company GST Registration Date"));
@@ -163,7 +165,8 @@ class SetupSystemGeneralLedger
         // ----------------
 
         col_end();
-        col_start(6, 'col-md-6');
+        // echo "<div class=clearfix></div>";
+        col_start(6, 'col l6');
 
         fieldset_start(_("Department Defaults"));
         input_text_addon_bootstrap(_("Department Required By After"), 'default_dim_required', $_POST['default_dim_required'], _("days"));
@@ -208,7 +211,7 @@ class SetupSystemGeneralLedger
         col_end();
         row_end();
         row_start();
-        col_start(6, 'col-md-6');
+        col_start(6, 'col l6');
         fieldset_start(_("Product GST Default"));
         gst_list_bootstrap(_("Sales GST Type"), 'sale_gst_default');
         gst_list_bootstrap(_("Purchase GST Type"), 'purchase_gst_default');

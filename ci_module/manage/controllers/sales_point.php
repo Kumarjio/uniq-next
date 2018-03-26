@@ -12,6 +12,7 @@ class ManageSalesPoint
 
     function index()
     {
+        echo "<div class=card-panel>";
         start_form();
         box_start("");
         $this->listview();
@@ -26,6 +27,7 @@ class ManageSalesPoint
 
         box_end();
         end_form();
+        echo "</div>";
     }
 
     private function listview()
@@ -75,7 +77,7 @@ class ManageSalesPoint
         row_start();
         $cash = db_has_cash_accounts();
         if (! $cash){
-            col_start(12, 'col-md-12');
+            col_start(12, 'col l12');
             display_heading2(_("To have cash POS first define at least one cash bank account."));
         }
 
@@ -95,22 +97,22 @@ class ManageSalesPoint
             hidden('selected_id', $this->selected_id);
         }
 
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l6 s6');
         input_text(_("Point of Sale Name"), 'name');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l6 s6');
         locations_bootstrap(_("POS location"), 'location');
         col_end();
         row_end();
         row_start();
         if ($cash) {
-            col_start(4, 'col-md-4 col-sm-6');
+            col_start(4, 'col l4 s6');
             check_bootstrap(_('Allowed credit sale terms selection'), 'credit', check_value('credit_sale'));
             col_end();
-            col_start(4, 'col-md-4 col-sm-6');
+            col_start(4, 'col l4 s6');
             check_bootstrap(_('Allowed cash sale terms selection'), 'cash', check_value('cash_sale'));
             col_end();
-            col_start(4, 'col-md-4 col-sm-6');
+            col_start(4, 'col l4 s6');
             cash_accounts_list(_("Default cash account"), 'account');
             col_end();
         } else {

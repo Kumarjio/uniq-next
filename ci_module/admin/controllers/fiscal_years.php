@@ -27,7 +27,7 @@ class AdminFiscalYears {
         page(_("Fiscal Years"));
 
 
-
+        echo "<div class=card-panel>";
         start_form($multi=false, $dummy=false, $action=site_url('admin/fiscal-years'));
 
         $selected_id = 0;
@@ -63,6 +63,7 @@ class AdminFiscalYears {
         box_footer_end();
         box_end();
         end_form();
+        echo "</div>";
         end_page();
     }
 

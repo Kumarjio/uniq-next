@@ -16,26 +16,25 @@ class AdminUser
     {
         echo "<input type='hidden' id='activelimit' value=".file_get_contents(ACTIVE).">";
         start_form();
+        echo "<div class=card-panel>";
         box_start("");
         $this->listview();
-	echo "<h4>Max ".file_get_contents(ACTIVE)." <span synlang='syncard-language'>active users</span></h4>";
+	      echo "<h4>Max ".file_get_contents(ACTIVE)." <span synlang='syncard-language'>active users</span></h4>";
         box_footer_show_active();
-
         box_start("User Detail");
         $this->detail();
-
         box_footer_start();
         submit_add_or_update_center($this->selected_id == - 1, '', 'both');
         box_footer_end();
-
         box_end();
+        echo "</div>";
         end_form();
     }
 
     private function listview()
     {
         $result = get_users(check_value('show_inactive'));
-        div_start("",null, false, $attributes = 'class="col-md-12 table-box"');
+        div_start("",null, false, $attributes = 'class="col l12 table-box"');
         start_table(TABLESTYLE);
 
         $th = array(
@@ -136,8 +135,9 @@ class AdminUser
 
     private function detail()
     {
+
         row_start();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
 
         $_POST['email'] = "";
         if ($this->selected_id != - 1) {
@@ -178,42 +178,42 @@ class AdminUser
         }
 
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
         input_password(_("Password"), 'password',$pass_help);
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
         input_text(_("Full Name"), 'real_name');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
 
         input_text(_("Telephone No."), 'phone');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
 
         input_text(_("Email Address"), 'email');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
 
         security_roles_bootstrap(_("Access Level"), 'role_id', null);
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
 
         languages_bootstrap(_("Language"), 'language');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
 
         pos_list(_("User's POS") , 'pos', null);
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
 
         print_profiles(_("Printing profile"), 'print_profile', null, _('Browser printing support'));
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
 
         check_bootstrap(_("Use popup window for reports"), 'rep_popup', $_POST['rep_popup'], false, _('Set this option to on if your browser directly supports pdf files'));
 
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
         input_text(_("IMEI / Serial Number"), 'imei');
 
 

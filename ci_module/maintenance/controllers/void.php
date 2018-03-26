@@ -20,6 +20,7 @@ class MaintenanceVoid
 
     function index()
     {
+        echo "<div class=card-panel>";
         start_form();
 
         box_start("");
@@ -59,11 +60,12 @@ class MaintenanceVoid
 
         box_end();
         end_form();
+        echo "</div>";
     }
 
     private function filter()
     {
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
         systypes(_("Type:"), 'filterType', null, true, $this->not_implemented);
         if (list_updated('filterType'))
             $selected_id = - 1;
@@ -75,15 +77,15 @@ class MaintenanceVoid
 
         col_end();
 
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
         input_text(_("from"), 'FromTransNo');
         col_end();
 
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
         input_text(_("to"), 'ToTransNo');
         col_end();
 
-        col_start(4, 'col-md-12');
+        col_start(4, 'col l12');
         submit('ProcessSearch', _("Search"), true, '', 'default', 'search');
         col_end();
     }
@@ -142,15 +144,15 @@ class MaintenanceVoid
             $_POST['memo_'] = '';
         }
 
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
         input_label_bootstrap(_("Transaction #"), null, ($this->selected_id == - 1 ? '' : $this->selected_id));
         col_end();
 
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
         input_date_bootstrap(_("Voiding Date"), 'date_');
         col_end();
 
-        col_start(4, 'col-md-8 col-sm-6');
+        col_start(4, 'col l4 s6');
         input_textarea_bootstrap(_("Memo"), 'memo_');
         col_end();
         row_end();

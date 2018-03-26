@@ -12,11 +12,12 @@ class Documentsattachment
 
     function index()
     {
+        echo "<div class=card-panel>";
         start_form(true);
 
         box_start("");
         row_start();
-          col_start(4, 'col-md-4 col-sm-6');
+          col_start(4, 'col l4 s6');
           systypes(_("Type:"), 'filterType', null, true);
           col_end();
         row_end();
@@ -37,6 +38,7 @@ class Documentsattachment
 
         box_end();
         end_form();
+        echo "</div>";
     }
 
     function items_list($tran_type)
@@ -114,7 +116,7 @@ class Documentsattachment
     {
 //         row_start();
         row_start();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l6 s6');
         if ($this->selected_id != - 1) {
             if ( $this->mode == 'Edit') {
                 $row = get_attachment($this->selected_id);
@@ -129,10 +131,10 @@ class Documentsattachment
             input_text( _("Transaction #") , 'trans_no');
 
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l6 s6');
         input_text(_("Description"), 'description');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
         file_bootstrap(_("Attached File") , 'filename');
         col_end();
         row_end();

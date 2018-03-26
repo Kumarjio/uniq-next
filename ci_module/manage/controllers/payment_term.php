@@ -12,6 +12,7 @@ class ManagePaymentTerm
 
     function index()
     {
+        echo "<div class=card-panel>";
         start_form();
         box_start("");
         $this->listview();
@@ -26,6 +27,7 @@ class ManagePaymentTerm
 
         box_end();
         end_form();
+        echo "</div>";
     }
 
     private function listview()
@@ -72,7 +74,7 @@ class ManagePaymentTerm
     {
         div_start('edits');
         row_start();
-        col_start('col-md-4 col-sm-6');
+        col_start('col l6 s6');
 
         // start_table(TABLESTYLE2);
 

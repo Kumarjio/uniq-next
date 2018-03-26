@@ -12,18 +12,18 @@ class SetupSystemReference
     {
         global $systypes_array;
         bootstrap_set_label_column(4);
-
+        echo "<div class=card-panel>";
         start_form();
         box_start("Next Reference");
 
         row_start();
-        col_start(6, 'col-md-6');
+        col_start(6, 'col l6');
 
         $systypes = get_systypes();
         $i = 0;
         while ($type = db_fetch($systypes)) {
             if ($i ++ == ST_CUSTCREDIT) {
-                col_start(6, 'col-md-6');
+                col_start(6, 'col l6');
             }
             input_text($systypes_array[$type["type_id"]], 'id' . $type["type_id"],  $type["next_reference"]);
         }
@@ -36,6 +36,7 @@ class SetupSystemReference
         box_form_end();
         box_end();
         end_form(2);
+        echo "</div>";
     }
 
     private function form()
