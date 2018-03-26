@@ -18,6 +18,7 @@ class GlManageReevaluate
             $_POST['date'] = Today();
 
         start_form();
+        echo "<div class='card-panel'>";
 
         box_start("");
         row_start();
@@ -41,6 +42,7 @@ class GlManageReevaluate
         box_footer_end();
 
         box_end();
+        echo "</div>";
         end_form();
     }
 

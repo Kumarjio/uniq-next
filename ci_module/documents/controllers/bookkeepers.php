@@ -85,20 +85,20 @@ class DocumentsBookkeepers  {
 
         box_start();
         start_form();
-
+        echo "<div class='card-panel'>";
         $this->filter();
         row_start();
         $sql = $this->mobile_model->document_items( input_post('tran_type'), input_post('date_from'), input_post('date_to'),input_post('status'));
         $table = & new_db_pager('mobile_upload', $sql, $this->datatable_view);
         $table->ci_control = $this;
         display_db_pager($table);
+        box_footer();
         row_end();
         div_start("_dialog_span");div_end();
+        echo "</div>";
         end_form();
 
-        box_footer();
         box_end();
-
 
         end_page();
     }

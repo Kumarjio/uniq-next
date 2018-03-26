@@ -17,6 +17,7 @@ class ProductsTransfers
     function form()
     {
         start_form();
+        echo "<div class='card-panel'>";
         box_start();
         $this->form_header();
 
@@ -40,6 +41,7 @@ class ProductsTransfers
         submit('Update', _("Update"),true, '', 'default','save');
         box_footer_end();
         box_end();
+        echo "</div>";
         end_form();
     }
 

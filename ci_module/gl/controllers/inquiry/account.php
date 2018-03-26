@@ -35,7 +35,7 @@ class GlInquiryAccount
     {
         $dim = get_company_pref('use_dimension');
         start_form();
-
+        echo "<div class='card-panel'>";
         box_start(); row_start();
 
         col_start(12,'col-md-4 col-sm-6');
@@ -73,6 +73,7 @@ class GlInquiryAccount
         box_footer_end();
 
         box_end();
+        echo "</div>";
         end_form();
     }
 

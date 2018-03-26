@@ -11,13 +11,14 @@ class PurchasesInquiryAllocation
 
     function view(){
         start_form();
-
+        echo "<div class='card-panel'>";
         box_start();
         $this->fillter();
 
         $this->transactions_table();
         box_footer();
         box_end();
+        echo "</div>";
         end_form();
     }
 

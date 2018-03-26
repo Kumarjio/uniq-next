@@ -17,6 +17,7 @@ class ProductsAdjustment
     function form()
     {
         start_form();
+        echo "<div class='card-panel'>";
         box_start();
         $this->form_header();
 
@@ -41,6 +42,7 @@ class ProductsAdjustment
         box_footer_end();
 
         box_end();
+        echo "</div>";
         end_form();
     }
 

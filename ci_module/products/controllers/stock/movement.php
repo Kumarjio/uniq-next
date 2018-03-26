@@ -11,6 +11,7 @@ class ProductsStockMovement
     }
 
     function view(){
+        echo "<div class='card-panel'>";
         if (!@$_GET['popup']){
             start_form();
         }
@@ -36,6 +37,7 @@ class ProductsStockMovement
             div_end();
         }
         div_end();
+        echo "</div>";
 
     }
     private function filter(){

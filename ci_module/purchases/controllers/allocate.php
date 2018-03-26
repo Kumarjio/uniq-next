@@ -12,6 +12,7 @@ class PurchasesAllocate
     function main()
     {
         start_form();
+        echo "<div class='card-panel'>";
         box_start();
 
         /* show all outstanding receipts and credits to be allocated */
@@ -23,6 +24,7 @@ class PurchasesAllocate
 
         box_footer();
         box_end();
+        echo "</div>";
         end_form();
     }
 

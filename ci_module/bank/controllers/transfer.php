@@ -15,7 +15,7 @@ class BankTransfer
         $home_currency = get_company_currency();
 
         start_form();
-
+        echo "<div class='card-panel'>";
         box_start();
         row_start();
         col_start(12,'col-md-6');
@@ -63,6 +63,7 @@ class BankTransfer
         submit('AddPayment',_("Enter Transfer"), true, '', 'default','save');
         box_footer_end();
         box_end();
+        echo "</div>";
         end_form();
     }
 

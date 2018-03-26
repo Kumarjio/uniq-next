@@ -594,7 +594,7 @@ box_start();
     // echo "<div class=col s12>";
     echo "<div class=row><h4>".access_string($reports->report_current->name,true)."</h4></div>";
     if($report_id == '107' || $report_id == '113' || $report_id == '110' || $report_id == '109' || $report_id == '111' || $report_id == '112' || $report_id == '209' || $report_id == '210'){
-	    	echo "<a class='btn green ajaxsubmit' href=".site_url().'report/report/manage_template/'.$report_id." >Manage Template ".access_string($reports->report_current->name, true)."</a>";
+	    	echo "<a class='btn green ajaxsubmit' style='float:right; color:white;' href=".site_url().'/report/report/manage_template/'.$report_id." >Manage Template ".access_string($reports->report_current->name, true)."</a><br/><br/>";
 	    }
     row_start('justify-content-md-center');
     col_start(12,"col-md-12");

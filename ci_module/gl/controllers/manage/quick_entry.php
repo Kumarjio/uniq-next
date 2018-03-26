@@ -15,6 +15,7 @@ class GlManageQuickEntry
     function index()
     {
         start_form();
+        echo "<div class='card-panel'>";
         box_start("");
         $this->listview();
 
@@ -31,6 +32,7 @@ class GlManageQuickEntry
         }
 
         box_end();
+        echo "</div>";
         end_form();
     }
 

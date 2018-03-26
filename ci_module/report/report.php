@@ -29,14 +29,14 @@ class Report {
         }
 
         page($this->ci->page_title. " | $title");
-        if($title == 'Print Statements'){
-            echo "<a class='btn green ajaxsubmit' href=".site_url().'report/report/manage_template/statements'." >Manage Template Statements</a>";
-        }else if($title == 'Bank Reconcile'){
-            echo "<a class='btn green ajaxsubmit' href=".site_url().'report/report/manage_template/reconcile'." >Manage Template Bank Reconcile</a>";
-        }
 //         $this->bootstrap->box_start();
         start_form($multi=false, $dummy=false, $action=get_instance()->uri->uri_string());
         echo "<div class=card-panel>";
+        if($title == 'Print Statements'){
+            echo "<a class='btn green ajaxsubmit' style='float:right; color:white;' href=".site_url().'report/report/manage_template/statements'." >Manage Template Statements</a>";
+        }else if($title == 'Bank Reconcile'){
+            echo "<a class='btn green ajaxsubmit' style='float:right; color:white;' href=".site_url().'report/report/manage_template/reconcile'." >Manage Template Bank Reconcile</a>";
+        }
         $ci->temp_view($this->view,array('fields'=>$this->fields,'submit'=>$buttons,'area_width'=>$area_width),false,'report');
         // box_footer_start();
         // box_start();
@@ -2186,7 +2186,7 @@ class Report {
 
             require_once(BASEPATH.'../ci_module/report/views/invoice.php');
 
-            box_footer();
+            
             box_end();
             end_form();
             end_page();
@@ -2198,7 +2198,7 @@ class Report {
 
             require_once(BASEPATH.'../ci_module/report/views/credit_note.php');
 
-            box_footer();
+            // box_footer();
             box_end();
             end_form();
             end_page();
@@ -2210,7 +2210,7 @@ class Report {
 
             require_once(BASEPATH.'../ci_module/report/views/deliveries.php');
 
-            box_footer();
+            // box_footer();
             box_end();
             end_form();
             end_page();
@@ -2222,7 +2222,7 @@ class Report {
 
             require_once(BASEPATH.'../ci_module/report/views/statements.php');
 
-            box_footer();
+            // box_footer();
             box_end();
             end_form();
             end_page();
@@ -2234,7 +2234,7 @@ class Report {
 
             require_once(BASEPATH.'../ci_module/report/views/sales_order.php');
 
-            box_footer();
+            // box_footer();
             box_end();
             end_form();
             end_page();
@@ -2246,7 +2246,7 @@ class Report {
 
             require_once(BASEPATH.'../ci_module/report/views/sales_quotation.php');
 
-            box_footer();
+            // box_footer();
             box_end();
             end_form();
             end_page();
@@ -2258,7 +2258,7 @@ class Report {
 
             require_once(BASEPATH.'../ci_module/report/views/receipts.php');
 
-            box_footer();
+            // box_footer();
             box_end();
             end_form();
             end_page();
@@ -2270,7 +2270,7 @@ class Report {
 
             require_once(BASEPATH.'../ci_module/report/views/purchase_orders.php');
 
-            box_footer();
+            // box_footer();
             box_end();
             end_form();
             end_page();
@@ -2282,7 +2282,7 @@ class Report {
 
             require_once(BASEPATH.'../ci_module/report/views/remittances.php');
 
-            box_footer();
+            // box_footer();
             box_end();
             end_form();
             end_page();
@@ -2294,7 +2294,7 @@ class Report {
 
             require_once(BASEPATH.'../ci_module/report/views/bank_payment.php');
 
-            box_footer();
+            // box_footer();
             box_end();
             end_form();
             end_page();
@@ -2306,7 +2306,7 @@ class Report {
 
             require_once(BASEPATH.'../ci_module/report/views/bank_deposit.php');
 
-            box_footer();
+            // box_footer();
             box_end();
             end_form();
             end_page();
@@ -2318,7 +2318,7 @@ class Report {
 
             require_once(BASEPATH.'../ci_module/report/views/bank_accout.php');
 
-            box_footer();
+            // box_footer();
             box_end();
             end_form();
             end_page();
@@ -2330,7 +2330,7 @@ class Report {
 
             require_once(BASEPATH.'../ci_module/report/views/bank_reconcile.php');
 
-            box_footer();
+            // box_footer();
             box_end();
             end_form();
             end_page();

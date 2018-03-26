@@ -17,6 +17,7 @@ class PurchasesTranCredit
     {
         start_form();
         // box_start();
+        echo "<div class='card-panel'>";
 
         $this->invoice->cart = $_SESSION['supp_trans'];
         $this->invoice->form_header();
@@ -41,6 +42,7 @@ class PurchasesTranCredit
 
 
         // box_end();
+        echo "</div>";
         end_form();
     }
 

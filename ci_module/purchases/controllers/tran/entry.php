@@ -14,6 +14,7 @@ class PurchasesTranEntry
     function form(){
 
         start_form();
+        echo "<div class='card-panel'>";
         box_start();
 
         $this->order->form_header();
@@ -57,6 +58,7 @@ class PurchasesTranEntry
         box_footer_end();
         //---------------------------------------------------------------------------------------------------
         box_end();
+        echo "</div>";
         end_form();
     }
 

@@ -28,6 +28,7 @@ class GlInquiryTrialBalance
     function view ()
     {
         box_start();
+        echo "<div class='card-panel'>";
         $this->filter();
         $this->set_filter_value();
 
@@ -38,8 +39,10 @@ class GlInquiryTrialBalance
 
         $this->items();
 
-        box_footer_start();
-        box_footer_end();
+        // box_footer_start();
+        // box_footer_end();
+
+        echo "</div>";
         box_end();
     }
 
@@ -184,6 +187,7 @@ class GlInquiryTrialBalance
         end_row();
 
         end_table(1);
+        box_footer();
         if (($pbal = round2($pbal, user_price_dec())) != 0 && $_POST['Dimension'] == 0 && $_POST['Dimension2'] == 0){
             display_warning( _("The Opening Balance is not in balance, probably due to a non closed Previous Fiscalyear."));
         }

@@ -15,9 +15,6 @@ class SetupSystemDisplay
 
         $this->form();
 
-        box_footer_start();
-        submit('setprefs', _("Update"), true, '', 'default','save');
-        box_form_end();
         box_end();
         end_form(2);
     }
@@ -29,7 +26,7 @@ class SetupSystemDisplay
         // start_outer_table(TABLESTYLE2);
 
         // table_section(1);
-        row_start();
+        row_start('card-panel');
           col_start(4, 'col-md-4 col-sm-6');
             fieldset_start(_("Decimal Places"));
             numbers_list(_("Prices"), 'prices_dec', user_price_dec(), 0, 10);
@@ -101,6 +98,9 @@ class SetupSystemDisplay
           col_start(4, 'col-md-4 col-sm-6');
             fieldset_start(_("Language"));
             languages_bootstrap(_("Language"), 'language', $_POST['language']);
+            box_footer_start();
+            submit('setprefs', _("Update"), true, '', 'default','save');
+            box_form_end();
           col_end();
         row_end();
     }

@@ -11,6 +11,7 @@ class SupplierManageSupplier
     function index(){
         global $Ajax;
         start_form();
+        echo "<div class='card-panel'>";
         box_start("");
         if (db_has_suppliers()){
             row_start();
@@ -97,6 +98,7 @@ class SupplierManageSupplier
 
 
         box_end();
+        echo "</div>";
         end_form();
     }
 

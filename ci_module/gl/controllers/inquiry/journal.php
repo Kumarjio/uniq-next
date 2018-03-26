@@ -10,6 +10,7 @@ class GLInquiryJournal
     function index()
     {
         start_form();
+        echo "<div class='card-panel'>";
         box_start();
         $this->fillter();
 
@@ -19,6 +20,7 @@ class GLInquiryJournal
         box_footer_end();
 
         box_end();
+        echo "</div>";
         end_form();
     }
 

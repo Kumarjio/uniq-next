@@ -10,6 +10,7 @@ class ManageExchangeRate
     function index()
     {
         start_form();
+        echo "<div class='card-panel'>";
         box_start("");
 
         if (!isset($_POST['curr_abrev']))
@@ -59,6 +60,7 @@ class ManageExchangeRate
         }
 
         box_end();
+        echo "</div>";
         end_form();
     }
 

@@ -18,6 +18,7 @@ class GlBudget
         }
 
         start_form();
+        echo "<div class='card-panel'>";
         box_start();
         $this->form_header();
         box_footer_start(null, null, false);
@@ -35,6 +36,7 @@ class GlBudget
         echo submit('update', _("Update"), '', null);
         box_footer_end();
         box_end();
+        echo "</div>";
         end_form();
     }
 

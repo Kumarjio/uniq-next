@@ -12,6 +12,7 @@ class GlManageAccount
         global $Ajax;
 
         start_form();
+        echo "<div class='card-panel'>";
         box_start("");
 
         if (db_has_gl_accounts())
@@ -54,6 +55,7 @@ class GlManageAccount
         box_footer_end();
 
         box_end();
+        echo "</div>";
         end_form();
     }
 

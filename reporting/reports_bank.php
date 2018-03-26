@@ -105,8 +105,9 @@ $bootstrap = get_instance()->bootstrap;
 // bug($reports->report_current);die;
 // $bootstrap->box_start("");
 start_form($multi = false, $dummy = false, $action = "", $name = "", 'target="_blank" class="report" ');
+echo "<div class='card-panel'>";
 if($type == '1' || $type == '2' || $type == '4'){
-	    	echo "<a class='btn green ajaxsubmit' href=".site_url().'report/report/manage_template/'.$type." >Manage Template ".access_string($reports->report_current->name, true)."</a>";
+	    	echo "<a class='btn green ajaxsubmit' style='float:right; color:white;' href=".site_url().'report/report/manage_template/'.$type." >Manage Template ".access_string($reports->report_current->name, true)."</a>";
 	    }
 // $bootstrap->fieldset_start( access_string($reports->report_current->name,true) );
 // $bootstrap->col_start(8,'class="col-md-offset-1"');
@@ -118,6 +119,7 @@ echo $reports->ci_display();
 // echo hidden('REP_ID', $reports->report_current->id, false);
 // $bootstrap->box_footer_end();
 // $bootstrap->fieldset_end();
+echo "</div>";
 end_form();
 // $bootstrap->box_end();
 

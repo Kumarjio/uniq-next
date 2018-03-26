@@ -14,7 +14,6 @@ class AdminChangePassword
 
     public function form(){
 
-        msg_info(_("Enter your new password in the fields."));
         start_form();
         box_start();
 
@@ -25,7 +24,8 @@ class AdminChangePassword
         $_POST['password'] = "";
         $_POST['passwordConfirm'] = "";
 
-        row_start('justify-content-md-center');
+        row_start('card-panel');
+        msg_info(_("Enter your new password in the fields."));
         col_start(12,"col-md-8");
 
         input_label(_("User login:"),null, $myrow['user_id']);
@@ -33,11 +33,11 @@ class AdminChangePassword
         input_password(_("New Password:"), 'password');
         input_password(_("Repeat New Password:"), 'passwordConfirm');
 
-        row_end();
         box_footer_start();
 
         submit_icon('UPDATE_ITEM', _('Change password'),'save');
         box_footer_end();
+        row_end();
         box_end();
         end_form();
     }

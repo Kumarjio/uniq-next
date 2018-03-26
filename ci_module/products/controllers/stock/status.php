@@ -11,6 +11,7 @@ class ProductsStockStatus
     }
 
     function view(){
+        echo "<div class='card-panel'>";
         if (!@$_GET['popup']){
             box_start();
             $this->filter();
@@ -33,6 +34,7 @@ class ProductsStockStatus
 
 
         div_end();
+        echo "</div>";
 
 
     }

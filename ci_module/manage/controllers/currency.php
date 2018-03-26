@@ -12,6 +12,7 @@ class ManageCurrency
     function index()
     {
         start_form();
+        echo "<div class='card-panel'>";
         box_start("");
         $this->listview();
         box_footer_show_active();
@@ -25,6 +26,7 @@ class ManageCurrency
         box_footer_end();
 
         box_end();
+        echo "</div>";
         end_form();
     }
 

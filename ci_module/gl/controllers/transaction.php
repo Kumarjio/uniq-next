@@ -20,6 +20,7 @@ class GlTransaction
     {
         $this->tran_cart = $_SESSION['journal_items'];
         start_form(true);
+        echo "<div class='card-panel'>";
 
         box_start();
         $this->tran_header();
@@ -57,6 +58,7 @@ class GlTransaction
         box_footer_end();
 
         box_end();
+        echo "</div>";
         end_form();
     }
 

@@ -87,11 +87,13 @@ function check_overdue($row) {
 
 if (!@$_GET['popup'])
     start_form();
+	echo "<div class='card-panel'>";
 
 $inquiry_ci->view();
 
 if (!@$_GET['popup'])
 {
+	echo "</div>";
 	end_form();
 	end_page(@$_GET['popup'], false, false);
 }
