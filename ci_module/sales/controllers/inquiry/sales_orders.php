@@ -35,7 +35,7 @@ class SalesInquirySalesOrders
             echo "</div>";
         }
         end_form();
-        
+
     }
 
     private function get_val()
@@ -86,32 +86,32 @@ class SalesInquirySalesOrders
 
 
         row_start('inquiry-filter');
-        col_start(12,'col s6 m4 l3');
+        col_start(12,'col s6 m6 l6');
         input_text_bootstrap( 'Order Numb.', 'OrderNumber', '', null, true);
-        col_start(12,'col s6 m4 l3');
+        col_start(12,'col s6 m6 l6');
         input_text_bootstrap(_("Ref"), 'OrderReference', '', null,true);
 
         if ($show_dates) {
-            col_start(12,'col s6 m4 l3');
+            col_start(12,'col s6 m6 l6');
             input_date_bootstrap("From", 'OrdersAfterDate', NULL, false, false, - 30);
-            col_start(12,'col s6 m4 l3');
+            col_start(12,'col s6 m6 l6');
             input_date_bootstrap( "To", 'OrdersToDate', NULL);
         }
-        col_start(12,'col s6 m4 l3');
+        col_start(12,'col s6 m6 l6');
         locations_bootstrap( _("Location"), 'StockLocation', null, true, true);
 
 
-        col_start(12,'col s6 m4 l3');
+        col_start(12,'col s6 m6 l6');
         stock_items_bootstrap( _("Product"), 'SelectStockFromList', null, true, true);
 
         if (! @$_GET['popup']){
-            col_start(12,'col s6 m4 l3');
+            col_start(12,'col s6 m6 l6');
             customer_list_bootstrap( _("Customer"), 'customer_id', input_val('customer_id'), true, true);
         }
 
 
         if ($trans_type == ST_SALESQUOTE){
-            col_start(12,'col s6 m4 l3');
+            col_start(12,'col s6 m6 l6');
             // if( !isMobile() ){
             //     bootstrap_set_label_column(6);
             // }
@@ -121,7 +121,7 @@ class SalesInquirySalesOrders
 
         // col_start(12,'clearfix');
 
-        col_start(12,'col s12');
+        col_start(12,'col s12 m12 l12');
         submit_bootstrap( 'SearchOrders', _("Search"), _('Select documents'), 'default');
 
         hidden('order_view_mode', $_POST['order_view_mode']);

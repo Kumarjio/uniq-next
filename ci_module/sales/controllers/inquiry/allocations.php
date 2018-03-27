@@ -57,27 +57,26 @@ class SalesInquiryAllocations
         row_start('inquiry-filter justify-content-center');
         if (! @$_GET['popup']) {
 
-            col_start(12,'col-md-4 col-sm-6');
+            col_start(12,'col l6 s6');
             customer_list_bootstrap( _("Customer"), 'customer_id', input_val('customer_id'), false, ! @$_GET['popup']);
         }
-        col_start(12,'col-md-4 col-sm-6');
-        input_date_bootstrap( "From", 'TransAfterDate', NULL, false, false, 0, - 1);
-
-        col_start(12,'col-md-4 col-sm-6');
-        input_date_bootstrap( "To", 'TransToDate', NULL);
-
         if (! isset($_POST['filterType']))
-            $_POST['filterType'] = 0;
-
-        col_start(12,'col-md-4 col-sm-6');
-
+        $_POST['filterType'] = 0;
+        col_start(12,'col l6 s6');
         $fillter_type_title = "Tran Type";
         cust_allocations_bootstrap( $fillter_type_title, 'filterType', input_val('filterType'), true);
+        
+        col_start(12,'col l6 s6');
+        input_date_bootstrap( "From", 'TransAfterDate', NULL, false, false, 0, - 1);
 
-        col_start(12,'col-md-4 col-sm-6');
+        col_start(12,'col l6 s6');
+        input_date_bootstrap( "To", 'TransToDate', NULL);
+
+
+        col_start(12,'col l6 s6');
         check_bootstrap('show settled', 'settled');
         echo "<div class=clearfix style='margin-top:50px'></div>";
-        col_start(12,'col-md-4 col-sm-6');
+        col_start(12,'col l6 s6');
         submit_bootstrap( 'RefreshInquiry', _("Search"), _('Refresh Inquiry'), 'default','search');
         echo "<div class=clearfix style='margin-bottom:50px'></div>";
         row_end();

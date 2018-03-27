@@ -59,21 +59,21 @@ class PurchasesInquiryAllocation
     function fillter(){
         row_start('inquiry-filter');
         if (! @$_GET['popup']) {
-            col_start(12,'col-md-4 col-sm-6');
+            col_start(12,'col l6 s6');
             supplier_list_bootstrap(_("Supplier"), 'supplier_id', null, true, true);
             col_end();
         }
 
-        col_start(12,'col-md-4 col-sm-6');
-        input_date_bootstrap("From", 'TransAfterDate', NULL, false, false, 0, - 1);
-        col_end();
-        col_start(12,'col-md-4 col-sm-6');
-        input_date_bootstrap("To", 'TransToDate');
-        col_end();
-        col_start(12,'col-md-4 col-sm-6');
+        col_start(12,'col l6 s6');
         supp_transactions_bootstrap("Tran Type", 'filterType', input_val('filterType'), true);
         col_end();
-        col_start(12,'col-md-4 col-sm-6');
+        col_start(12,'col l6 s6');
+        input_date_bootstrap("From", 'TransAfterDate', NULL, false, false, 0, - 1);
+        col_end();
+        col_start(12,'col l6 s6');
+        input_date_bootstrap("To", 'TransToDate');
+        col_end();
+        col_start(12,'col l6 s6');
         check_bootstrap('Voided', 'voided');
         col_end();
         col_start(12,'col-md-12');

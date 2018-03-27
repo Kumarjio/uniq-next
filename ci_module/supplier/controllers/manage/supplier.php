@@ -15,9 +15,9 @@ class SupplierManageSupplier
         box_start("");
         if (db_has_suppliers()){
             row_start();
-            col_start(9, 'col-md-4 col-sm-6');
+            col_start(9, 'col l6 s6');
             supplier_list_bootstrap(_("Select a supplier"), 'supplier_id', null,_('New supplier'), true, check_value('show_inactive'));
-            col_start(3, 'col-md-4 col-sm-6');
+            col_start(3, 'col l6 s6');
             check_bootstrap(_("Show inactive"), 'show_inactive', null, true);
             col_end();
             row_end();
@@ -181,7 +181,7 @@ class SupplierManageSupplier
 
 
         row_start();
-        col_start(6, 'col-md-6 col-sm-4');
+        col_start(6, 'col l6 s6');
         fieldset_start("Basic Data");
         input_text_bootstrap("Supplier Name", 'supp_name');
         input_text_bootstrap("Short Name", 'supp_ref');
@@ -227,7 +227,7 @@ class SupplierManageSupplier
             hidden('last_verifile');
             hidden('valid_gst');
         }
-
+        col_start(6, 'col l6 s6');
         fieldset_start("Basic Data");
             input_text_bootstrap("Bank Name / Account", 'bank_account');
             input_money('Credit Limit','credit_limit');
@@ -250,7 +250,7 @@ class SupplierManageSupplier
         //	label_row(_("Prices contain tax included:"), $_POST['tax_included'] ? _('Yes') : _('No'));
         //}
 
-        col_start(6, 'col-md-6');
+        col_start(6, 'col l6');
         $dim = get_company_pref('use_dimension');
         if ($dim >= 1)
         {
@@ -266,11 +266,14 @@ class SupplierManageSupplier
         if ($dim < 2)
             hidden('dimension2_id', 0);
 
-
+        col_end();
+          echo "<div class=clearfix></div>";
+        col_start(6, 'col l6');
         fieldset_start("Addresses");
             input_textarea_bootstrap('Mailing Address','address');
             input_textarea_bootstrap('Physical Address','supp_address');
-
+        col_end();
+        col_start(6, 'col l6');
         fieldset_start("General");
             input_textarea_bootstrap('General Notes','notes');
 
@@ -286,6 +289,7 @@ class SupplierManageSupplier
             hidden('self_bill_approval_ref');
             hidden('self_bill');
         }
+        col_start(6, 'col l6');
         fieldset_start("Accounts");
         gl_accounts_bootstrap('Accounts Payable' ,'payable_account');
         gl_accounts_bootstrap('Purchase Account' ,'purchase_account',        null,false, false, _("Use Item Inventory/COGS Account"));
@@ -295,26 +299,26 @@ class SupplierManageSupplier
 
         if (!$supplier_id) {
             row_start();
-            col_start(12, 'col-md-12');
+            col_start(12, 'col l12');
             fieldset_start("Contact Data");
             col_end();
-            col_start(12, 'col-md-4 col-sm-6');
+            col_start(12, 'col l6 s6');
             input_text_bootstrap(_("Phone Number"), 'phone');
             col_end();
-            col_start(12, 'col-md-4 col-sm-6');
+            col_start(12, 'col l6 s6');
             input_text_bootstrap(_("Secondary Phone Number:"), 'phone2');
             col_end();
-            col_start(12, 'col-md-4 col-sm-6');
+            col_start(12, 'col l6 s6');
             input_text_bootstrap(_("Contact Person"), 'contact');
 
             col_end();
-            col_start(12, 'col-md-4 col-sm-6');
+            col_start(12, 'col l6 s6');
             input_text_bootstrap(_("Fax Number"), 'fax');
             col_end();
-            col_start(12, 'col-md-4 col-sm-6');
+            col_start(12, 'col l6 s6');
             input_text_bootstrap(_("E-mail"), 'email');
             col_end();
-            col_start(12, 'col-md-4 col-sm-6');
+            col_start(12, 'col l6 s6');
             languages_bootstrap(_("Document Language"), 'rep_lang', null, _('System default'));
             col_end();
             row_end();

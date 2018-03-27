@@ -8,6 +8,7 @@ class SalesManagerPerson
 
     function index()
     {
+        echo "<div class=card-panel>";
         start_form();
 
         box_start("");
@@ -25,6 +26,7 @@ class SalesManagerPerson
         box_end();
 
         end_form();
+        echo "</div>";
     }
 
     private function persons_list()
@@ -93,28 +95,28 @@ class SalesManagerPerson
             $_POST['provision2'] = percent_format(0);
         }
 
-        col_start(6, 'col-md-4 col-sm-6');
+        col_start(6, 'col l4 s6');
         input_text_bootstrap("Sales person name", 'salesman_name');
         col_end();
-        col_start(6, 'col-md-4 col-sm-6');
+        col_start(6, 'col l4 s6');
         input_text_bootstrap("Telephone number", 'salesman_phone');
         col_end();
-        col_start(6, 'col-md-4 col-sm-6');
+        col_start(6, 'col l4 s6');
         input_text_bootstrap("Fax number", 'salesman_fax');
         col_end();
-        col_start(6, 'col-md-4 col-sm-6');
+        col_start(6, 'col l4 s6');
         input_text_bootstrap("E-mail", 'salesman_email');
         col_end();
-        col_start(6, 'col-md-4 col-sm-6');
+        col_start(6, 'col l4 s6');
         input_percent('Provision','provision');
         col_end();
-        col_start(6, 'col-md-4 col-sm-6');
+        col_start(6, 'col l4 s6');
         input_money('Break Pt.','break_pt');
         col_end();
-        col_start(6, 'col-md-4 col-sm-6');
+        col_start(6, 'col l4 s6');
         input_percent('Provision 2','provision2');
         col_end();
-        col_start(6, 'col-md-4 col-sm-6');
+        col_start(6, 'col l4 s6');
 //         start_table(TABLESTYLE2);
 
 //         text_row_ex(_("Sales person name:"), 'salesman_name', 30);

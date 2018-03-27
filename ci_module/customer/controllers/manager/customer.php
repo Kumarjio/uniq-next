@@ -52,16 +52,17 @@ class CustomerManagerCustomer
         // $this->customer_id = $_POST['customer_id'] = 140;
         // $_POST['_tabs_sel'] = 'transactions';
 
+        echo "<div class=card-panel>";
         start_form();
         box_start();
 
         row_start();
         if (db_has_customers()) {
-            col_start(8, 'col-md-4 col-sm-6');
+            col_start(8, 'col l6 s6');
 
             customer_list_bootstrap('Select a customer', 'customer_id', null, $submit_on_change = true, $editkey = false, _('New customer'), check_value('show_inactive'));
 
-            col_start(3, 'col-md-4 col-sm-6');
+            col_start(3, 'col l6 s6');
             $this->bootstrap->label_column = 8;
             check_bootstrap(_("Show inactive"), 'show_inactive', null, true);
 
@@ -181,6 +182,7 @@ class CustomerManagerCustomer
 
         box_end();
         end_form();
+        echo "</div>";
     }
 
     private function customer_settings()
@@ -229,7 +231,7 @@ class CustomerManagerCustomer
         row_start();
 
         // $this->bootstrap->label_column = NULL;
-        col_start(6,'col-md-6');
+        col_start(6,'col l6');
         bootstrap_set_label_column(4);
         $this->bootstrap->fieldset_start("Name and Address");
         input_text_bootstrap("Customer Name", 'CustName', $_POST['CustName']);
@@ -270,7 +272,7 @@ class CustomerManagerCustomer
 
         $this->bootstrap->fieldset_end();
 
-        col_start(6,'col-md-6');
+        col_start(6,'col l6');
         $this->bootstrap->fieldset_start("Sales");
         input_percent(_("Discount Percent:"), 'discount');
         input_percent(_("Prompt Payment Discount Percent:"), 'pymt_discount');
@@ -309,25 +311,25 @@ class CustomerManagerCustomer
             echo "<hr />";
             fieldset_start("Branch");
             row_start();
-            col_start(6,'col-md-6');
+            col_start(6,'col l6');
             input_text_bootstrap("Phone", 'phone');
-            col_start(6,'col-md-6');
+            col_start(6,'col l6');
             input_text_bootstrap("Secondary Phone Number", 'phone2');
-            col_start(6,'col-md-6');
+            col_start(6,'co l6');
             input_text_bootstrap("Fax Number", 'fax');
-            col_start(6,'col-md-6');
+            col_start(6,'col l6');
             input_text_addon_bootstrap(_("E-mail:"), 'email', null, 'email');
-            col_start(6,'col-md-6');
+            col_start(6,'col l6');
             sales_persons_bootstrap("Sales Person", 'salesman');
             col_end();
 
-            col_start(6,'col-md-6');
+            col_start(6,'col l6');
             locations_bootstrap("Inventory Location", 'location');
-            col_start(6,'col-md-6');
+            col_start(6,'col l6');
             shippers_bootstrap('Shipping Company', 'ship_via');
-            col_start(6,'col-md-6');
+            col_start(6,'col l6');
             sales_areas_bootstrap('Sales Area', 'area');
-            col_start(6,'col-md-6');
+            col_start(6,'col l6');
             tax_groups_bootstrap('Tax Group', 'tax_group_id');
             col_end();
             row_end();

@@ -12,13 +12,14 @@ class CustomerManagerBranches
 
     function form()
     {
+        echo "<div class=card-panel>";
         start_form();
         row_start("");
-        col_start(11, 'col-md-4 col-sm-6');
+        col_start(11, 'col l4 s6');
         customer_list_bootstrap('Select a customer', 'customer_id', null, true, false, false);
         col_end();
 
-        col_start(12, 'col-md-12');
+        col_start(12, 'col l12');
         $this->branches_list();
         col_end();
         row_end();
@@ -68,6 +69,7 @@ class CustomerManagerBranches
 
         box_end();
         end_form();
+        echo "</div>";
     }
 
     /*
@@ -169,12 +171,12 @@ class CustomerManagerBranches
             $myrow = get_default_info_for_branch($_POST['customer_id']);
             // $_POST['rep_lang'] = $myrow['rep_lang'];
             $num_branches = db_customer_has_branches($_POST['customer_id']);
-            
+
                 $_POST['br_name'] = $myrow["name"];
                 $_POST['br_ref'] = $myrow["debtor_ref"];
                 $_POST['contact_name'] = _('Main Branch');
                 $_POST['br_address'] = $_POST['br_post_address'] = $myrow["address"];
-            
+
             $_POST['branch_code'] = "";
             if (! isset($_POST['sales_account']) || ! isset($_POST['sales_discount_account'])) {
                 $company_record = get_company_prefs();
@@ -189,7 +191,7 @@ class CustomerManagerBranches
         }
 
         bootstrap_set_label_column(5);
-        col_start(6, 'col-md-6');
+        col_start(6, 'col l6');
         hidden('popup', @$_REQUEST['popup']);
         fieldset_start('Name and Contact');
         input_text_bootstrap("Name", 'br_name');
@@ -210,7 +212,7 @@ class CustomerManagerBranches
         gl_accounts_bootstrap('Prompt Payment Discount', 'payment_discount_account', null, false, false, true);
         col_end();
 
-        col_start(6, 'col-md-6');
+        col_start(6, 'col l6');
         if ($this->id == - 1) {
             fieldset_start('General contact data');
             input_text_bootstrap("Contact Person", 'contact_name');

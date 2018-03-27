@@ -86,7 +86,7 @@ class SalesSaleCartLib
         $change_prices = 0;
 
         // row_start();
-        col_start(12,'col s6 m4');
+        col_start(12,'col s6 m6');
         if( !isMobile() ){
             bootstrap_set_label_column(4);
         }
@@ -210,7 +210,7 @@ class SalesSaleCartLib
             locations_bootstrap(_("Deliver from Location"), 'Location2', null, false, true);
         }
 
-        col_start(12,'col s6 m4');
+        col_start(12,'col s6 l6');
         if( !isMobile() ){
             bootstrap_set_label_column(3);
         }
@@ -305,8 +305,10 @@ class SalesSaleCartLib
             // label_row(_("Customer Currency:"), $order->customer_currency);
             // exchange_rate_display(get_company_currency(), $order->customer_currency, ($editable ? $_POST['OrderDate'] : $order->document_date));
         }
+        echo "<div class=col s6 l6>";
         customer_credit_bootstrap($_POST['customer_id'], $order->credit);
         input_label(_("Customer Discount"), null, ($order->default_discount * 100) . "%");
+        echo "</div>";
         bootstrap_set_label_column(0);
         // row_end();
 
@@ -599,7 +601,7 @@ class SalesSaleCartLib
             hidden('delivery_date', $order->due_date);
         } else {
 
-            col_start(12,'col s6 m4');
+            col_start(12,'col s6 l6');
             if( !isMobile() ){
                 bootstrap_set_label_column(4);
             }
@@ -616,7 +618,7 @@ class SalesSaleCartLib
 
             input_textarea( _("Address"), 'delivery_address', $order->delivery_address );
 
-            col_start(12,'col s6 m8');
+            col_start(12,'col s6 l6');
             input_text( _("Contact Phone Number"), 'phone', $order->phone );
             input_ref(_("Customer Reference"), 'cust_ref', $order->cust_ref, _('Customer reference number for this order (if any)'));
             input_textarea( _("Comments"), "Comments", $order->Comments );

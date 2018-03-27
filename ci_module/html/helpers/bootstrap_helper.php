@@ -89,11 +89,13 @@ function tabs_bootstrap($name, $tabs, $dft = '')
 
     div_start($name, $trigger = null, $non_ajax = false, $attributes = '');
 
-    $str = "<ul class='ajaxtabs nav nav-tabs' rel='$div'>\n";
+    // $str = "<ul class='ajaxtabs nav nav-tabs' rel='$div'>\n";
+    $str = "<ul class='tabs'>\n";
     foreach ($tabs as $tab_no => $tab) {
         $acc = access_string(is_array($tab) ? $tab[0] : $tab);
         $disabled = (is_array($tab) && ! $tab[1]) ? 'disabled ' : '';
-        $str .= ("<li class=\"" . ((string) $tab_no === $sel ? 'active' : NULL) . "\">" . "<button type='submit' name='{$name}_" . $tab_no . "' class='" . ((string) $tab_no === $sel ? 'current' : 'ajaxbutton') . "' $acc[1] $disabled>" . "<span>$acc[0]</span>" . "</button>\n" . "</li>\n");
+        // $str .= ("<li class=\"" . ((string) $tab_no === $sel ? 'active' : NULL) . "\">" . "<button type='submit' name='{$name}_" . $tab_no . "' class='" . ((string) $tab_no === $sel ? 'current' : 'ajaxbutton') . "' $acc[1] $disabled>" . "<span>$acc[0]</span>" . "</button>\n" . "</li>\n");
+        $str .= ("<li class=\"tab " . ((string) $tab_no === $sel ? 'active' : NULL) . "\">" . "<a type='submit' name='{$name}_" . $tab_no . "' class='" . ((string) $tab_no === $sel ? 'current' : 'ajaxbutton') . "' $acc[1] $disabled>" . "<span>$acc[0]</span>" . "</a>\n" . "</li>\n");
     }
 
     $str .= "</ul>\n";

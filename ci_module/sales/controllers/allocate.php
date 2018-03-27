@@ -20,14 +20,14 @@ class SalesAllocate
         box_start();
 
         row_start('justify-content-center');
-        col_start(6, 'col-md-4 col-sm-6');
+        col_start(6, 'col l6 s6');
         customer_list_bootstrap('Customer', 'customer_id', null, true, $editkey = false, $spec_option = true);
         set_global_customer($_POST['customer_id']);
         if (isset($_POST['customer_id']) && ($_POST['customer_id'] == ALL_TEXT)) {
             unset($_POST['customer_id']);
         }
 
-        col_start(3, 'col-md-4 col-sm-6');
+        col_start(3, 'col l6 s6');
         check_bootstrap('Show Settled Items', 'ShowSettled', null, true);
         row_end();
         /*

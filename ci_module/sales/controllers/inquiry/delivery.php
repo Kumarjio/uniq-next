@@ -29,28 +29,28 @@ class SalesInquiryDelivery
     private function filter()
     {
         row_start('inquiry-filter');
-        col_start(3, 'col-md-4 col-sm-6');
+        col_start(3, 'col l4 s6');
         input_text('Delivery Numb.','DeliveryNumber',null,true);
 //         ref_cells(_("#:"), 'DeliveryNumber', '', null, '', true);
 
-        col_start(3, 'col-md-4 col-sm-6');
+        col_start(3, 'col l4 s6');
         input_date_bootstrap('from', 'DeliveryAfterDate',null,false, -30);
 
-        col_start(3, 'col-md-4 col-sm-6');
+        col_start(3, 'col l4 s6');
         input_date_bootstrap('to', 'DeliveryToDate',null,false,1);
 
-        col_start(3, 'col-md-4 col-sm-6');
+        col_start(3, 'col l4 s6');
         locations_bootstrap('Location', 'StockLocation',null,true);
 
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
         stock_items_bootstrap('Item', 'SelectStockFromList', null, true);
 //         stock_items_list_cells(_("Item:"), 'SelectStockFromList', null, true);
 
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 s6');
         customer_list_bootstrap(_("Customer"), 'customer_id', null, true);
 //         customer_list_cells(_("Select a customer: "), 'customer_id', null, true, true);
 
-        col_start(1, 'col-md-4 col-sm-6');
+        col_start(1, 'col l4 s6');
         submit_bootstrap('SearchOrders', _("Search"), _('Select documents'), 'default' , 'search');
 //         submit('SearchOrders', _("Search"), true , _('Select documents'), 'default');
 

@@ -25,3 +25,43 @@
 [23-Mar-2018 14:54:37 Asia/Singapore] PHP Fatal error:  Uncaught  --> Smarty: unable to write file /var/www/uniq-next/includes/../tmp/smarty-compile/wrt5ab4a4ad5db8c6_00593089 <-- 
   thrown in /var/www/uniq-next/ci/thirdparty/Smarty-3.1.21/sysplugins/smarty_internal_write_file.php on line 46
 [23-Mar-2018 15:46:58 Asia/Singapore] 0:megareceiver@gmail.com:smarty_resource.php:772: filemtime(): stat failed for /var/www/uniq-next/includes/../tmp/smarty-compile/90b6e3c8f075cae475c04493f944783686873f73.file.form-reports.html.php
+[26-Mar-2018 11:19:04 Asia/Singapore] PHP Fatal error:  Call to a member function form() on boolean in /var/www/uniq-next/admin/company_preferences.php on line 39
+[26-Mar-2018 11:19:04 Asia/Singapore] PHP Stack trace:
+[26-Mar-2018 11:19:04 Asia/Singapore] PHP   1. {main}() /var/www/uniq-next/admin/company_preferences.php:0
+[26-Mar-2018 12:25:04 Asia/Singapore] PHP Parse error:  syntax error, unexpected 'box_start' (T_STRING), expecting ',' or ';' in /var/www/uniq-next/ci_module/admin/controllers/user.php on line 25
+[26-Mar-2018 12:25:04 Asia/Singapore] PHP Stack trace:
+[26-Mar-2018 12:25:04 Asia/Singapore] PHP   1. {main}() /var/www/uniq-next/admin/users.php:0
+[26-Mar-2018 12:25:04 Asia/Singapore] PHP   2. module_control_load() /var/www/uniq-next/admin/users.php:16
+[26-Mar-2018 12:25:04 Asia/Singapore] PHP   3. ci->module_control_load() /var/www/uniq-next/ci/helpers_at/load.php:70
+[26-Mar-2018 14:52:47 Asia/Singapore] 0:megareceiver@gmail.com:smarty_resource.php:772: filemtime(): stat failed for /var/www/uniq-next/includes/../tmp/smarty-compile/1e19a8b00d716dd331f88251bc33abf54b12cec8.file.table_items.html.php
+[26-Mar-2018 14:52:48 Asia/Singapore] 0:megareceiver@gmail.com:smarty_resource.php:772: filemtime(): stat failed for /var/www/uniq-next/includes/../tmp/smarty-compile/ec0bb3d851f415cf1cda089ab90ef90438600f8f.file.form.html.php
+[26-Mar-2018 14:52:48 Asia/Singapore] 0:megareceiver@gmail.com:smarty_resource.php:772: filemtime(): stat failed for /var/www/uniq-next/includes/../tmp/smarty-compile/06ff00a2e46e28dc0d15a83988e03a53b3873059.file.common.html.php
+[26-Mar-2018 15:14:27 Asia/Singapore] PHP Parse error:  syntax error, unexpected 'l4' (T_STRING), expecting ')' in /var/www/uniq-next/ci_module/manage/controllers/shipper.php on line 37
+[26-Mar-2018 15:14:27 Asia/Singapore] PHP Stack trace:
+[26-Mar-2018 15:14:27 Asia/Singapore] PHP   1. {main}() /var/www/uniq-next/admin/shipping_companies.php:0
+[26-Mar-2018 15:14:27 Asia/Singapore] PHP   2. module_control_load() /var/www/uniq-next/admin/shipping_companies.php:16
+[26-Mar-2018 15:14:27 Asia/Singapore] PHP   3. ci->module_control_load() /var/www/uniq-next/ci/helpers_at/load.php:70
+[26-Mar-2018 15:15:03 Asia/Singapore] PHP Parse error:  syntax error, unexpected 'l4' (T_STRING), expecting ')' in /var/www/uniq-next/ci_module/manage/controllers/shipper.php on line 37
+[26-Mar-2018 15:15:03 Asia/Singapore] PHP Stack trace:
+[26-Mar-2018 15:15:03 Asia/Singapore] PHP   1. {main}() /var/www/uniq-next/admin/shipping_companies.php:0
+[26-Mar-2018 15:15:03 Asia/Singapore] PHP   2. module_control_load() /var/www/uniq-next/admin/shipping_companies.php:16
+[26-Mar-2018 15:15:03 Asia/Singapore] PHP   3. ci->module_control_load() /var/www/uniq-next/ci/helpers_at/load.php:70
+[26-Mar-2018 15:15:19 Asia/Singapore] PHP Parse error:  syntax error, unexpected 'l4' (T_STRING), expecting ')' in /var/www/uniq-next/ci_module/manage/controllers/shipper.php on line 37
+[26-Mar-2018 15:15:19 Asia/Singapore] PHP Stack trace:
+[26-Mar-2018 15:15:19 Asia/Singapore] PHP   1. {main}() /var/www/uniq-next/admin/shipping_companies.php:0
+[26-Mar-2018 15:15:19 Asia/Singapore] PHP   2. module_control_load() /var/www/uniq-next/admin/shipping_companies.php:16
+[26-Mar-2018 15:15:19 Asia/Singapore] PHP   3. ci->module_control_load() /var/www/uniq-next/ci/helpers_at/load.php:70
+[26-Mar-2018 15:32:45 Asia/Singapore] 0:megareceiver@gmail.com:smarty_resource.php:772: filemtime(): stat failed for /var/www/uniq-next/includes/../tmp/smarty-compile/d8ff27d5a295c93f767815cfbf57853006f056da.file.audit_trail_filter.html.php
+[26-Mar-2018 15:43:44 Asia/Singapore] 0:megareceiver@gmail.com:smarty_resource.php:772: filemtime(): stat failed for /var/www/uniq-next/includes/../tmp/smarty-compile/6a81085eb3ddf2d606753b8e4e574d084857c90b.file.inventory.html.php
+[26-Mar-2018 15:47:18 Asia/Singapore] PHP Fatal error:  Class 'Opening' not found in /var/www/uniq-next/ci/ci.php on line 242
+[26-Mar-2018 15:47:18 Asia/Singapore] PHP Stack trace:
+[26-Mar-2018 15:47:18 Asia/Singapore] PHP   1. {main}() /var/www/uniq-next/admin/opening.php:0
+[26-Mar-2018 15:47:18 Asia/Singapore] PHP   2. ci->controller_load() /var/www/uniq-next/admin/opening.php:39
+[27-Mar-2018 16:13:46 Asia/Singapore] PHP Parse error:  syntax error, unexpected 'col' (T_STRING) in /var/www/uniq-next/ci_module/purchases/controllers/invoice.php on line 21
+[27-Mar-2018 16:13:46 Asia/Singapore] PHP Stack trace:
+[27-Mar-2018 16:13:46 Asia/Singapore] PHP   1. {main}() /var/www/uniq-next/purchasing/supplier_credit.php:0
+[27-Mar-2018 16:13:46 Asia/Singapore] PHP   2. module_control_load() /var/www/uniq-next/purchasing/supplier_credit.php:27
+[27-Mar-2018 16:13:46 Asia/Singapore] PHP   3. ci->module_control_load() /var/www/uniq-next/ci/helpers_at/load.php:70
+[27-Mar-2018 16:13:46 Asia/Singapore] PHP   4. PurchasesTranCredit->__construct() /var/www/uniq-next/ci/ci.php:279
+[27-Mar-2018 16:13:46 Asia/Singapore] PHP   5. module_control_load() /var/www/uniq-next/ci_module/purchases/controllers/tran/credit.php:10
+[27-Mar-2018 16:13:46 Asia/Singapore] PHP   6. ci->module_control_load() /var/www/uniq-next/ci/helpers_at/load.php:70

@@ -20,7 +20,7 @@ class PurchasesOrder
         // table_section(1);
 
         row_start();
-        col_start(4, "col-md-4");
+        col_start(4, "col l6");
         if ($editable) {
             if (! isset($_POST['supplier_id']) && (get_global_supplier() != ALL_TEXT))
                 $_POST['supplier_id'] = get_global_supplier();
@@ -78,7 +78,7 @@ class PurchasesOrder
         }
 
         col_end();
-        col_start(4, "col-md-4");
+        col_start(4, "col l6");
         if ($editable) {
             input_ref(_("Reference"), 'ref');
         } else {
@@ -109,7 +109,7 @@ class PurchasesOrder
             input_text(_("Permit No"), 'permit');
         }
         col_end();
-        col_start(4, "col-md-4");
+        col_start(4, "col l6");
         if (! isset($_POST['StkLocation']) || $_POST['StkLocation'] == "" || isset($_POST['_StkLocation_update']) || ! isset($_POST['delivery_address']) || $_POST['delivery_address'] == "") {
             /* If this is the first time the form loaded set up defaults */
 

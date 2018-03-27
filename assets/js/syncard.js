@@ -8,7 +8,7 @@ $(function(){
 $(".fa.fa-plus").attr({
             "title" : "Add New"
         });
-
+$('.tabs').tabs();
 getItemSelect();
 autocomplete();
 getAccountSelect();

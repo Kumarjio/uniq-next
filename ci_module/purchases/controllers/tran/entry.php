@@ -23,7 +23,7 @@ class PurchasesTranEntry
         $this->order->form_items();
 
         row_start('justify-content-center');
-            col_start(6, "col-md-6");
+            col_start(6, "col l6");
             input_textarea('Memo', 'Comments');
         row_end();
 
@@ -75,12 +75,12 @@ class PurchasesTranEntry
         box_start();
         row_start();
 
-        col_start(6, "col-md-6");
+        col_start(6, "col l6");
         mt_list_start('Printing', null, 'red');
         mt_list_print( _("&Print This Order"), $trans_type, $order_no);
         mt_list_print( _("&Email This Order"), $trans_type, $order_no, null, false);
 
-        col_start(6, "col-md-6");
+        col_start(6, "col l6");
         mt_list_start('Actions', '', 'blue');
         mt_list_link(_("&Receive Items on this Purchase Order"),"purchasing/po_receive_items.php?PONumber=$order_no");
         mt_list_hyperlink($_SERVER['PHP_SELF'], _("Enter &Another Purchase Order"), "NewOrder=yes");
@@ -101,7 +101,7 @@ class PurchasesTranEntry
             display_notification_centered(_("Direct Purchase Invoice has been entered"));
 
 //             display_note(get_trans_view_str($trans_type, $trans_no, _("&View this GRN")), 0);
-            col_start(6, "col-md-6");
+            col_start(6, "col l6");
             mt_list_start('Printing', null, 'red');
 
             mt_list_tran_view(_("View this GRN"),$trans_type, $trans_no);
@@ -111,7 +111,7 @@ class PurchasesTranEntry
                 mt_list_gl_view(_("View the GL Journal Entries for this Delivery"),$trans_type, $trans_no);
             }
 
-            col_start(6, "col-md-6");
+            col_start(6, "col l6");
             mt_list_start('Actions', '', 'blue');
             // not yet
             //	display_note(print_document_link($trans_no, _("&Print This GRN"), true, $trans_type), 0, 1);
@@ -147,7 +147,7 @@ class PurchasesTranEntry
             $trans_type = ST_SUPPINVOICE;
             display_notification(_("Direct Purchase Invoice has been entered"));
 
-            col_start(6, "col-md-6");
+            col_start(6, "col l6");
             mt_list_start('Printing', null, 'red');
             mt_list_tran_view(_("View this Invoice"),$trans_type, $trans_no);
 //             display_note(get_trans_view_str($trans_type, $trans_no, _("&View this Invoice")), 0);
@@ -160,7 +160,7 @@ class PurchasesTranEntry
 //             display_note(get_gl_view_str($trans_type, $trans_no, _("View the GL Journal Entries for this Invoice")), 1);
             mt_list_gl_view(_("View the GL Journal Entries for this Invoice"),$trans_type, $trans_no);
 
-            col_start(6, "col-md-6");
+            col_start(6, "col l6");
             mt_list_start('Actions', '', 'blue');
 //             hyperlink_params("purchasing/supplier_payment.php", _("Entry supplier &payment for this invoice"), "PInvoice=".$trans_no);
             mt_list_link( _("Entry supplier &payment for this invoice"), "purchasing/supplier_payment.php?PInvoice=$trans_no");

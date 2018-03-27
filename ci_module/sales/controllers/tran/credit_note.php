@@ -59,7 +59,7 @@ class SalesTranCreditNote
         if (! isset($_POST['customer_id']) && (get_global_customer() != ALL_TEXT))
             $_POST['customer_id'] = get_global_customer();
         row_start();
-        col_start(4, 'col-md-4 col-sm-4');
+        col_start(4, 'col l6 s6');
         customer_list_bootstrap(_("Customer:"), 'customer_id', null, false, true, false, true);
 
         if ($order->customer_id != $_POST['customer_id'] /*|| $order->sales_type != $_POST['sales_type_id']*/)
@@ -123,7 +123,7 @@ class SalesTranCreditNote
             exchange_rate_display(get_company_currency(), $order->customer_currency, $_POST['OrderDate']);
         }
 
-        col_start(4, 'col-md-4 col-sm-4');
+        col_start(4, 'col l6 s6');
         bootstrap_set_label_column(5);
         if (! isset($_POST['sales_type_id']))
             $_POST['sales_type_id'] = $order->sales_type;
@@ -142,7 +142,7 @@ class SalesTranCreditNote
         input_label(_("Customer Discount:"), null, ($order->default_discount * 100) . "%");
         // label_row(_("Customer Discount:"), ($order->default_discount * 100) . "%");
 
-        col_start(4, 'col-md-4 col-sm-4');
+        col_start(4, 'col l6 s6');
         bootstrap_set_label_column(3);
         if (! isset($_POST['OrderDate']) || $_POST['OrderDate'] == "")
             $_POST['OrderDate'] = $order->document_date;
@@ -368,7 +368,7 @@ class SalesTranCreditNote
 
         div_start('options');
         row_start('justify-content-center');
-        col_start(8, 'col-md-4 col-sm-6');
+        col_start(8, 'col l6 s6');
 //         start_table(TABLESTYLE2);
 
         credit_types(_("Credit Note Type"), 'CreditType', null, true);
@@ -378,13 +378,14 @@ class SalesTranCreditNote
             /*if the credit note is a return of goods then need to know which location to receive them into */
             if (!isset($_POST['Location']))
                 $_POST['Location'] = $credit->Location;
+            col_start(8, 'col l6 s6');
             locations_bootstrap(_("Items Returned to Location"), 'Location', $_POST['Location']);
         } else {
             /* the goods are to be written off to somewhere */
             gl_all_accounts_list_row(_("Write off the cost of the items to"), 'WriteOffGLCode', null);
         }
 
-        col_start(8, 'col-md-8 col-sm-6');
+        col_start(8, 'col l6 s12 pull-l6');
         input_textarea(_("Memo"), "CreditText");
         row_end();
         div_end();
@@ -454,7 +455,7 @@ class SalesTranCreditNote
 
             box_start();
             row_start();
-            col_start(6, "col-md-6");
+            col_start(6, "col l6");
             mt_list_start('Printing',null,'red');
 
 //             display_note(get_customer_trans_view_str($trans_type, $credit_no, _("&View this credit note")), 0, 1);
@@ -468,7 +469,7 @@ class SalesTranCreditNote
 //             display_note(get_gl_view_str($trans_type, $credit_no, _("View the GL &Journal Entries for this Credit Note")));
             mt_list_gl_view( _("View the GL &Journal Entries for this Credit Note"),$trans_type, $credit_no);
 
-            col_start(6, "col-md-6");
+            col_start(6, "col l6");
             mt_list_start('Actions', '', 'blue');
 //             hyperlink_params($_SERVER['PHP_SELF'], _("Enter Another &Credit Note"), "NewCredit=yes");
             mt_list_hyperlink($_SERVER['PHP_SELF'], _("Enter Another &Credit Note"), "NewCredit=yes");

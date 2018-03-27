@@ -597,7 +597,7 @@ box_start();
 	    	echo "<a class='btn green ajaxsubmit' style='float:right; color:white;' href=".site_url().'/report/report/manage_template/'.$report_id." >Manage Template ".access_string($reports->report_current->name, true)."</a><br/><br/>";
 	    }
     row_start('justify-content-md-center');
-    col_start(12,"col-md-12");
+    col_start(12,"col l12");
     echo $reports->getDisplay();
     row_end();
 

@@ -60,27 +60,28 @@ class SalesInquiryTransactions
     {
         row_start('inquiry-filter');
         if (! @$_GET['popup']) {
-            col_start(12,'col-md-3 col-sm-6');
+            col_start(12,'col l6 s6');
             customer_list_bootstrap( _("Customer"), 'customer_id', input_val('customer_id'), false, ! @$_GET['popup']);
         }
-        col_start(12,'col-md-3 col-sm-6');
-        input_date_bootstrap("From", 'TransAfterDate', NULL, false, false, 0, - 1);
-
-        col_start(12,'col-md-3 col-sm-6');
-        input_date_bootstrap("To", 'TransToDate', NULL);
-
-        col_start(12,'col-md-3 col-sm-6');
+        col_start(12,'col l6 s6');
         $fillter_type_title = "Tran Type";
         cust_allocations_bootstrap( $fillter_type_title, 'filterType', input_val('filterType'), true);
+        
+        col_start(12,'col l6 s6');
+        input_date_bootstrap("From", 'TransAfterDate', NULL, false, false, 0, - 1);
 
-        col_start(12,'col-md-3 col-sm-6');
+        col_start(12,'col l6 s6');
+        input_date_bootstrap("To", 'TransToDate', NULL);
+
+
+        col_start(12,'col l6 s6');
         // if( !isMobile() ){
         //     bootstrap_set_label_column(7);
         // }
 
         check_bootstrap('Voided', 'voided');
         echo "<div class=clearfix></div>";
-        col_start(12,'col-md-3 col-sm-6');
+        col_start(12,'col l6 s6');
         submit_bootstrap('RefreshInquiry', _("Search"), _('Refresh Inquiry'), 'default','search');
         row_end();
     }

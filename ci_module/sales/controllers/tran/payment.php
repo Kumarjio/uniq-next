@@ -21,7 +21,7 @@ class SalesTranPayment
 
         echo "<div class=card-panel>";
         row_start();
-        col_start(4, "col-md-4 col-sm-6");
+        col_start(4, "col l6 s6");
         bootstrap_set_label_column(5);
 
         bank_accounts(_("Into Bank Account"), 'bank_account', null, true);
@@ -46,10 +46,12 @@ class SalesTranPayment
 
         $display_discount_percent = percent_format($_POST['pymt_discount']*100) . "%";
 
-        col_start(4, "col-md-4 col-sm-6");
+        col_start(4, "col l6 s6");
         input_date_bootstrap(_("Date of Deposit"), 'DateBanked');
 
         input_ref(_("Reference"), 'ref');
+        
+        col_start(4, "col l6 s6");
         input_text('Cheque No.','cheque');
 //         ref_row(_("Reference:"), 'ref','' , null, '', ST_CUSTPAYMENT);
 
@@ -57,7 +59,7 @@ class SalesTranPayment
             input_ref('Customer Ref','source_ref');
         }
 
-        col_start("col-md-6 col-sm-6 col s6");
+        col_start("col l6 s6");
 
         $comp_currency = get_company_currency();
         $cust_currency = $_SESSION['alloc']->set_person($_POST['customer_id'], PT_CUSTOMER);
@@ -71,7 +73,7 @@ class SalesTranPayment
 
         }
         col_end();
-        col_start("col-md-6 col-sm-6 col s6");
+        col_start("col l6 s6");
         input_money(_("Bank Charge"), 'charge', null, $bank_currency);
 //         amount_row(_("Bank Charge:"), 'charge', null, '', $bank_currency);
 

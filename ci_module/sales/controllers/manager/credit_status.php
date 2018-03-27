@@ -8,14 +8,15 @@ class SalesManagerCreditStatus
 
     function index()
     {
+        echo "<div class=card-panel>";
         start_form();
         box_start("");
 
-        div_start("",null, false, $attributes = 'class="col-md-12 table-box"');
+        div_start("",null, false, $attributes = 'class="col l12 table-box"');
         $this->status_list();
         div_end();
         box_footer_show_active();
-
+        echo "<div class=clearfix style=margin-bottom:50px>";
         box_start("Status Detail");
         row_start('justify-content-center');
         $this->status_item();
@@ -27,6 +28,7 @@ class SalesManagerCreditStatus
         box_end();
 
         end_form();
+        echo "</div>";
     }
 
     private function status_list()
@@ -82,13 +84,13 @@ class SalesManagerCreditStatus
             hidden('selected_id', $this->id);
         }
 
-        col_start(8, 'col-md-8');
+        col_start(8, 'col l6');
         input_textarea_bootstrap('Description','reason_description');
 //         text_row_ex(_("Description:"), 'reason_description', 50);
 
 //         yesno_list_row(_("Dissallow invoicing ?"), 'DisallowInvoices', null);
         col_end();
-        col_start(4, 'col-md-4');
+        col_start(4, 'col l6');
         yesno_bootstrap('Dissallow invoicing','dissallow_invoices');
         col_end();
     }

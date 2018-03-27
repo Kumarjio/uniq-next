@@ -8,9 +8,10 @@ class SalesManagerType
 
     function index()
     {
+        echo "<div class=card-panel>";
         start_form();
         box_start("");
-        div_start("",null, false, $attributes = 'class="col-md-12 table-box"');
+        div_start("",null, false, $attributes = 'class="col l12 table-box"');
         $this->types_list();
         box_footer_show_active();
         div_end();
@@ -27,6 +28,7 @@ class SalesManagerType
         box_end();
 
         end_form();
+        echo "</div>";
     }
 
     private function types_list()
@@ -95,9 +97,11 @@ class SalesManagerType
         } else {
             $_POST['factor'] = number_total(1);
         }
-        col_start(6, 'col-md-4 col-sm-6');
+        col_start(6, 'col l6 s6');
         input_text_bootstrap("Sales Type Name", 'sales_type');
+        col_start(6, 'col l6 s6');
         input_money('Calculation factor','factor',input_val('factor'));
+        col_start(6, 'col l6 s6');
         check_bootstrap('Tax included','tax_included');
 //         text_row_ex(_("Sales Type Name") . ':', 'sales_type', 20);
 //         amount_row(_("Calculation factor") . ':', 'factor', null, null, null, 4);

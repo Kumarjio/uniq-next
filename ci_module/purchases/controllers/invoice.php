@@ -18,7 +18,7 @@ class PurchasesInvoice
             // start_outer_table(TABLESTYLE2, "width=95%");
             // table_section(1);
         row_start();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l6 s6');
         if (isset($_POST['invoice_no'])) {
             $trans = get_supp_trans($_POST['invoice_no'], ST_SUPPINVOICE);
             $_POST['supplier_id'] = $trans['supplier_id'];
@@ -50,11 +50,11 @@ class PurchasesInvoice
         }
 
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l6 s6');
         input_ref('Reference', 'reference');
 
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l6 s6');
         if (isset($_POST['invoice_no'])) {
             input_label(_("Supplier's Ref."), 'invoice_no');
             hidden('invoice_no', $_POST['invoice_no']);
@@ -64,11 +64,11 @@ class PurchasesInvoice
         }
 
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l6 s6');
         input_text(_("Reason"), 'reason');
 
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l6 s6');
 
         input_date_bootstrap('Date', 'tran_date', null, false, true);
         // date_row(_("Date") . ":", 'tran_date', '', true, 0, 0, 0, "", true);
@@ -81,10 +81,10 @@ class PurchasesInvoice
         }
 
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l6 s6');
         input_date_bootstrap("Due Date", 'due_date');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l6 s6');
         input_label(_("Terms"), null, $this->cart->terms['description']);
 
         if( config_ci("kastam") ){
@@ -97,7 +97,7 @@ class PurchasesInvoice
 
 
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l6 s6');
         set_global_supplier($_POST['supplier_id']);
         $supplier_currency = get_supplier_currency($this->cart->supplier_id);
         $company_currency = get_company_currency();
@@ -110,10 +110,10 @@ class PurchasesInvoice
 
         input_label(_("Tax Group"), $this->cart->tax_description);
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l6 s6');
         input_supplier_credit($this->cart->supplier_id, $this->cart->credit);
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l6 s6');
         input_label(_("Paid Tax"), null, 'false');
         col_end();
         row_end();
@@ -160,10 +160,10 @@ class PurchasesInvoice
         if ($this->mode == 1) {
             if ($supp_trans->trans_type == ST_SUPPCREDIT && ! isset($_POST['invoice_no'])) {
                 // echo "</td>";
-                col_start(4, 'col-md-4 col-sm-6');
+                col_start(4, 'col l6 s6');
                 // bootstrap_set_label_column(5);
                 input_date_bootstrap(_("Received between"), 'receive_begin', "", false, null, - 30, 0, 0);
-                col_start(4, 'col-md-4 col-sm-6');
+                col_start(4, 'col l6 s6');
                 input_date_bootstrap(_("and"), 'receive_end', "", false, null, 1, 0, 0);
                 // date_cells(_("Received between"), 'receive_begin', "", null, -30, 0, 0, "valign=middle");
                 // date_cells(_("and"), 'receive_end', '', null, 1, 0, 0, "valign=middle");
@@ -329,7 +329,7 @@ class PurchasesInvoice
             $qes = has_quick_entries(QE_SUPPINV);
             if ($qes !== false) {
                 row_start();
-                col_start(4, 'col-md-4 col-sm-6');
+                col_start(4, 'col l6 s6 offset-l6 pull-l6');
                 input_quick_entries('Quick Entry','qid',null, QE_SUPPINV, true);
 
                 $qid = get_quick_entry(get_post('qid'));
@@ -339,13 +339,13 @@ class PurchasesInvoice
                 }
 
                 col_end();
-                col_start(4, 'col-md-4 col-sm-6');
+                col_start(4, 'col l6 s6 offset-l6 pull-l6');
                 $amount = input_num('totamount', $qid['base_amount']);
                 input_money($qid['base_desc'], 'amount',$amount);
 //                 echo "<input class='amount' type='text' name='totamount' size='7' maxlength='12' dec='$dec' value='$amount'>&nbsp;";
 
                 col_end();
-                col_start(12, 'col-md-12');
+                col_start(12, 'col l12');
                 submit_bootstrap('go', _("Go"),false, true);
 //                 submit('go', _("Go"), true, false, true);
                 col_end();

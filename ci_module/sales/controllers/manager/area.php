@@ -8,13 +8,14 @@ class SalesManagerArea
 
     function index()
     {
+        echo "<div class=card-panel>";
         start_form();
         box_start("");
-        div_start("",null, false, $attributes = 'class="col-md-12 table-box"');
+        div_start("",null, false, $attributes = 'class="col l12 table-box"');
         $this->areas_list();
         div_end();
         box_footer_show_active();
-
+        echo "<div class=clearfix style=margin-bottom:50px>";
         box_start("Area Detail");
         row_start();
         $this->area_item();
@@ -26,6 +27,7 @@ class SalesManagerArea
         box_end();
 
         end_form();
+        echo "</div>";
     }
 
     private function areas_list()
@@ -72,7 +74,7 @@ class SalesManagerArea
             hidden("selected_id", $this->id);
         }
         row_start('justify-content-center');
-        col_start(6, 'col-md-4 col-sm-6');
+        col_start(6, 'col l6 s6');
         input_text_bootstrap("Area Name", 'description');
         col_end();
         row_end();

@@ -8,13 +8,14 @@ class SalesManagerGroup
 
     function index()
     {
+        echo "<div class=card-panel>";
         start_form();
         box_start();
-        div_start("",null, false, $attributes = 'class="col-md-12 table-box"');
+        div_start("",null, false, $attributes = 'class="col l12 table-box"');
         $this->groups_list();
         box_footer_show_active();
         div_end();
-
+        echo "<div class=clearfix style=margin-bottom:50px>";
         box_start("Group Detail");
         $this->group_item();
 
@@ -24,6 +25,7 @@ class SalesManagerGroup
         box_end();
 
         end_form();
+        echo "</div>";
     }
 
     var $id = - 1;
@@ -76,7 +78,7 @@ class SalesManagerGroup
     private function group_item()
     {
         row_start();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l6 s6');
         if ( $this->id != - 1) {
             if ($this->mode == 'Edit' ) {
                 // editing an existing group

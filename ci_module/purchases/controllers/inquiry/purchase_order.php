@@ -70,26 +70,26 @@ class PurchasesInquiryPurchaseOrder
 
     function fillter(){
         row_start('inquiry-filter');
-        col_start(12,'col-md-4 col-sm-6');
+        col_start(12,'col l4 s6');
         // if( !isMobile() ){
         //     bootstrap_set_label_column(2);
         // }
         input_text_bootstrap( 'Order Numb.', 'order_number', NULL, null, true);
         col_end();
         // bootstrap_set_label_column(0);
-        col_start(12,'col-md-4 col-sm-6');
+        col_start(12,'col l4 s6');
         input_date_bootstrap( "From", 'OrdersAfterDate', NULL, false, false, - 30);
         col_end();
-        col_start(12,'col-md-4 col-sm-6');
+        col_start(12,'col l4 s6col l4 s6');
         input_date_bootstrap("To", 'OrdersToDate', NULL, false, false);
         col_end();
-        col_start(12,'col-md-4 col-sm-6');
+        col_start(12,'col l4 s6');
         // if( !isMobile() ){
         //     bootstrap_set_label_column(4);
         // }
         locations_bootstrap( _("Into location"), 'StockLocation', null, true, true);
         col_end();
-        col_start(12,'col-md-4 col-sm-6');
+        col_start(12,'col l4 s6');
         // if( !isMobile() ){
         //     bootstrap_set_label_column(1);
         // }
@@ -97,14 +97,14 @@ class PurchasesInquiryPurchaseOrder
         col_end();
         // bootstrap_set_label_column(0);
         if( !$this->is_popup ){
-            col_start(12,'col-md-4 col-sm-6');
+            col_start(12,'col l4 s6');
             supplier_list_bootstrap( _("Supplier"), 'supplier_id', null, true, true);
             col_end();
         }
 
 
         echo "<div class='clearfix'></div>";
-        col_start(12,'col-md-4 col-sm-6');
+        col_start(12,'col l4 s6');
         submit_bootstrap( 'SearchOrders', _("Search"), _('Select documents'), 'default','search');
         row_end();
     }
