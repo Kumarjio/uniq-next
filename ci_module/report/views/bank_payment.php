@@ -176,11 +176,29 @@ $(document).ready(function ()
                         <div class="row" style="margin-bottom:10px;">
                             <div class="col s6">
                                 <label>Select .docx file:</label><br>
-                                <input class="btn btn-default" type="file" id="file" name="file" accept=".docx,.DOCX" required />
+                                <div class="file-field input-field">
+                                  <div class="btn">
+                                    <span>File</span>
+                                    <input type="file" id="file" name="file" accept=".docx,.DOCX" required multiple>
+                                  </div>
+                                  <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                                  </div>
+                                </div>
+                                <!-- <input class="btn btn-default" type="file" id="file" name="file" accept=".docx,.DOCX" required /> -->
                             </div>
-                            <div class="col s6">
+                            <div class="col-lg-6">
                                 <label>Select screenshot file:</label><br>
-                                <input class="btn btn-default" type="file" id="file2" name="file2" accept=".jpg,.JPG" required />
+                                <!-- <input class="btn btn-default" type="file" id="file2" name="file2" accept=".jpg,.JPG" required /> -->
+                                <div class="file-field input-field">
+                                  <div class="btn">
+                                    <span>File</span>
+                                    <input type="file" id="file2" name="file2" accept=".jpg,.JPG" required multiple>
+                                  </div>
+                                  <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                                  </div>
+                                </div>
                             </div>
                         </div>
                         <div class="row" style="margin-bottom:10px;">

@@ -140,7 +140,20 @@ class SetupCompanySetup
         col_start(12, 'col l12 s12'); echo "<hr style='margin-bottom:50px'/>"; col_end();
         col_start(4, 'col l12 s6');
           // input_label_bootstrap(_("Company Logo"),null, $myrow['coy_logo']);
-          file_bootstrap(_("New Company Logo"), 'pic','(jpg|png)','pic');
+        // 
+          // file_bootstrap(_("New Company Logo"), 'pic','(jpg|png)','pic');
+          echo '
+            <label>New Company Logo</label>
+            <div class="file-field input-field">
+              <div class="btn">
+                <span>File</span>
+                <input type="file" name="pic" id="id" multiple>
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="Upload New Company Logo">
+              </div>
+            </div>
+          ';
         // col_end();
         // col_start(4, 'col s4 col-sm-6');
         col_end();
