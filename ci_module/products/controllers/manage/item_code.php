@@ -20,22 +20,21 @@ class ProductsManageItemCode
         start_form();
         box_start("");
 
-        row_start();
+        row_start('card-panel');
         col_start(9, 'col-md-4 col-sm-6');
         stock_items_bootstrap("Item", 'stock_id', $_POST['stock_id'], false, true);
         col_end();
-        row_end();
-
-        set_global_stock_item($_POST['stock_id']);
-
         div_start('code_table', null,false,'class="table-box"');
             $this->codes_list();
         div_end();
 
+        set_global_stock_item($_POST['stock_id']);
+
+
         // -----------------------------------------------------------------------------------------------
 
         box_start();
-        row_start();
+        row_start('card-panel');
         $this->code_item();
         row_end();
         box_footer_start();
@@ -44,6 +43,7 @@ class ProductsManageItemCode
         box_form_end();
 
 
+        row_end();
         box_end();
         end_form();
     }

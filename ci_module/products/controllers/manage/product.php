@@ -21,15 +21,15 @@ class ProductsManageProduct
         start_form(true);
 
 
+        row_start('card-panel');
         if (db_has_stock_items()) {
-            row_start('card-panel');
             col_start(12,'col-md-4 col-sm-6');
             stock_items_bootstrap(_("Select an item"), 'stock_id', input_post('stock_id'), _('New item'), true, check_value('show_inactive'));
             col_start(12,'col-md-4 col-sm-6');
             $new_item = get_post('stock_id') == '';
 
             check_bootstrap(_("Show inactive"), 'show_inactive', null, true);
-            row_end();
+            
 
             if (get_post('_show_inactive_update')) {
                 global $Ajax;
@@ -168,6 +168,7 @@ class ProductsManageProduct
         box_end();
 
         hidden('popup', @$_REQUEST['popup']);
+        row_end();
         end_form();
     }
 
@@ -198,11 +199,12 @@ class ProductsManageProduct
         $stock_id = $this->id;
 
         row_start();
-        col_start(6, 'col-md-6');
+        col_start(6, 'col m12');
         fieldset_start("Item");
 
         // ------------------------------------------------------------------------------------
         if ($this->new_item) {
+            col_start(6, 'col m12');
             input_text_bootstrap("Item Code", 'NewStockID');
 //             text_row(_("Item Code:"), 'NewStockID', null, 21, 20);
 
