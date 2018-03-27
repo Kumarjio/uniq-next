@@ -22,7 +22,7 @@ class ProductsManageProduct
 
 
         if (db_has_stock_items()) {
-            row_start();
+            row_start('card-panel');
             col_start(12,'col-md-4 col-sm-6');
             stock_items_bootstrap(_("Select an item"), 'stock_id', input_post('stock_id'), _('New item'), true, check_value('show_inactive'));
             col_start(12,'col-md-4 col-sm-6');

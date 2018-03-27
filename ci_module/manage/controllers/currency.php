@@ -17,7 +17,6 @@ class ManageCurrency
         $this->listview();
         box_footer_show_active();
 
-        box_start("Currency Detail",'fa-dollar');
         $this->detail();
 
         box_footer_start();
@@ -79,8 +78,10 @@ class ManageCurrency
 
     private function detail()
     {
+        echo "<div style='margin-top:70px;'></div>";
+        box_start("Currency Detail",'fa-dollar');
         row_start();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col m4');
 
         if ($this->selected_id != '')
         {
@@ -106,19 +107,19 @@ class ManageCurrency
         }
 
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col m4');
         input_text_bootstrap(_("Currency Symbol"), 'Symbol');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col m4');
         input_text_bootstrap(_("Currency Name"), 'CurrencyName');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col m4');
         input_text_bootstrap(_("Hundredths Name"), 'hundreds_name');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col m4');
         input_text_bootstrap(_("Country"), 'country');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col m4');
         check_bootstrap(_("Automatic exchange rate update"), 'auto_update', get_post('auto_update'));
 //         end_table(1);
 

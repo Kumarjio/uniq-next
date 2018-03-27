@@ -13,17 +13,14 @@ class ProductsManageUnit
     {
         start_form();
         box_start("");
+        row_start('card-panel');
         $this->listview();
 
         box_start("");
         $this->detail();
 
-        box_footer_start();
-        submit_add_or_update_center($this->selected_id == - 1, '', 'both');
-
-        box_footer_end();
-
         box_end();
+        end_row();
         end_form();
     }
 
@@ -60,7 +57,7 @@ class ProductsManageUnit
 
     private function detail()
     {
-        row_start();
+        row_start('card-panel');
         col_start(8,'col-md-4 col-sm-6');
 
         if ($this->selected_id != '')
@@ -90,6 +87,10 @@ class ProductsManageUnit
         col_start(8,'col-md-4 col-sm-6');
         numbers_list(_("Decimal Places:"), 'decimals', null, 0, 6, _("User Quantity Decimals"));
 
+        box_footer_start();
+        submit_add_or_update_center($this->selected_id == - 1, '', 'both');
+
+        box_footer_end();
         col_end();
         row_end();
     }

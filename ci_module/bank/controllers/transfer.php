@@ -18,7 +18,7 @@ class BankTransfer
         echo "<div class='card-panel'>";
         box_start();
         row_start();
-        col_start(12,'col-md-6');
+        col_start(12,'col m6');
         bank_accounts(_("From Account"), 'FromBankAccount', null, true);
         bank_accounts(_("To Account"), 'ToBankAccount', null, true);
 
@@ -31,15 +31,17 @@ class BankTransfer
         input_date_bootstrap(_("Transfer Date"), 'DatePaid',NULL, $disabled = false, true);
         input_ref(_("Reference"), 'ref', $Refs->get_next(ST_BANKTRANSFER));
 
-        col_start(12,'col-md-6');
+        col_start(12,'col m6');
         bank_balance_label($_POST['FromBankAccount']);
         $from_currency = get_bank_account_currency($_POST['FromBankAccount']);
         $to_currency = get_bank_account_currency($_POST['ToBankAccount']);
         if ($from_currency != "" && $to_currency != "" && $from_currency != $to_currency)
         {
-
+            echo "<br>";
             input_money(_("Amount"), 'amount',null,$from_currency);
+            echo "<br>";
             input_money(_("Bank Charge"), 'charge',null,$from_currency);
+            echo "<br>";
             input_money(_("Incoming Amount"), 'target_amount',null,$to_currency);
 
 //             amount_row(_("Amount:"), 'amount', null, null, $from_currency);
@@ -49,15 +51,16 @@ class BankTransfer
         else
         {
             input_money(_("Amount"), 'amount',null,$from_currency);
+            echo "<br>";
             input_money(_("Bank Charge"), 'charge',null,$from_currency);
 
 //             amount_row(_("Amount:"), 'amount');
 //             amount_row(_("Bank Charge:"), 'charge');
         }
 
-        input_textarea(_("Memo"), 'memo_');
 
         row_end();
+        input_textarea(_("Memo"), 'memo_');
         box_footer_start();
 //         submit_center('AddPayment',_("Enter Transfer"), true, '', 'default');
         submit('AddPayment',_("Enter Transfer"), true, '', 'default','save');

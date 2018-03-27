@@ -42,25 +42,25 @@ class GLInquiryJournal
     {
         row_start('inquiry-filter');
 
-        col_start(12,"col-md-4 col-sm-6");
+        col_start(12,"col m4");
         input_text("Reference", 'Ref', null, 'Enter reference fragment or leave empty');
         col_end();
-        col_start(12,"col-md-4 col-sm-6");
+        col_start(12,"col m4");
         journal_types_list(_("Type"), "filterType");
         col_end();
-        col_start(12,"col-md-4 col-sm-6");
+        col_start(12,"col m4");
         input_date_bootstrap(_("From"), 'FromDate', null, false, null, 0, - 1, 0);
         col_end();
-        col_start(12,"col-md-4 col-sm-6");
+        col_start(12,"col m4");
         input_date_bootstrap(_("To"), 'ToDate');
         col_end();
-        col_start(12,"col-md-4 col-sm-6");
+        col_start(12,"col m4");
         input_text(_("Memo"), 'Memo', null, _('Enter memo fragment or leave empty'));
         col_end();
-        col_start(12,"col-md-4 col-sm-6");
+        col_start(12,"col m4");
         show_voided_inquiry('AlsoClosed');
         col_end();
-        col_start(6,"col-md-12");
+        col_start(6,"col m12");
         submit('Search', _("Search"), true, '', 'default', 'search');
         col_end();
         row_end();

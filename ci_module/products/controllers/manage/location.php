@@ -14,15 +14,13 @@ class ProductsManageLocation
     {
         start_form();
         box_start("");
+        row_start('card-panel');
         $this->listview();
 
         box_start("");
         $this->detail();
 
-        box_footer_start();
-        submit_add_or_update_center($this->selected_id == - 1, '', 'both');
-        box_footer_end();
-
+        end_row();
         box_end();
         end_form();
     }
@@ -70,8 +68,8 @@ class ProductsManageLocation
 
     private function detail()
     {
-        row_start();
-        col_start(12, 'col-md-4 col-sm-6');
+        row_start('card-panel');
+        col_start(12, 'col m12');
         bootstrap_set_label_column(2);
 
         $_POST['email'] = "";
@@ -98,29 +96,32 @@ class ProductsManageLocation
         }
 
         col_end();
-        col_start(12, 'col-md-4 col-sm-6');
+        col_start(12, 'col m4');
         input_text_bootstrap(_("Location Name:"), 'location_name');
         col_end();
-        col_start(12, 'col-md-4 col-sm-6');
+        col_start(12, 'col m4');
         input_text_bootstrap(_("Contact for deliveries:"), 'contact');
         col_end();
-        col_start(12, 'col-md-4 col-sm-6');
+        col_start(12, 'col m4');
 
         input_text_bootstrap(_("Telephone No:"), 'phone');
         col_end();
-        col_start(12, 'col-md-4 col-sm-6');
+        col_start(12, 'col m4');
         input_text_bootstrap(_("Secondary Phone Number:"), 'phone2');
         col_end();
-        col_start(12, 'col-md-4 col-sm-6');
+        col_start(12, 'col m4');
         input_text_bootstrap(_("Facsimile No:"), 'fax');
         col_end();
-        col_start(12, 'col-md-4 col-sm-6');
+        col_start(12, 'col m4');
         input_text_bootstrap(_("E-mail:"), 'email');
 
         col_end();
-        col_start(12, 'col-md-8 col-sm-6');
+        col_start(12, 'col m12');
 
         input_textarea_bootstrap(_("Address:"), 'delivery_address', null, 35, 5);
+        box_footer_start();
+        submit_add_or_update_center($this->selected_id == - 1, '', 'both');
+        box_footer_end();
         col_end();
         row_end();
     }

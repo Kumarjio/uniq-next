@@ -18,7 +18,7 @@ class BankManageAccount
         $this->listview();
         box_footer_show_active();
 
-        box_start("Bank Account Detail",'fa-bank');
+        
         $this->detail();
 
 
@@ -95,9 +95,10 @@ class BankManageAccount
     private function detail()
     {
         global $bank_account_types;
-
+        echo "<div style='margin-top:70px'></div>";
+        box_start("Bank Account Detail",'fa-bank');
         row_start();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col m12');
 
         $is_used = $this->selected_id != - 1 && key_in_foreign_table($this->selected_id, 'bank_trans', 'bank_act');
 
@@ -122,7 +123,7 @@ class BankManageAccount
 
         input_text_bootstrap(_("Bank Account Name"), 'bank_account_name');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col m4');
         if ($is_used) {
             $account_type = isset($bank_account_types[$_POST['account_type']]) ? $bank_account_types[$_POST['account_type']] : NULL;
             input_label_bootstrap(_("Account Type"), null, $account_type);
@@ -130,29 +131,29 @@ class BankManageAccount
             bank_account_types(_("Account Type"), 'account_type');
         }
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col m4');
         if ($is_used) {
             input_label_bootstrap(_("Bank Account Currency"), 'BankAccountCurrency');
         } else {
             currency_bootstrap(_("Bank Account Currency"), 'BankAccountCurrency');
         }
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col m4');
         yesno_bootstrap(_("Default currency account"), 'dflt_curr_act');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col m4');
         if ($is_used)
             input_label_bootstrap(_("Bank Account GL Code"), 'account_code');
         else
             gl_accounts_bootstrap(_("Bank Account GL Code"), 'account_code');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col m4');
         input_text_bootstrap(_("Bank Name"), 'bank_name');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col m4');
         input_text_bootstrap(_("Bank Account Number"), 'bank_account_number');
         col_end();
-        col_start(4, 'col-md-8 col-sm-6');
+        col_start(4, 'col m8');
         input_textarea_bootstrap(_("Bank Address"), 'bank_address');
 
         col_end();

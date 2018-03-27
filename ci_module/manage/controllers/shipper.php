@@ -18,7 +18,6 @@ class ManageShipper
         $this->listview();
         box_footer_show_active();
 
-        box_start("Shipping Company Detail");
         $this->detail();
 
         box_footer_start();
@@ -75,6 +74,8 @@ class ManageShipper
 
     private function detail()
     {
+        echo "<div style='margin-top:70px;'></div>";
+        box_start("Shipping Company Detail");
         row_start();
         col_start(4, 'col l4 s6');
 

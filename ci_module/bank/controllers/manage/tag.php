@@ -17,7 +17,7 @@ class BankManageTag
         $this->listview();
         box_footer_show_active();
 
-        box_start("Account Tag Detail");
+        
         $this->detail();
 
         box_footer_start();
@@ -66,8 +66,10 @@ class BankManageTag
 
     private function detail()
     {
+        echo "<div style='margin-top:70px'></div>";
+        box_start("Account Tag Detail");
         row_start();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col m4');
 
         if ($this->selected_id != - 1) { // We've selected a tag
             if ($this->mode == 'Edit') {
@@ -83,7 +85,7 @@ class BankManageTag
 
         input_text_bootstrap(_("Tag Name:"), 'name');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col m4');
         input_text_bootstrap(_("Tag Description:"), 'description');
         hidden('type');
 

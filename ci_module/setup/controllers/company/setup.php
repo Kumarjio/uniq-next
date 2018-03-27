@@ -63,8 +63,8 @@ class SetupCompanySetup
 
         $_POST['del_coy_logo'] = 0;
         row_start();
-        col_start(4, 'col l4 s6');
-            input_text_bootstrap( "Company Name", 'coy_name', $value = null, $title = null, $submit_on_change = false, $size = NULL, $max = NULL,'To appear on reports');
+        col_start(4, 'col l12 s6');
+            input_text_bootstrap( "Company Name (To appear on reports)", 'coy_name', $value = null, $title = null, $submit_on_change = false, $size = NULL, $max = NULL,'');
         col_end();
         col_start(4, 'col l4 s6');
             input_textarea_bootstrap(_("Address"), 'postal_address', $_POST['postal_address']);
@@ -82,7 +82,7 @@ class SetupCompanySetup
             input_text_bootstrap(_("Email Address"), 'email');
         col_end();
         col_start(4, 'col l4 s6');
-            input_text_bootstrap(_("BCC Address "), 'bcc_email',$value = null, $title = null, $submit_on_change = false, $size = NULL, $max = NULL,'For all outgoing mails');
+            input_text_bootstrap(_("BCC Address For all outgoing mails"), 'bcc_email',$value = null, $title = null, $submit_on_change = false, $size = NULL, $max = NULL,'');
         col_end();
         col_start(4, 'col l4 s6');
             input_text_bootstrap(_("Official Company Number"), 'coy_no');
@@ -151,35 +151,45 @@ class SetupCompanySetup
           sales_types_bootstrap(_("Base for auto price calculations"), 'base_sales', $_POST['base_sales'], false, _('No base price list'));
         col_end();
         col_start(4, 'col l4 s6');
-          input_text_addon_bootstrap(_("Add Price from Std Cost"), 'add_pct',null,'%');
+          input_text_addon_bootstrap(_("Add Price from Std Cost "), 'add_pct',null,'percent (%)');
         col_end();
         col_start(4, 'col l4 s6');
           $curr = get_currency($_POST['curr_default']);
           input_text_addon_bootstrap(_("Round to nearest"), 'round_to',null,$curr['hundreds_name']);
         col_end();
-        echo "<hr style='margin-bottom:50px'/>";
+        // echo "<hr style='margin-bottom:50px'/>";
       row_end();
       row_start();
-        col_start(12, 'col l12'); echo "<hr style='margin-bottom:50px'/>"; col_end();
-        col_start(4, 'col l4 s6');
-
-//         label_row("", "&nbsp;");
-
+        col_start(12, 'col l12'); echo "<hr style='margin-bottom:10px'/>"; col_end();
         $this->bootstrap->fieldset_start("Search Setting");
+        echo "<div class='col l4'>";
         check_bootstrap(_("Search Item List"), 'no_item_list');
+        echo "</div>";
+
+        echo "<div class='col l4'>";
         check_bootstrap(_("Search Customer List"), 'no_customer_list');
+        echo "</div>";
+
+        echo "<div class='col l4'>";
         check_bootstrap(_("Search Supplier List"), 'no_supplier_list');
-        col_end();
-        col_start(4, 'col l4 s6');
+        echo "</div>";
+        // col_end();
+        // col_start(4, 'col l4 s6');
 //         label_row("", "&nbsp;");
         $this->bootstrap->fieldset_start("Work Session");
+        echo "<div class='col l4'>";
         check_bootstrap(_("Automatic Revaluation Currency Accounts"), 'auto_curr_reval', $_POST['auto_curr_reval']);
+        echo "</div>";
+        echo "<div class='col l4'>";
         check_bootstrap(_("Time Zone on Reports"), 'time_zone', $_POST['time_zone']);
+        echo "</div>";
+        echo "<div class='col l4'>";
         input_text_addon_bootstrap(_("Login Timeout"), 'login_tout',null,'seconds');
+        echo "</div>";
 
         hidden('coy_logo', input_val('coy_logo'));
 
-        col_end();
+        // col_end();
         row_end();
 
         $this->bootstrap->box_footer_start();

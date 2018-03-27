@@ -19,11 +19,11 @@ class GlManageAccount
         {
             row_start();
 
-            col_start(4, 'col-md-4 col-sm-6');
+            col_start(4, 'col m12');
             gl_accounts_bootstrap('Account List', 'AccountList', null, false, false,
             _('New account'), true, check_value('show_inactive'));
             col_end();
-            col_start(4, 'col-md-4 col-sm-6');
+            col_start(4, 'col m4');
             check_bootstrap( _("Show inactive:"), 'show_inactive', null, true);
             row_end();
 
@@ -95,23 +95,25 @@ class GlManageAccount
                 $_POST['account_name']	= $_POST['account_type'] = '';
                 $_POST['inactive'] = 0;
             }
+            echo "<div class='col m4'>";
             input_text_bootstrap(_("Account Code:"), 'account_code');
+            echo "</div>";
         }
 
         col_end();
-        col_start(4,'col-md-4 col-sm-6');
+        col_start(4,'col m4');
         input_text_bootstrap(_("Account Code 2:"), 'account_code2');
         col_end();
-        col_start(4,'col-md-4 col-sm-6');
+        col_start(4,'col m4');
         input_text_bootstrap(_("Account Name:"), 'account_name');
         col_end();
-        col_start(4,'col-md-4 col-sm-6');
+        col_start(4,'col m4');
         gl_account_types(_("Account Group:"), 'account_type', null);
         col_end();
-        col_start(4,'col-md-4 col-sm-6');
+        col_start(4,'col m4');
         tags_list(_("Account Tags:"), 'account_tags', 5, TAG_ACCOUNT, true);
         col_end();
-        col_start(4,'col-md-4 col-sm-6');
+        col_start(4,'col m4');
         yesno_bootstrap(_("Account status:"), 'inactive');
 
         col_end();

@@ -14,15 +14,13 @@ class ProductsManageMovementType
     {
         start_form();
         box_start("");
+        row_start('card-panel');
         $this->listview();
 
         box_start("");
         $this->detail();
 
-        box_footer_start();
-        submit_add_or_update_center($this->selected_id == - 1, '', 'both');
-        box_footer_end();
-
+        end_row();
         box_end();
         end_form();
     }
@@ -63,7 +61,7 @@ class ProductsManageMovementType
 
     private function detail()
     {
-        row_start();
+        row_start('card-panel');
         col_start(8,'col-md-6');
         if ($this->selected_id != - 1) {
             if ($this->mode == 'Edit') {
@@ -77,6 +75,9 @@ class ProductsManageMovementType
         }
 
         input_text_bootstrap(_("Description:"), 'name');
+        box_footer_start();
+        submit_add_or_update_center($this->selected_id == - 1, '', 'both');
+        box_footer_end();
         col_end();
         row_end();
     }

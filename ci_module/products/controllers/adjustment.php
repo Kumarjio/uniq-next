@@ -174,7 +174,7 @@ class ProductsAdjustment
             hidden('LineNo', $line_no);
             set_focus('qty');
         } else {
-            submit_cells('AddItem', _("<i class='fa fa-plus'></i>"), "colspan=2", _('Add new item to document'), true);
+            submit_cells('AddItem', _("<i class='material-icons'>add</i>"), "colspan=2", _('Add new item to document'), true);
         }
 
         end_row();

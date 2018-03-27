@@ -21,8 +21,9 @@ class AdminUser
         $this->listview();
 	      echo "<h4>Max ".file_get_contents(ACTIVE)." <span synlang='syncard-language'>active users</span></h4>";
         box_footer_show_active();
-        box_start("User Detail");
+        
         $this->detail();
+        
         box_footer_start();
         submit_add_or_update_center($this->selected_id == - 1, '', 'both');
         box_footer_end();
@@ -135,7 +136,8 @@ class AdminUser
 
     private function detail()
     {
-
+        echo "<div style='margin-top:70px;'>";
+        box_start("User Detail");
         row_start();
         col_start(4, 'col l4 s6');
 
@@ -219,5 +221,7 @@ class AdminUser
 
         col_end();
         row_end();
+        box_end();
+        echo "</div>";
     }
 }

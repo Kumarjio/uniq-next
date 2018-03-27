@@ -18,7 +18,6 @@ class ManageSalesPoint
         $this->listview();
         box_footer_show_active();
 
-        box_start("Points of Sale Detail");
         $this->detail();
 
         box_footer_start();
@@ -74,6 +73,8 @@ class ManageSalesPoint
 
     private function detail()
     {
+        echo "<div style='margin-top:70px;'></div>";
+        box_start("Points of Sale Detail");
         row_start();
         $cash = db_has_cash_accounts();
         if (! $cash){
@@ -122,5 +123,6 @@ class ManageSalesPoint
 
 
         row_end();
+        box_end();
     }
 }

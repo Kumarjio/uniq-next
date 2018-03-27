@@ -258,7 +258,7 @@ class MaintenanceOpening {
         table_view($this->table_view,$data,false,true);
 
         box_footer_start();
-        echo '<a title="Add new item" class="ajaxsubmit btn green btn_right" href="'.site_url($ci->uri->uri_string()).'/add"><i class="fa fa-plus"></i> Add </a>';
+        echo '<a title="Add new item" class="ajaxsubmit btn green btn_right" href="'.site_url($ci->uri->uri_string()).'/add"><i class="material-icons">add</i> Add </a>';
         box_footer_end();
 
         box_end();

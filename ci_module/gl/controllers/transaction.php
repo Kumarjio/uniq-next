@@ -40,7 +40,8 @@ class GlTransaction
         box_footer_start(null, null, false);
         submit('upload', _("Upload file"), true, '', true);
         box_footer_end();
-
+        
+        echo "<div style='margin-top:70px'></div>";
         box_start(_("Rows"));
         div_start('items_table');
         $this->gl_items();

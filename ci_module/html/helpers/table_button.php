@@ -251,7 +251,7 @@ function icon_submit($name, $value, $button_type = 'secondary', $icon='save', $a
     } elseif( is_string($icon) ) {
 
         if( strpos($icon, 'fa-') !== false ){
-            $icon = "fa $icon";
+            $icon = "$icon";
         }
         $icon_show = '<i class="material-icons">'.$icon.'</i> ';
     }
@@ -265,7 +265,7 @@ function icon_submit_cells($name, $value, $button_type = 'secondary', $icon='sav
     echo "<td align=\"center\" >$button</td>\n";
 }
 function tbl_add($name,$value= 'Add Item'){
-    return icon_submit_cells($name, $value , 'success', 'fa-plus', true, _('Add new item to document'));
+    return icon_submit_cells($name, $value , 'success', 'add', true, _('Add new item to document'));
 }
 function tbl_edit($name,$value = 'Edit',$td_inclue=true,$async=true){
     if( !$td_inclue ){
@@ -275,9 +275,9 @@ function tbl_edit($name,$value = 'Edit',$td_inclue=true,$async=true){
 }
 function tbl_remove($name,$value= 'Delete',$td_inclue=true,$async=true){
     if( !$td_inclue ){
-        return icon_submit($name, $value , 'danger', 'icon-trash', $async, _('Remove line from document'));
+        return icon_submit($name, $value , 'danger', 'delete', $async, _('Remove line from document'));
     }
-    return icon_submit_cells($name, $value , 'danger', 'icon-trash', $async, _('Remove line from document'));
+    return icon_submit_cells($name, $value , 'danger', 'delete', $async, _('Remove line from document'));
 }
 function tbl_update($name,$value= 'Update'){
     return icon_submit_cells($name, $value , 'success', 'fa-save', true, _('Confirm changes'));

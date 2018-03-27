@@ -190,13 +190,14 @@ function input_money ($label, $name, $value = null, $currency = NULL, $post_labe
 
     $html = '<div class="">
                 <div class="input-group">
-                <span class="input-group-btn">
-                    <button class="btn btn-info" >' .
-             $currency .
-             '</button>
-                </span>
                 <input class="form-control input-money amount" dec="2" type="text" name="' .
-             $name . '" value="' . number_total($value) . '"  ></div></div>';
+             $name . '" value="' . number_total($value) . '"  >
+             <span class="input-group-btn">
+                    <i class="btn btn-info" >' .
+             $currency .
+             '</i>
+                </span>
+             </div></div>';
     form_group_bootstrap($label, $html);
 
     if ($post_label) {
@@ -213,9 +214,9 @@ function input_percent ($label, $name, $value = null, $help = NULL)
         $value = input_val($name);
     }
 
-    $input = '<input class="form-control" type="number" name="' . $name .
+    $input = '<input class="form-control col l11" type="number" name="' . $name .
              '"  value="' . ($value) . '">';
-    $addon = '<span class="input-group-btn"><button class="btn btn-info" type="button">%</button></span>';
+    $addon = '<span class="input-group-btn"><i class="material-icon">%</i></span>';
     $html = '<div class="input-group">' . $input . $addon .
              '</div>';
 

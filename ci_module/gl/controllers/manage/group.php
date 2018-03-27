@@ -17,8 +17,7 @@ class GlManageGroup
         box_start("");
         $this->listview();
         box_footer_show_active();
-
-        box_start("GL Account Group Detail");
+        
         $this->detail();
 
         box_footer_start();
@@ -84,6 +83,8 @@ class GlManageGroup
 
     private function detail()
     {
+        echo "<div style='margin-top:70px;'></div>";
+        box_start("GL Account Group Detail");
         row_start();
 
         col_start(4, 'col-md-4 col-sm-6');

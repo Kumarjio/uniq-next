@@ -14,20 +14,18 @@ class ProductsManageCategorie
     {
         start_form();
         box_start("");
+        row_start('card-panel');
         div_start('code_table', null,false,'class="table-box"');
         $this->categories_list();
-        div_end();
         box_footer_show_active();
+        div_end();
         // ----------------------------------------------------------------------------------
         box_start("");
         $this->categorie_item();
 
-        col_start(12, 'col-md-12');
-        box_footer_start();
-        submit_add_or_update_center($this->selected_id == - 1, '', 'both', true);
-        box_footer_end();
-        col_end();
-
+        // col_start(12, 'col-md-12');
+        // col_end();
+        end_row();
         box_end();
         end_form();
     }
@@ -134,27 +132,31 @@ class ProductsManageCategorie
             }
 
         div_start('details');
-        row_start();
+        row_start('card-panel');
         col_start(12, 'col-md-4 col-sm-6');
         input_text_bootstrap(_("Category Name:"), 'description');
-        row_end();
-        fieldset_start('Default values for new items');
-        row_start();
-        col_start(12, 'col-md-4 col-sm-6');
+        // row_end();
+        // fieldset_start('Default values for new items');
+        col_start(12, 'col m12');
+        label_cell('Default values for new items');
+        col_end();
+        echo "<br><br>";
+        // row_start();
+        col_start(12, 'col m4');
         item_tax_types(_("Item Tax Type:"), 'tax_type_id');
         col_end();
-        col_start(12, 'col-md-4 col-sm-6');
+        col_start(12, 'col m4');
         stock_item_types(_("Item Type:"), 'mb_flag', null, true);
         col_end();
-        col_start(12, 'col-md-4 col-sm-6');
+        col_start(12, 'col m4');
         stock_units(_("Units of Measure:"), 'units');
         col_end();
-        col_start(12, 'col-md-4 col-sm-6');
+        col_start(12, 'col m4');
         check_bootstrap(_("Exclude from sales:"), 'no_sale');
         col_end();
-        col_start(12, 'col-md-4 col-sm-6');
+        col_start(12, 'col m4');
         gl_accounts_bootstrap(_("Sales Account:"), 'sales_account');
-        col_start(12, 'col-md-4 col-sm-6');
+        col_start(12, 'col m4');
         if (is_service($_POST['mb_flag'])) {
             gl_accounts_bootstrap(_("C.O.G.S. Account:"), 'cogs_account');
             hidden('inventory_account', $_POST['inventory_account']);
@@ -166,7 +168,7 @@ class ProductsManageCategorie
             gl_accounts_bootstrap(_("Inventory Adjustments Account:"), 'adjustment_account', $_POST['adjustment_account']);
         }
         col_end();
-        col_start(12, 'col-md-4 col-sm-6');
+        col_start(12, 'col m4');
         if (is_manufactured($_POST['mb_flag']))
             gl_accounts_bootstrap(_("Item Assembly Costs Account:"), 'assembly_account', $_POST['assembly_account']);
         else
@@ -183,15 +185,19 @@ class ProductsManageCategorie
         if ($dim < 2)
             hidden('dim2', 0);
         col_end();
-        row_end();
-        row_start();
-        col_start(12, 'col-md-4 col-sm-6');
+        // row_end();
+        // row_start();
+        col_start(12, 'col m4');
         if (defined('COUNTRY') && COUNTRY == 60) {
             echo get_instance()->finput->msic(_("Industry Code:"), 'gst_03_box', null, 'row');
         } else {
             hidden('gst_03_box');
         }
-        fieldset_end();
+        // fieldset_end();
+
+        box_footer_start();
+        submit_add_or_update_center($this->selected_id == - 1, '', 'both', true);
+        box_footer_end();
 
         col_end();
         row_end();

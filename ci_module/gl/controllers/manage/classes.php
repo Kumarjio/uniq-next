@@ -18,7 +18,7 @@ class GlManageClasses
         $this->listview();
         box_footer_show_active();
 
-        box_start("GL Account Class Detail");
+        
         $this->detail();
 
         box_footer_start();
@@ -77,6 +77,8 @@ class GlManageClasses
 
     private function detail()
     {
+        echo "<div style='margin-top:70px;'></div>";
+        box_start("GL Account Class Detail");
         row_start();
         col_start(4, 'col-md-4 col-sm-6');
 

@@ -112,7 +112,7 @@ class MaintenanceVoid
                 'type' => 'date',
                 'fun' => 'date_view'
             ),
-            'GL' => array(
+            _('GL') => array(
                 'label' => "GL",
                 'insert' => true,
                 'fun' => 'gl_view',
@@ -144,17 +144,19 @@ class MaintenanceVoid
             $_POST['memo_'] = '';
         }
 
-        col_start(4, 'col l4 s6');
+        echo "<div class='card'>";
+        col_start(4, 'col m12');
         input_label_bootstrap(_("Transaction #"), null, ($this->selected_id == - 1 ? '' : $this->selected_id));
         col_end();
 
-        col_start(4, 'col l4 s6');
+        col_start(4, 'col l4');
         input_date_bootstrap(_("Voiding Date"), 'date_');
         col_end();
 
-        col_start(4, 'col l4 s6');
+        col_start(4, 'col l12 s6');
         input_textarea_bootstrap(_("Memo"), 'memo_');
         col_end();
+        echo "</div>";
         row_end();
     }
 }

@@ -13,9 +13,9 @@ class ProductsManagePurchasingData
     function index()
     {
         box_start();
-        row_start();
+        row_start('card-panel');
         if (! @$_GET['popup']) {
-            col_start(10, 'col-md-4 col-sm-6');
+            col_start(10, 'col m6');
             stock_items_bootstrap('Item', 'stock_id', null, false, true);
             col_end();
             // Chaitanya : All items can be purchased
@@ -38,14 +38,6 @@ class ProductsManagePurchasingData
         }
 
         $this->detail();
-
-        if (! @$_GET['popup']) {
-            box_footer_start();
-            submit_add_or_update_center($this->selected_id == - 1, '', 'both');
-            box_footer_end();
-
-            // box_end();
-        }
         row_end();
     }
 
@@ -136,7 +128,7 @@ class ProductsManagePurchasingData
     private function detail()
     {
         // row_start();
-        col_start(8, 'col-md-4 col-sm-6');
+        col_start(8, 'col m6');
 
         // -----------------------------------------------------------------------------------------------
 
@@ -168,22 +160,29 @@ class ProductsManagePurchasingData
             $_POST['price'] = $_POST['suppliers_uom'] = $_POST['conversion_factor'] = $_POST['supplier_description'] = "";
         }
 //         amount_row(_("Price:"), 'price', null, '', get_supplier_currency($this->selected_id), $dec2);
-        col_start(8, 'col-md-4 col-sm-6');
+        col_start(8, 'col m6');
         input_money(_("Price"), 'price',null,get_supplier_currency($this->selected_id));
-        col_start(8, 'col-md-4 col-sm-6');
+        col_start(8, 'col m6');
         input_text_bootstrap(_("Suppliers Unit of Measure"), 'suppliers_uom');
 
         if (! isset($_POST['conversion_factor']) || $_POST['conversion_factor'] == "") {
             $_POST['conversion_factor'] = maxprec_format(1);
         }
 
-        col_start(8, 'col-md-4 col-sm-6');
+        col_start(8, 'col m12');
 //         amount_row(_("Conversion Factor (to our UOM):"), 'conversion_factor', maxprec_format($_POST['conversion_factor']), null, null, 'max');
         input_money( "Conversion Factor (to our UOM)" , 'conversion_factor');
-        col_start(8, 'col-md-4 col-sm-6');
+        col_start(8, 'col m12');
         input_text_bootstrap(_("Supplier's Code or Description:"), 'supplier_description');
 
 
+        if (! @$_GET['popup']) {
+            box_footer_start();
+            submit_add_or_update_center($this->selected_id == - 1, '', 'both');
+            box_footer_end();
+
+            // box_end();
+        }
         col_end();
         // row_end();
     }

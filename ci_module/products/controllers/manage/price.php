@@ -21,7 +21,7 @@ class ProductsManagePrice
             start_form();
             box_start("");
 
-            row_start();
+            row_start('card-panel');
             col_start(9, 'col-md-4 col-sm-6');
             sales_items('Item', 'stock_id', NULL, false, true, '', array(
                 'editable' => false
@@ -29,13 +29,13 @@ class ProductsManagePrice
 
 
             col_end();
-            row_end();
 
         }
 
         $this->id = input_val('stock_id');
         col_start(12, 'col-md-12 table-box');
         $this->prices_list();
+            row_end();
 
         row_start();
         col_start(12, 'col-md-12');
@@ -51,7 +51,6 @@ class ProductsManagePrice
         hidden('selected_id', $this->price_id );
         hidden('sales_type_id', $this->price_id );
 
-        row_end();
 //         if ($this->mode == 'Edit' AND $this->price_id > 0) {
 
             $this->price_item();
@@ -65,6 +64,7 @@ class ProductsManagePrice
             box_form_end();
 
             box_end();
+            row_end();
             end_form();
         }
     }
@@ -148,7 +148,7 @@ class ProductsManagePrice
         }
 
         $kit = get_item_code_dflts($_POST['stock_id']);
-        input_text_addon_both('Price','price',null, 'per '.$kit["units"],'$ ');
+        input_text_addon_both('','price',null, 'per '.$kit["units"],'Price $ ');
 //         input_money(_("Price:"), 'price', null, _('per') . ' ' . $kit["units"]);
 
         if ($this->calculated){

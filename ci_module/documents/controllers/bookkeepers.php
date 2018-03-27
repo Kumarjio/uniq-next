@@ -106,18 +106,18 @@ class DocumentsBookkeepers  {
     private function filter()
     {
         row_start('inquiry-filter');
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l12');
         input_array_selector("Document Type",'tran_type',NULL,$this->document_tran_types);
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4 ');
         input_date_bootstrap("From", 'date_from', begin_month());
 
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4');
         input_date_bootstrap("To", 'date_to', end_month());
 
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col l4');
         input_array_selector('Status','status',NULL,array(0=>'All',2=>'Posted',1=>'Unpost'));
 
-        col_start(4, 'col-md-12');
+        col_start(4, 'col l12');
         submit_bootstrap('RefreshInquiry', _("Show"), _('Refresh Inquiry'), 'default','search');
         row_end();
     }

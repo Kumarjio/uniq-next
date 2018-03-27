@@ -26,8 +26,8 @@ class CrmCategory
         box_footer_end();
 
         box_end();
-        end_form();
         echo "</div>";
+        end_form();
     }
 
     private function listview()
@@ -96,7 +96,7 @@ class CrmCategory
         }
 
         row_start();
-
+        echo "<div class='card' style='margin-top:100px;'>";
         if ( $this->mode == 'Edit' && $myrow['system']) {
             col_start(4, 'col l4 s6');
             input_label_bootstrap( _("Contact Category Type"), 'type' );
@@ -122,6 +122,7 @@ class CrmCategory
 
 
         col_end();
+        echo "</div>";
         row_end();
     }
 }

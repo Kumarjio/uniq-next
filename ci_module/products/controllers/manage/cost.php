@@ -16,7 +16,7 @@ class ProductsManageCost
             return $this->popup();
         }
         box_start("");
-        row_start();
+        row_start('card-panel');
         col_start(8, 'class="col-md-6"');
         bootstrap_set_label_column(4);
         if (! @$_GET['popup']) {
@@ -26,13 +26,13 @@ class ProductsManageCost
         set_global_stock_item($_POST['stock_id']);
 
         $this->detail();
-        col_end();
-        echo "<div class='clearfix'></div>";
-        row_end();
+        // echo "<div class='clearfix'></div>";
         box_footer_start();
         submit_add_or_update_center($this->selected_id == - 1, '', 'both');
         box_footer_end();
-
+        
+        col_end();
+        row_end();
         box_end();
     }
     private function popup(){

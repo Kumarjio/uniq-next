@@ -81,14 +81,14 @@ class BankTransaction
         row_start();
         bootstrap_set_label_column(4);
 
-        col_start(4);
+        col_start('col m4');
         input_date_bootstrap(_("Date"), 'date_', null, false, true, 0, 0, 0);
         input_ref("Reference", 'ref');
 
         input_switch('Tax Inclusive', 'tax_inclusive', $this->tran_cart->tax_inclusive, null, true, $columns = 4, NULL,$data_size='small');
         input_text(_('Cheque Number'), 'cheque');
 
-        col_start(4);
+        col_start('col m4');
 
         payment_person_types($payment ? _("Pay To:") : _("From:"), 'PayType', $_POST['PayType'], true);
 
@@ -154,7 +154,7 @@ class BankTransaction
             input_text('Source Ref', 'source_ref');
         }
 
-        col_start(4);
+        col_start('col m4');
 
         bank_accounts($payment ? _("From:") : _("Into:"), 'bank_account', null, true);
 

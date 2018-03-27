@@ -18,7 +18,6 @@ class ManagePaymentTerm
         $this->listview();
         box_footer_show_active();
 
-        box_start("Payment Term Details");
         $this->detail();
 
         box_footer_start();
@@ -72,6 +71,8 @@ class ManagePaymentTerm
 
     private function detail()
     {
+        echo "<div style='margin-top:70px;'></div>";
+        box_start("Payment Term Details");
         div_start('edits');
         row_start();
         col_start('col l6 s6');

@@ -86,7 +86,7 @@ class GlManageQuickEntry
     {
         div_start('qe');
         row_start();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col m12');
 
         if ($this->selected_id != - 1) {
             if ($this->mode == 'Edit') {
@@ -105,24 +105,24 @@ class GlManageQuickEntry
 
         input_text_bootstrap(_("Description") . ':', 'description');
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col m6');
         quick_entry_types(_("Entry Type") . ':', 'type', null, true);
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col m6');
         if (get_post('type') == QE_JOURNAL) {
             yesno_bootstrap(_("Balance Based"), 'bal_type', null, _("Yes"), _("No"), true);
         }
         col_end();
-        col_start(4, 'col-md-4 col-sm-6');
+        col_start(4, 'col m6');
         if (get_post('type') == QE_JOURNAL && get_post('bal_type') == 1) {
             yesno_bootstrap(_("Period"), 'base_amount', null, _("Monthly"), _("Yearly"));
             col_end();
-            col_start(4, 'col-md-4 col-sm-6');
+            col_start(4, 'col m6');
             gl_accounts_bootstrap(_("Account"), 'base_desc', null, true);
         } else {
             input_text_bootstrap(_("Base Amount Description"), 'base_desc', 50, 60, '');
             col_end();
-            col_start(4, 'col-md-4 col-sm-6');
+            col_start(4, 'col m6');
             input_money(_("Default Base Amount"), 'base_amount');
         }
         col_end();
