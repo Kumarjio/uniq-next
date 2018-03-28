@@ -425,7 +425,7 @@ class PurchasesOrder
             hidden('line_no', $line_no);
             set_focus('qty');
         } else {
-            icon_submit_cells('EnterLine', _("Add Item"), 'success', 'fa-plus', true, _('Add new item to document'));
+            icon_submit_cells('EnterLine', _("Add Item"), 'success', 'add', true, _('Add new item to document'));
             // label_cell(NULL);
             // submit_cells('EnterLine', _("Add Item"), "colspan=2 align='center'", _('Add new item to document'), true);
         }

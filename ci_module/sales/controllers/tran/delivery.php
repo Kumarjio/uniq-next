@@ -17,6 +17,7 @@ class SalesTranDelivery
 
         start_form();
 
+        row_start('card-panel');
         hidden('cart_id');
 
         box_start();
@@ -29,7 +30,8 @@ class SalesTranDelivery
             end_page();
             exit();
         }
-        box_start( _("Delivery Items") );
+        
+        
             div_start('Items');
             $this->form_items();
             echo '<hr>';
@@ -47,6 +49,7 @@ class SalesTranDelivery
         submit('process_delivery', _("Process Dispatch"),true, _('Check entered data and save document'), 'default');
 
         box_footer_end();
+        row_end();
         box_end();
         end_form();
     }
@@ -55,12 +58,12 @@ class SalesTranDelivery
     {
         global $Refs;
         row_start();
-        col_start(3);
+        col_start('col m6');
         input_label(_("Customer"), null, $_SESSION['Items']->customer_name);
         input_label(_("Branch"), null, get_branch_name($_SESSION['Items']->Branch));
         input_label(_("Currency"), null, $_SESSION['Items']->customer_currency);
 
-        col_start(3);
+        col_start('col m6');
         if ($_SESSION['Items']->trans_no == 0) {
             $_POST['ref'] = $Refs->get_next(ST_CUSTDELIVERY);
             input_ref(_("Reference"), 'ref');
@@ -71,7 +74,7 @@ class SalesTranDelivery
         input_label(_("For Sales Order"),null, get_customer_trans_view_str(ST_SALESORDER, $_SESSION['Items']->order_no));
         input_label(_("Sales Type"),null, $_SESSION['Items']->sales_type_name);
 
-        col_start(3);
+        col_start('col m12');
         if (! isset($_POST['Location'])) {
             $_POST['Location'] = $_SESSION['Items']->Location;
         }
@@ -91,7 +94,7 @@ class SalesTranDelivery
         }
         input_date_bootstrap(_("Date"), 'DispatchDate');
 
-        col_start(3);
+        col_start('col m6');
         if (! isset($_POST['due_date']) || ! is_date($_POST['due_date'])) {
             $_POST['due_date'] = get_invoice_duedate($_SESSION['Items']->payment, $_POST['DispatchDate']);
         }
@@ -148,6 +151,7 @@ class SalesTranDelivery
 
     private function form_items()
     {
+        box_start( _("Delivery Items") );
         start_table(TABLESTYLE, "width=80%");
 
         $new = $_SESSION['Items']->trans_no == 0;

@@ -283,5 +283,5 @@ function tbl_update($name,$value= 'Update'){
     return icon_submit_cells($name, $value , 'success', 'fa-save', true, _('Confirm changes'));
 }
 function tbl_cancel($name,$value= 'Cancel'){
-    return icon_submit_cells($name, $value , 'info', 'fa-refresh', true, _('Cancel changes'));
+    return icon_submit_cells($name, $value , 'info', 'refresh', true, _('Cancel changes'));
 }

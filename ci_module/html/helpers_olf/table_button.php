@@ -267,7 +267,7 @@ function icon_submit_cells($name, $value, $button_type = 'secondary', $icon='sav
     echo "<td align=\"center\" >$button</td>\n";
 }
 function tbl_add($name,$value= 'Add Item'){
-    return icon_submit_cells($name, $value , 'success', 'fa-plus', true, _('Add new item to document'));
+    return icon_submit_cells($name, $value , 'success', 'add', true, _('Add new item to document'));
 }
 function tbl_edit($name,$value = 'Edit',$td_inclue=true,$async=true){
     if( !$td_inclue ){

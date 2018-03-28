@@ -375,7 +375,8 @@ function display_db_pager(&$pager)
             }else{
               //option button
               $option_html = $option_html.
-              '<li class="collection-item avatar">'.$cell.'</li>';
+              // '<li class="collection-item avatar">'.$cell.'</li>';
+              ''.$cell.'';
             }
         }
 
@@ -390,16 +391,20 @@ function display_db_pager(&$pager)
           // '</div></div></div>';
           // label_cell($option_html, "align='center'");
 
+          // $option_html =
+          // '<button type="button" class="button operation-button modal-trigger" href="#modal'.$row_counter.'"><i class="fa fa-ellipsis-v"></i></button>
+          // <!-- Option Structure -->
+          // <div id="modal'.$row_counter.'" class="operation-modal modal bottom-sheet">
+          //   <div class="modal-content col m12 offset-l3 l6">
+          //     <ul class="collection">
+          //       '.$option_html.'
+          //     </ul>
+          //   </div>
+          // </div>';
+          // label_cell($option_html, "align=''");
+
           $option_html =
-          '<button type="button" class="button operation-button modal-trigger" href="#modal'.$row_counter.'"><i class="fa fa-ellipsis-v"></i></button>
-          <!-- Option Structure -->
-          <div id="modal'.$row_counter.'" class="operation-modal modal bottom-sheet">
-            <div class="modal-content col m12 offset-l3 l6">
-              <ul class="collection">
-                '.$option_html.'
-              </ul>
-            </div>
-          </div>';
+          ''.$option_html.'';
           label_cell($option_html, "align=''");
 
 
