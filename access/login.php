@@ -162,16 +162,20 @@ $login_cek = "";
 
 	                <?php } ?>
 								</div>
-
-		            <div class="uniq-field">
-		            	<?php $name_name = (isset($_COOKIE['name_name'])) ? $_COOKIE['name_name'] : null; ?>
-		                <input type="text" placeholder="Email" class="touch" name="user_name_entry_field" value='<?=$name_name?>' <?=$login_cek?>/>
-		                <input type='hidden' id=ui_mode name='ui_mode' value="<?php echo $_SESSION["wa_current_user"]->ui_mode;?>" />
-		            </div>
-		            <div class="uniq-field">
-		            	<?php $pass_name = (isset($_COOKIE['pass_name'])) ? $_COOKIE['pass_name'] : null; ?>
-		                <input type="password" placeholder="Password" class="touch" name="password" value='<?=$pass_name?>' <?=$login_cek?>/>
-		            </div>
+			      	<div class="row">
+					    <div class="input-field">
+					        <?php $name_name = (isset($_COOKIE['name_name'])) ? $_COOKIE['name_name'] : null; ?>
+							<input id="email" type="email" class="validate" class="touch" name="user_name_entry_field" value='<?=$name_name?>' <?=$login_cek?>/>
+					        <label for="email">Email</label>
+					        <input type='hidden' id=ui_mode name='ui_mode' value="<?php echo $_SESSION["wa_current_user"]->ui_mode;?>" />
+					    </div>
+					
+			            <div class="input-field">
+			            	<?php $pass_name = (isset($_COOKIE['pass_name'])) ? $_COOKIE['pass_name'] : null; ?>
+			                <input id="password" type="password" class="validate" class="touch" name="password" value='<?=$pass_name?>' <?=$login_cek?>/>
+			                <label for="password">Password</label>
+			            </div>
+					</div>
 		            <div class="form-group">
 		                <div class="row uniq-field">
 			            	<?php // if (isset($_COOKIE['comp_name']) != ''){ ?>
@@ -194,8 +198,8 @@ $login_cek = "";
  						<div id="accountbookList" hidden="">
  						    <!-- Modal content-->
  						    <!-- <div class="content"> -->
- 						      <div class="uniq-field">
- 						      <hr>
+ 						      <div class="input-field">
+ 						      <!-- <hr> -->
  						        <p>Select accountbook. (Scroll)</p>
  						      <!-- </div> -->
  						      <div class="body" style="overflow-y:scroll; height:150px; background-color: transparent;">&nbsp;</div>
