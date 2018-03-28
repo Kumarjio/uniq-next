@@ -16,12 +16,12 @@ class ProductsManageItemCode
         if (! isset($_POST['stock_id']))
             $_POST['stock_id'] = get_global_stock_item();
         $this->unit_load();
-
+        echo "<div class=card-panel>";
         start_form();
         box_start("");
 
-        row_start('card-panel');
-        col_start(9, 'col-md-4 col-sm-6');
+        row_start();
+        col_start(9, 'col l4 s6');
         stock_items_bootstrap("Item", 'stock_id', $_POST['stock_id'], false, true);
         col_end();
         div_start('code_table', null,false,'class="table-box"');
@@ -34,7 +34,7 @@ class ProductsManageItemCode
         // -----------------------------------------------------------------------------------------------
 
         box_start();
-        row_start('card-panel');
+        row_start();
         $this->code_item();
         row_end();
         box_footer_start();
@@ -46,6 +46,7 @@ class ProductsManageItemCode
         row_end();
         box_end();
         end_form();
+        echo "</div>";
     }
 
 
@@ -145,20 +146,20 @@ class ProductsManageItemCode
             unset($_POST);
         }
 
-        col_start(8, 'col-md-4 col-sm-6');
+        col_start(8, 'col l4 s6');
 
         hidden('code_id', $this->selected_id);
 
         input_text_bootstrap(_("UPC/EAN code:"), 'item_code');
         col_end();
-        col_start(8, 'col-md-4 col-sm-6');
+        col_start(8, 'col l4 s6');
         input_text_addon_both('Quantity','quantity',null,$this->item_unit->units);
 //         qty_row(_("Quantity:"), 'quantity', null, '', $this->item_unit->units, $this->item_unit->decimals)col_start(8, 'col-md-4 col-sm-6');
         col_end();
-        col_start(8, 'col-md-4 col-sm-6');
+        col_start(8, 'col l4 s6');
         input_text_bootstrap(_("Description:"), 'description');
         col_end();
-        col_start(8, 'col-md-4 col-sm-6');
+        col_start(8, 'col l4 s6');
         stock_categories(_("Category:"), 'category_id', null);
         col_end();
 

@@ -23,14 +23,14 @@ class ProductsManageProduct
 
         row_start('card-panel');
         if (db_has_stock_items()) {
-            col_start(12,'col-md-4 col-sm-6');
+            col_start(12,'col l6 s6');
             stock_items_bootstrap(_("Select an item"), 'stock_id', input_post('stock_id'), _('New item'), true, check_value('show_inactive'));
-            col_start(12,'col-md-4 col-sm-6');
             $new_item = get_post('stock_id') == '';
+            col_start(12,'col l6 s6');
 
             check_bootstrap(_("Show inactive"), 'show_inactive', null, true);
-            
 
+            col_start(12,'col l12 s12');
             if (get_post('_show_inactive_update')) {
                 global $Ajax;
                 $Ajax->activate('stock_id');
@@ -39,7 +39,7 @@ class ProductsManageProduct
         } else {
             hidden('stock_id', get_post('stock_id'));
         }
-
+        // echo "<div class=clearfix></div>";
         // row_start();
         div_start('details');
         if (! $this->id)
@@ -199,12 +199,12 @@ class ProductsManageProduct
         $stock_id = $this->id;
 
         row_start();
-        col_start(6, 'col m12');
+        col_start(6, 'col l12');
         fieldset_start("Item");
 
         // ------------------------------------------------------------------------------------
         if ($this->new_item) {
-            col_start(6, 'col m12');
+            // col_start(6, 'col m12');
             input_text_bootstrap("Item Code", 'NewStockID');
 //             text_row(_("Item Code:"), 'NewStockID', null, 21, 20);
 
@@ -301,7 +301,7 @@ class ProductsManageProduct
         // stock_purchase_gst_type_list_row(_("Purchase GST Type:"), 'purchase_gst_type_id', null, false, $new_item);
 //         echo $ci->finput->inputtaxes('Purchase GST Type:', 'purchase_gst_type_id', input_val('purchase_gst_type_id'), '3', 'row', false, null, 'fullname');
 
-        col_start(6, 'col-md-6');
+        col_start(6, 'col l12');
 //         table_section(2);
 
         $dim = get_company_pref('use_dimension');

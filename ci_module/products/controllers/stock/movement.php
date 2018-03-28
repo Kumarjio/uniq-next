@@ -46,23 +46,23 @@ class ProductsStockMovement
             if( !isMobile() ){
                 bootstrap_set_label_column(2);
             }
-            col_start(12,'col-md-3 col-sm-6');
+            col_start(12,'col l6 s6');
             stock_items_bootstrap('Product Item','stock_id',null,true,true);
             bootstrap_set_label_column(false);
         }
 
-        col_start(12,'col-md-3 col-sm-6');
+        col_start(12,'col l6 s6');
         if( !isMobile() ){
             bootstrap_set_label_column(4);
         }
         locations_bootstrap(_("From Location"), 'StockLocation', null, true);
         bootstrap_set_label_column(false);
-        col_start(12,'col-md-3 col-sm-6');
+        col_start(12,'col l6 s6');
         input_date_bootstrap('From', 'AfterDate',null,false,false,-30);
-        col_start(12,'col-md-3');
+        col_start(12,'col l6 s6');
         input_date_bootstrap( "To", 'BeforeDate');
 
-        col_start(12,'col-md-12');
+        col_start(12,'col l12');
         submit('ShowMoves',_("Show Movements"),true,_('Refresh Inquiry'), 'default','search');
         row_end();
 

@@ -299,28 +299,30 @@ class SupplierManageSupplier
 
         if (!$supplier_id) {
             row_start();
-            col_start(12, 'col l12');
+            // col_start(12, 'col l12');
             fieldset_start("Contact Data");
-            col_end();
-            col_start(12, 'col l6 s6');
+            // col_end();
+            // col_start(12, 'col l6 s6');
+            // echo "<div class=col l6 s6>";
             input_text_bootstrap(_("Phone Number"), 'phone');
-            col_end();
-            col_start(12, 'col l6 s6');
+            // echo "</div>"
+            // col_end();
+            // col_start(12, 'col l6 s6');
             input_text_bootstrap(_("Secondary Phone Number:"), 'phone2');
-            col_end();
-            col_start(12, 'col l6 s6');
+            // col_end();
+            // col_start(12, 'col l6 s6');
             input_text_bootstrap(_("Contact Person"), 'contact');
 
-            col_end();
-            col_start(12, 'col l6 s6');
+            // col_end();
+            // col_start(12, 'col l6 s6');
             input_text_bootstrap(_("Fax Number"), 'fax');
-            col_end();
-            col_start(12, 'col l6 s6');
+            // col_end();
+            // col_start(12, 'col l6 s6');
             input_text_bootstrap(_("E-mail"), 'email');
-            col_end();
-            col_start(12, 'col l6 s6');
+            // col_end();
+            // col_start(12, 'col l6 s6');
             languages_bootstrap(_("Document Language"), 'rep_lang', null, _('System default'));
-            col_end();
+            // col_end();
             row_end();
         }
         col_end();

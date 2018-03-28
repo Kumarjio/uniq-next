@@ -27,7 +27,7 @@ class ProductsAdjustment
         div_end();
 
         row_start('justify-content-md-center');
-        col_start(12,'col-md-8');
+        col_start(12,'col l8');
         if( !isMobile() ){
             bootstrap_set_label_column(2);
         }
@@ -51,11 +51,11 @@ class ProductsAdjustment
         global $Refs;
         row_start();
 
-        col_start(12,'col-md-4');
+        col_start(12,'col l6');
         locations_bootstrap(_("Location"), 'StockLocation', null);
         input_ref(_("Reference"), 'ref', '', $Refs->get_next(ST_INVADJUST));
 
-        col_start(12,'col-md-4');
+        col_start(12,'col l6');
         movement_types(_("Detail"), 'type', null);
 
         if (! isset($_POST['Increase']))
@@ -63,7 +63,7 @@ class ProductsAdjustment
 
         yesno_bootstrap(_("Type"), 'Increase', $_POST['Increase'], _("Positive Adjustment"), _("Negative Adjustment"));
 
-        col_start(12,'col-md-4');
+        col_start(12,'col l6');
         // date_row(_("Date:"), 'AdjDate', '', true);
         input_date_bootstrap('Date', 'AdjDate');
 

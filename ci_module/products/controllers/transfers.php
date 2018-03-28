@@ -27,7 +27,7 @@ class ProductsTransfers
         div_end();
 
         row_start('justify-content-md-center');
-        col_start(12,'col-md-8');
+        col_start(12,'col l8');
         if( !isMobile() ){
             bootstrap_set_label_column(2);
         }
@@ -53,15 +53,15 @@ class ProductsTransfers
         }
         row_start();
 
-        col_start(12,'col-md-4');
+        col_start(12,'col l6');
         locations_bootstrap(_("From Location"), 'FromStockLocation', null);
         locations_bootstrap(_("To Location"), 'ToStockLocation', null);
 
-        col_start(12,'col-md-4');
+        col_start(12,'col l6');
         input_ref(_("Reference"), 'ref', $Refs->get_next(ST_LOCTRANSFER));
         input_date_bootstrap(_("Date"), 'AdjDate', '', true);
 
-        col_start(12,'col-md-4');
+        col_start(12,'col l6');
         movement_types(_("Transfer Type"), 'type', null);
 
         row_end();
@@ -179,16 +179,16 @@ class ProductsTransfers
             $trans_type = ST_LOCTRANSFER;
 
             display_notification(_("Inventory transfer has been processed"));
-            
+
             box_start();
             row_start();
-            
+
             col_start(12);
             mt_list_start('Actions', '', 'blue');
 
             mt_list_tran_view(_("&View This transfer"), $trans_type, $trans_no);
             mt_list_link(_("Enter &Another Inventory Transfer"), $_SERVER['PHP_SELF']);
-            
+
             row_end();
             box_footer();
             box_end();
