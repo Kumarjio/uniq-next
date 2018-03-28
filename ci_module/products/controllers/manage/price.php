@@ -22,7 +22,7 @@ class ProductsManagePrice
             box_start("");
 
             row_start('card-panel');
-            col_start(9, 'col-md-4 col-sm-6');
+            col_start(9, 'col l4 s6');
             sales_items('Item', 'stock_id', NULL, false, true, '', array(
                 'editable' => false
             ));
@@ -33,12 +33,12 @@ class ProductsManagePrice
         }
 
         $this->id = input_val('stock_id');
-        col_start(12, 'col-md-12 table-box');
+        col_start(12, 'col l12 table-box');
         $this->prices_list();
             row_end();
 
         row_start();
-        col_start(12, 'col-md-12');
+        col_start(12, 'col l12');
         if (@$_GET['popup']) {
             hidden('_tabs_sel', get_post('_tabs_sel'));
             hidden('popup', @$_GET['popup']);
@@ -136,13 +136,14 @@ class ProductsManagePrice
             $_POST['price'] = price_format($myrow["price"]);
         }
 
-        div_start('price_details',$trigger = null, $non_ajax = false, 'class="col"');
-        col_start(8, 'col-md-4 col-sm-6');
-
+        div_start('price_details',$trigger = null, $non_ajax = false, '');
+        col_start(8, 'col l4 s4');
         currency_bootstrap(_("Currency"), 'curr_abrev', null, true);
+        col_end();
+        col_start(8, 'col l4 s4');
         sales_types_bootstrap( "Sales Type", 'sales_type_id', null, true);
-
-        col_start(8, 'col-md-4 col-sm-6');
+        col_end();
+        col_start(8, 'col l4 s4');
         if (! isset($_POST['price'])) {
             $_POST['price'] = price_format(get_kit_price(get_post('stock_id'), get_post('curr_abrev'), get_post('sales_type_id')));
         }

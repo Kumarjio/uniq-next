@@ -55,14 +55,14 @@ class ProductsManageMovementType
             delete_button_cell("Delete" . $myrow['id'], _("Delete"));
             end_row();
         }
-        inactive_control_row($th);
         end_table(1);
+        inactive_control_row($th);
     }
 
     private function detail()
     {
         row_start('card-panel');
-        col_start(8,'col-md-6');
+        col_start(8,'col l6');
         if ($this->selected_id != - 1) {
             if ($this->mode == 'Edit') {
                 // editing an existing status code

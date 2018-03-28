@@ -242,11 +242,11 @@ function inactive_control_cell($id, $value, $table, $key)
 function inactive_control_row($th)
 {
     echo
-    "<tr><td colspan=" . (count($th)) . ">" .
+    "<tr><td colspan=" . (count($th)) . "><div >" .
       submit('Update', _('Update'), false, '', null, 'save') .
-      "<div class='pull-right margin-top'>".
+      "<div class='pull-right'>".
       checkbox(null, 'show_inactive', null, true) . _("<label for='checkboxs_show_inactive'>Show also Inactive</label>") .
-      "</div>".
+      "</div></div>".
      "</td></tr>";
 }
 

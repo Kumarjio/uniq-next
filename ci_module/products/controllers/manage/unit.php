@@ -51,14 +51,14 @@ class ProductsManageUnit
             end_row();
         }
 
-        inactive_control_row($th);
         end_table(1);
+        inactive_control_row($th);
     }
 
     private function detail()
     {
         row_start('card-panel');
-        col_start(8,'col-md-4 col-sm-6');
+        col_start(8,'col l4 s6');
 
         if ($this->selected_id != '')
         {
@@ -81,10 +81,10 @@ class ProductsManageUnit
         }
 
         col_end();
-        col_start(8,'col-md-4 col-sm-6');
+        col_start(8,'col l4 s6');
         input_text_bootstrap(_("Descriptive Name:"), 'description');
         col_end();
-        col_start(8,'col-md-4 col-sm-6');
+        col_start(8,'col l4 s6');
         numbers_list(_("Decimal Places:"), 'decimals', null, 0, 6, _("User Quantity Decimals"));
 
         box_footer_start();

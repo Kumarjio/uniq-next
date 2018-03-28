@@ -17,34 +17,34 @@ class ProductsManageCost
         }
         box_start("");
         row_start('card-panel');
-        col_start(8, 'class="col-md-6"');
+        col_start(8, 'class="col l6"');
         bootstrap_set_label_column(4);
         if (! @$_GET['popup']) {
             stock_items_bootstrap('Item', 'stock_id', null, false, true);
         }
 
         set_global_stock_item($_POST['stock_id']);
-
+        col_end();
+        col_start(8, 'class="col l6"');
         $this->detail();
         // echo "<div class='clearfix'></div>";
         box_footer_start();
         submit_add_or_update_center($this->selected_id == - 1, '', 'both');
         box_footer_end();
-        
+
         col_end();
         row_end();
         box_end();
     }
     private function popup(){
         row_start('col justify-content-center');
-        col_start(8, 'class="col-md-6"');
+        col_start(8, 'class="col l6"');
         bootstrap_set_label_column(4);
         if (! @$_GET['popup']) {
             stock_items_bootstrap('Item', 'stock_id', null, false, true);
         }
 
         set_global_stock_item($_POST['stock_id']);
-
         $this->detail();
         row_end();
 
@@ -55,7 +55,7 @@ class ProductsManageCost
     {
 
 
-        div_start('cost_table',null,false,'style="padding-top:15px;"');
+        div_start('cost_table',null,false,'style="padding-top:unset;"');
 
         $myrow = get_item($_POST['stock_id']);
 
