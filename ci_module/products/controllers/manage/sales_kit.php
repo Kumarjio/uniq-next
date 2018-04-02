@@ -26,9 +26,10 @@ class ProductsManageSalesKit
     function index()
     {
         start_form();
+        echo "<div class=card-panel>";
         box_start("");
 
-        row_start('card-panel');
+        row_start();
         col_start(9, 'col-md-4 col-sm-6');
         sales_kits('Select a sale kit', 'item_code', null, _('New kit'), true);
         col_end();
@@ -40,7 +41,7 @@ class ProductsManageSalesKit
             // New sales kit entry
             // text_row(_("Alias/kit code:"), 'kit_code', null, 20, 21);
         } else {
-            row_start('card-panel');
+            row_start();
             col_start(12, 'col-md-4 col-sm-6');
             $this->kit_items($selected_kit);
 
@@ -76,8 +77,9 @@ class ProductsManageSalesKit
         box_footer_start();
         submit_add_or_update_center($this->selected_id == - 1, '', 'both');
         box_form_end();
-        
+
         box_end();
+        echo "</div>";
         end_form();
     }
 
@@ -121,7 +123,7 @@ class ProductsManageSalesKit
 
     private function kit_item()
     {
-        row_start('card-panel');
+        row_start('');
         col_start(9, 'col m12');
 
         sales_local_items(_("Component:"), 'component', null, false, true);
@@ -149,7 +151,7 @@ class ProductsManageSalesKit
         }
         col_start('col l12');
         input_text_addon_both('Quantity','quantity',null,$units);
-        
+
         col_end();
         row_end();
 //         qty_row(_("Quantity:"), 'quantity', number_format2(1, $dec), '', $units, $dec);

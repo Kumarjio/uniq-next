@@ -17,11 +17,12 @@ class ProductsManageProduct
         if( is_null($this->id) ){
             $this->id = -1;
         }
+        echo "<div class=card-panel>";
         box_start();
         start_form(true);
 
 
-        row_start('card-panel');
+        row_start();
         if (db_has_stock_items()) {
             col_start(12,'col l6 s6');
             stock_items_bootstrap(_("Select an item"), 'stock_id', input_post('stock_id'), _('New item'), true, check_value('show_inactive'));
@@ -170,6 +171,7 @@ class ProductsManageProduct
         hidden('popup', @$_REQUEST['popup']);
         row_end();
         end_form();
+        echo "</div>";
     }
 
     function check_data_requirement(){

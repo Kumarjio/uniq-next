@@ -62,8 +62,8 @@ class ProductsManageLocation
             end_row();
         }
         // END WHILE LIST LOOP
-        inactive_control_row($th);
         end_table();
+        inactive_control_row($th);
     }
 
     private function detail()
