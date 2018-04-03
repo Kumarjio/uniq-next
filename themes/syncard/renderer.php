@@ -59,7 +59,7 @@ class renderer
             $dashboard = module_control_load('dashboard','dashboard');
             $dashboard->home();
         }
-
+        
         $this->setup_wizard->status_show();
     }
 
