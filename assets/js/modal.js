@@ -15,9 +15,7 @@
 //     });
 // };
 
-// $(document).ready(function(){
-//     // $('.modal').modal().show();
-//     // var instance = M.Modal.getInstance('.modal');
-//     // instance.open();
-//     // console.log('nah');
-//   });
+$(document).ready(function(){
+  $('.modal').modal();
+  $('#setup-wizard').modal('open');
+});
