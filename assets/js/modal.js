@@ -17,5 +17,6 @@
 
 $(document).ready(function(){
   $('.modal').modal();
+  $('#setup-wizard').modal({ 'dismissible' : false });
   $('#setup-wizard').modal('open');
 });
