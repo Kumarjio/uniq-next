@@ -294,14 +294,14 @@ $js_static = array(
     'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js',
     // 'js/jquery-ui.js',
     // 'js/mask/min.js',
-    // 'js/ajax_common.js',
+    'js/ajax_common.js',
 
-    // 'js/JsHttpRequest.js',
-    // 'js/behaviour.js',
+    'js/JsHttpRequest.js',
+    'js/behaviour.js',
 		// //
-    // 'js/utils.js',
-    // 'js/inserts.js',
-    // 'js/at.js',
+    'js/utils.js',
+    'js/inserts.js',
+    'js/at.js',
 		// //
     // 'plugins/tether-1.3.3/js/tether.min.js',
     // 'plugins/bootstrap/js/bootstrap-3.3.7.min.js',
