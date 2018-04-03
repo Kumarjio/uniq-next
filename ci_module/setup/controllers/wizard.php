@@ -15,8 +15,10 @@ class SetupWizard
     function index()
     {
 
-        if( get_company_pref('setup-finish')  ){
+        if( get_company_pref('setup-finish')==0){
             return true;
+        }else{
+          return false;
         }
         if( count($_POST) > 0 ){
             $_SESSION["run_wizard"] = input_post('start')==1;
@@ -41,8 +43,8 @@ class SetupWizard
     );
 
     function status_show(){
-        if( get_company_pref('setup-finish')  ){
-            return true;
+        if( get_company_pref('setup-finish')==0){
+            // return true;
         }
         $dialog = $_SERVER['SCRIPT_NAME'] == '/index.php';
         if( isset($_SESSION["run_wizard"]) AND $_SESSION["run_wizard"] != 1 ){
@@ -51,14 +53,16 @@ class SetupWizard
         $data = array(
             'steps'=>$this->steps,
         );
-
+        // module_view('setup-wizard-dialog',$data,$display = true, $use_theme=false,$module="setup");
+        //
         if( !$this->wizard_run ){
-            return;
+            // return;
         }
 
-        // echo "<script>console.log('".$_GET['application']."');</script>";
+        // echo "<script>console.log('ada');</script>";
 
         // if( $dialog ){ original
+        // if( get_company_pref('setup-finish')==0 ){
         if( isset($_GET['application']) && $_GET['application'] == 'H' ){
             module_view('setup-wizard-dialog',$data,$display = true, $use_theme=false,$module="setup");
         } else {
@@ -69,7 +73,7 @@ class SetupWizard
 
     function run($check_post=true)
     {
-        if( get_company_pref('setup-finish')  ){
+        if( get_company_pref('setup-finish')==0){
             return true;
         }
         if( !isset($_SESSION['App']) ){
