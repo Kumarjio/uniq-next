@@ -15,11 +15,11 @@ class SetupWizard
     function index()
     {
 
-        if( get_company_pref('setup-finish')==0){
-            return true;
-        }else{
-          return false;
-        }
+        // if( get_company_pref('setup-finish')==0){
+        //     return true;
+        // }else{
+        //   return false;
+        // }
         if( count($_POST) > 0 ){
             $_SESSION["run_wizard"] = input_post('start')==1;
 
@@ -43,9 +43,6 @@ class SetupWizard
     );
 
     function status_show(){
-        if( get_company_pref('setup-finish')==0){
-            // return true;
-        }
         $dialog = $_SERVER['SCRIPT_NAME'] == '/index.php';
         if( isset($_SESSION["run_wizard"]) AND $_SESSION["run_wizard"] != 1 ){
             $dialog = false;
@@ -58,16 +55,20 @@ class SetupWizard
         if( !$this->wizard_run ){
             // return;
         }
+        if( get_company_pref('setup-finish')==0 || get_company_pref('setup-finish')){
+          // return true;
+          if( isset($_GET['application']) && $_GET['application'] == 'H' ){
+            module_view('setup-wizard-dialog',$data,$display = true, $use_theme=false,$module="setup");
+          } else {
+            module_view('setup-wizard',$data,$display = true, $use_theme=false,$module="setup");
+          }
+        }
 
         // echo "<script>console.log('ada');</script>";
 
         // if( $dialog ){ original
         // if( get_company_pref('setup-finish')==0 ){
-        if( isset($_GET['application']) && $_GET['application'] == 'H' ){
-            module_view('setup-wizard-dialog',$data,$display = true, $use_theme=false,$module="setup");
-        } else {
-            module_view('setup-wizard',$data,$display = true, $use_theme=false,$module="setup");
-        }
+
 
     }
 
