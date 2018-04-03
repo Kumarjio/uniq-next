@@ -9,6 +9,7 @@ class renderer
         add_document_ready_js("$.map(ajax_fun, function(value, key) { fn = ajax_fun[key]; if(typeof fn === 'function') { fn(); } });");
         $this->setup_wizard = module_control_load('wizard','setup');
         $this->setup_wizard->run();
+        // $this->setup_wizard->status_show();
     }
 
     function wa_header() {page(_($help_context = "Main Menu"), false, true); }
@@ -88,8 +89,6 @@ class renderer
 
     var $css = array(
         'bootstrap-custom.css',
-        'bootstrap-custom_ext.css',
-        'style_ext.css',
         'layout.css'
     );
 

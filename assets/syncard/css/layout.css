@@ -1,7 +1,7 @@
 /* Global */
 .main { padding-left:300px; margin-bottom: 65px; }
 .main nav { padding-right:300px }
-.page-footer { position: fixed; bottom: 0; left: 0; width: 100%; padding-left: 300px; z-index: 990; }
+.page-footer { position: fixed; bottom: 0; left: 0; width: 100%; padding-top: 0; padding-left: 300px; z-index: 990; }
 
 .card-panel { display: inline-block; width: 100%; }
 
