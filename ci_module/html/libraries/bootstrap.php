@@ -295,10 +295,10 @@ class HtmlBootstrapLib
         if (is_string($attributes)) {
             $attributes = _attributes_str2array($attributes);
         }
-        echo "<div " . _parse_attributes($attributes) . " >";
+        echo "<div " . _parse_attributes($attributes) . ">";
 
         if( $show_back ){
-            echo anchor(get_instance()->url_back,'<span synlang="syncard-language">Back</span>','class="btn waves-effect waves-light" ');
+            echo anchor(get_instance()->url_back,'<span synlang="syncard-language">Back</span>','class="row btn orange waves-effect waves-light" style=margin-right:10px;margin-top:20px ');
         }
 
         $this->tb_footer_started = true;

@@ -27,8 +27,8 @@ class PurchasesTranEntry
             input_textarea('Memo', 'Comments');
         row_end();
 
-        box_footer_start();
         div_start('controls', 'items_table');
+        box_footer_start();
 
         $process_txt = _("Place Order");
         $update_txt = _("Update Order");

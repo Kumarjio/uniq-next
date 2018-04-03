@@ -46,7 +46,7 @@ function form_group_bootstrap($label, $input, $columns = '3-9', $help = NULL,$at
     // } else {
     if ($label != null and $label_col > 0) {
         $input_list_fix_mobile = NULL;
-        $html .= "<label class=\"col-$label_col control-label\"><span synlang='syncard-language'>$label</span></label>";
+        $html .= "<label class=\"col $label_col control-label\"><span synlang='syncard-language'>$label</span></label>";
     } else {
         $input_col = 12;
         $input_list_fix_mobile = "mobile_fix_top";

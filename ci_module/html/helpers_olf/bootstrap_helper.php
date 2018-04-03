@@ -46,7 +46,7 @@ function form_group_bootstrap($label, $input, $columns = '3-9', $help = NULL,$at
     // } else {
     if ($label != null and $label_col > 0) {
         $input_list_fix_mobile = NULL;
-        $html .= "<label class=\"col-$label_col control-label\">$label</label>";
+        $html .= "<label class=\"col $label_col control-label\">$label</label>";
     } else {
         $input_col = 12;
         $input_list_fix_mobile = "mobile_fix_top";
@@ -56,7 +56,7 @@ function form_group_bootstrap($label, $input, $columns = '3-9', $help = NULL,$at
         $input .= "<span class=\"help-block clearfix\"> $help</span>";
     }
 
-    $html .= "<div class=\"col-$input_col align-items-center $input_list_fix_mobile \">$input</div>";
+    $html .= "<div class=\"col $input_col align-items-center $input_list_fix_mobile \">$input</div>";
     $html .='</div>';
     // }
 //     $html .= '</div>';
@@ -311,10 +311,10 @@ function box_footer_show_active($show_back = false)
  * red, white, dark, blue, green, grey
  * blue-madison, blue-chambray, blue-ebonyclay, blue-hoki, blue-steel, blue-soft
  * blue-dark, blue-sharp, blue-oleo
- * 
- * green-meadow, green-seagreen, green-turquoise, green-haze, green-jungle, 
+ *
+ * green-meadow, green-seagreen, green-turquoise, green-haze, green-jungle,
  * green-soft, green-dark, green-sharp, green-steel
- * 
+ *
  * grey-steel, grey-cararra
  */
 function portlet_start($title= NULL,$color='red',$class= NULL){
@@ -323,4 +323,3 @@ function portlet_start($title= NULL,$color='red',$class= NULL){
 function portlet_end(){
     get_instance()->bootstrap->portlet_end();
 }
-
