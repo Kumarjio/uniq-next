@@ -1,12 +1,11 @@
 
 <div id="setup-wizard"  class="modal" tabindex="1" role="" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm" role="" style="margin-top: 10%" >
     <div class="modal-content">
-      <div class="modal-body">
 
       	<center><div style="margin-right: 10px; margin-left: 10px;">
       		<h4><b>Welcome</b></h4>
-      		<i class="fa fa-rocket menu-icon" style="margin-top: 45px; margin-bottom: 45px; font-size: 90px; color: rgba(95, 100, 100, 0.9);"></i>
+      		<!-- <i class="fa fa-rocket menu-icon" style="margin-top: 45px; margin-bottom: 45px; font-size: 90px; color: rgba(95, 100, 100, 0.9);"></i> -->
+          <i class="material-icons large grey-text">near_me</i>
       		<p>Before starting with the system, you need to complete the neccessary setting</p>
       	</div>
       	</center>
@@ -25,20 +24,17 @@
 				<!-- .events-wrapper -->
 			</div>
 		</div>
-      </div>
       <div class="modal-footer" style="text-align: left">
       	<form action="admin/fiscal-years" method="post" >
 	      	<center><button type="submit" class="btn btn-success" name="start" value="1" >Next &nbsp;<span class="fa fa-arrow-right"></span></button></center>
 	        <!-- <button type="button" class="btn btn-warning" name="skip" value=1 >Skip</button> -->
-		</form>
+		      </form>
       </div>
     </div>
-  </div>
 </div>
 
 <script>
 $(document).ready(function(){
-  $('.modal').modal();
   $('#setup-wizard').modal('open');
 });
 </script>
