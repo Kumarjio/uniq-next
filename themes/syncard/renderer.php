@@ -88,8 +88,6 @@ class renderer
 
     var $css = array(
         'bootstrap-custom.css',
-        'bootstrap-custom_ext.css',
-        'style_ext.css',
         'layout.css'
     );
 
