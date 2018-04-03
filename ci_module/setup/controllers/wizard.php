@@ -55,13 +55,15 @@ class SetupWizard
         if( !$this->wizard_run ){
             // return;
         }
-        if( get_company_pref('setup-finish')==0 || get_company_pref('setup-finish')){
+        if(get_company_pref('setup-finish')==0){
           // return true;
           if( isset($_GET['application']) && $_GET['application'] == 'H' ){
             module_view('setup-wizard-dialog',$data,$display = true, $use_theme=false,$module="setup");
           } else {
             module_view('setup-wizard',$data,$display = true, $use_theme=false,$module="setup");
           }
+        }else{
+          return false;
         }
 
         // echo "<script>console.log('ada');</script>";
