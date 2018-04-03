@@ -11,7 +11,7 @@ function pager_link($link_text, $url, $icon = false)
 function navi_button($name, $value, $enabled = true, $icon = false)
 {
     $attributes = array(
-        'class'=>'page-link navibutton',
+        'class'=>'btn-flat page-link navibutton',
         'type'=>'submit',
         'name'=>$name,
         'id'=>$name,

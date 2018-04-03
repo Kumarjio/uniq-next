@@ -125,20 +125,11 @@ table.tablestyle tr th {
   position: relative;
 }
 
-table.tablestyle tr th button {
-	border: none;
-  /* background: none;
-  width: 100%;
-  text-align: left; */
-  padding: 0;
-  /*border-bottom: 2px solid #111;*/
-}
-
 table.tablestyle tr th button:before {
   content: "\2193 \2026";
   position: absolute;
   left: 0;
-  top: 0;
+  /* top: 0; */
   width: 30px;
   margin: auto;
 }

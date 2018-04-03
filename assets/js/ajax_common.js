@@ -64,12 +64,12 @@ var ajax_fun = {
 //	    $(this).parents('.inputdate').find('.qdate').qdate('show');
 //	});
 
-	$('.date-pickers').datepicker({
-           // rtl: App.isRTL(),
-            orientation: "left",
-            autoclose: true,
-            format: date_format
-        });
+	// $('.date-pickers').datepicker({
+  //          // rtl: App.isRTL(),
+  //           orientation: "left",
+  //           autoclose: true,
+  //           format: date_format
+  //       });
 //	console.log(date_format);
 
 	$('.inputdate .icon, .inputdate > i').click(function() {
@@ -108,7 +108,7 @@ var ajax_fun = {
 		    JsHttpRequest.request(this);
 		});
 
-	jQuery('#delete-fiscalyear-confim').modal('show');
+	// jQuery('#delete-fiscalyear-confim').modal('show');
 	jQuery('#delete-fiscalyear-confim .btn-submit').click(function() {
 	    loading_bootstrap.open();
 	    jQuery('#delete-fiscalyear-confim').modal('hide');
