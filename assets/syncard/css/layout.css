@@ -37,7 +37,7 @@
 /* 2k desktop size */
 @media (min-width: 1400px) {
   /* Home */
-  .card.home { min-height: 240px; }
+  .card.home { min-height: 185px; }
 }
 
 @media (min-width: 1600px) {
