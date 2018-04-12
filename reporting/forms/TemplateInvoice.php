@@ -4,7 +4,7 @@ $this->row = $this->pageHeight - $this->topMargin;
 
 $upper = $this->row - 2 * $this->lineHeight;
 $lower = $this->bottomMargin + 8 * $this->lineHeight;
-$iline1 = $upper - 7 * $this->lineHeight;
+$iline1 = $upper - 9 * $this->lineHeight;
 $iline2 = $iline1 - 8 * $this->lineHeight;
 $iline3 = $iline2 - 1.5 * $this->lineHeight;
 $iline4 = $iline3 - 1.5 * $this->lineHeight;

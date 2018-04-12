@@ -455,7 +455,7 @@ class OpeningOb
         // display_db_pager($table);
 
         box_footer_start();
-        echo '<a title="Add new item" class="ajaxsubmit btn green btn_right waves-effect waves-light" href="' . site_url('opening/'.$this->type.'/add') . '">Add </a>';
+        echo '<a title="Add new item" class="ajaxsubmit btn green btn_right" href="' . site_url('opening/'.$this->type.'/add') . '"><i class="fa fa-plus"></i> Add </a>';
         box_footer_end();
     }
 
