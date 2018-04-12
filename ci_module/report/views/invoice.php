@@ -3,6 +3,7 @@
 
  function modal_content(template_id, template_name, template_image, status)
     {
+        $('#modal_template').modal('open');
         $('#template_id').val(template_id);
         if (status == "1")
         {
@@ -90,7 +91,7 @@ function get_templates()
             data: data,
             success: function (data)
             {
-                $('#modal_template').modal('hide');
+                $('#modal_template').modal('close');
                 get_templates();
             }
         });
@@ -133,6 +134,7 @@ $(document).ready(function ()
         $('#btn_use').click(function ()
         {
             use_template();
+            $('#modal_template').modal('close');
             get_templates();
 
         });
@@ -140,7 +142,7 @@ $(document).ready(function ()
         $('#btn_delete').click(function ()
         {
             delete_template();
-            $('#modal_template').modal('hide');
+            $('#modal_template').modal('close');
             get_templates();
 
         });
@@ -170,7 +172,7 @@ $(document).ready(function ()
                         <div class="row" style="margin-bottom:10px;"> 
                             <div class="col s6">
                                 <label><h5>Template Name:</h5></label><br>
-                                <input class="form-control" type="text" name="template_name" id="template_name" required />
+                                <input class="form-control" type="text" name="template_name" id="template_name" required/>
                             </div>
                         </div>
                         <div class="row" style="margin-bottom:10px;">
@@ -187,7 +189,8 @@ $(document).ready(function ()
                                 </div>
                                 <!-- <input class="btn btn-default" type="file" id="file" name="file" accept=".docx,.DOCX" required /> -->
                             </div>
-                            <div class="col-lg-6">
+
+                            <div class="col s6">
                                 <label>Select screenshot file:</label><br>
                                 <!-- <input class="btn btn-default" type="file" id="file2" name="file2" accept=".jpg,.JPG" required /> -->
                                 <div class="file-field input-field">
@@ -203,7 +206,7 @@ $(document).ready(function ()
                         </div>
                         <div class="row" style="margin-bottom:10px;">
                             <div class="col s6"><input class="btn green btn_left" type="button" value="Upload Template" onclick="submitForm()" /></div>
-                            <div class="col-lg-6"></div>
+                            <div class="col s6"></div>
                         </div>
                         <div id="output">
                             
@@ -263,12 +266,12 @@ $(document).ready(function ()
 
     
 
-<div class="modal fade" id="modal_template" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" style="width:800px;">
+<div class="modal" id="modal_template" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width:auto;">
         <div class="modal-content">
             <div class="modal-header">
 
-                <button style="float:right;" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <!-- <button style="float:right;" type="button" class="btn btn-default" data-dismiss="x">Close</button> -->
                 <button style="float:right;" type="button" class="btn btn-danger" id="btn_delete">Delete</button>
                 <button style="float:right;" type="button" id="btn_use" class="btn btn-primary disabled"  data-dismiss="modal"></button>
                 <h4 class="modal-title" id="myModalLabel"></h4>

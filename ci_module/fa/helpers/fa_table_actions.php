@@ -25,7 +25,7 @@ function alloc_link($row)
         case ST_SUPPINVOICE:
             if( ( $row["TotalAmount"] - $row["Allocated"]) > 0 ){
                 $uri = "purchasing/supplier_payment.php?PInvoice=$tran_no&supplier_id=".$row["supplier_id"];
-                $html = anchor($uri, '<i class="fa fa-money"></i>', array('title' => 'Pay', 'class' => 'button') );
+                $html = anchor($uri, '<i class="material-icons">attach_money</i>', array('title' => 'Pay', 'class' => 'button') );
             }
 
             break;

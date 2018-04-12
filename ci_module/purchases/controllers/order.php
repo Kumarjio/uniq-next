@@ -250,11 +250,21 @@ class PurchasesOrder
                 if ($editable) {
                     $option_html = icon_submit("Edit$line_no", _("Edit"), 'warning', 'icon-pencil', true , _('Edit document line')).
                                    icon_submit("Delete$line_no", _("Delete"), 'danger', 'icon-trash', true , _('Remove line from document'));
+
+                // edited temporary 12 04 18-------------------
+                 //    $option_html =
+                 //    '<button type="button" class="button operation-button"><i class="fa fa-ellipsis-v"></i></button><div class="operation-modal"><div class="operation-content">'.
+              			// '<h4><span synlang="syncard-language">Option menu</span></h4>'.
+              			// '<hr/>'.
+              			// '<div class="operation-dumb">'.
+                 //    $option_html.
+                 //    '</div></div></div>';
+
                     $option_html =
-                    '<button type="button" class="button operation-button"><i class="fa fa-ellipsis-v"></i></button><div class="operation-modal"><div class="operation-content">'.
-              			'<h4><span synlang="syncard-language">Option menu</span></h4>'.
-              			'<hr/>'.
-              			'<div class="operation-dumb">'.
+                    '<div class="operation-modal"><div class="operation-content">'.
+                        '<h4><span synlang="syncard-language">Option menu</span></h4>'.
+                        '<hr/>'.
+                        '<div class="operation-dumb">'.
                     $option_html.
                     '</div></div></div>';
 
@@ -406,8 +416,8 @@ class PurchasesOrder
         label_cell(number_format2($line_total, user_amount_dec()), "nowrap align=right ", 'line_total');
 
         if ($id != - 1) {
-            $option_html = icon_submit('UpdateLine', _("Update"), 'success', 'fa-save', true, _('Confirm changes')).
-                           icon_submit('CancelUpdate', _("Cancel"), 'warning', 'fa-refresh', true, _('Confirm changes'));
+            $option_html = icon_submit('UpdateLine', _("Update"), 'success', 'save', true, _('Confirm changes')).
+                           icon_submit('CancelUpdate', _("Cancel"), 'warning', 'refresh', true, _('Confirm changes'));
             $option_html =
             '<button type="button" class="button operation-button"><i class="fa fa-ellipsis-v"></i></button><div class="operation-modal"><div class="operation-content">'.
             '<h4><span synlang="syncard-language">Option menu</span></h4>'.

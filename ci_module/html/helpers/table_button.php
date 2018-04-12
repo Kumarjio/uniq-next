@@ -44,9 +44,9 @@ function edit_link($row)
     }
 
     if (strlen($uri) > 0) {
-        return anchor($uri, '<i class="material-icons">edit</i>', array(
+        return anchor($uri, '<center><i class="material-icons" style=>edit</i></center>', array(
             'title' => 'Edit',
-            'class'=>'btn waves-effect'
+            'class'=>'btn-floating btn-small waves-effect waves-light blue'
         ));
     } else {
 //         return NULL;
@@ -199,25 +199,25 @@ function allocation_link($row)
         /* its a credit note which could have an allocation */
         $link = "sales/allocations/customer_allocate.php?trans_no=" . $row["trans_no"] . "&trans_type=" . $row["type"] . "&debtor_no=" . $row["debtor_no"];
         $title = _("Allocation");
-        $icon = 'fa-money';
+        $icon = 'attach_money';
         return $link;
     } elseif (($row["type"] == ST_CUSTPAYMENT || $row["type"] == ST_BANKDEPOSIT) && (floatcmp($row['TotalAmount'], $row['Allocated']) >= 0)) {
         /* its a receipt which could have an allocation */
         //         return $link;
         $link = "sales/allocations/customer_allocate.php?trans_no=" . $row["trans_no"] . "&trans_type=" . $row["type"] . "&debtor_no=" . $row["debtor_no"];
         $title = _("Allocation");
-        $icon = 'fa-money';
+        $icon = 'attach_money';
     } elseif ($row["type"] == ST_CUSTPAYMENT && $row['TotalAmount'] <= 0) {
         /* its a negative receipt */
         return '';
     } elseif ($row["type"] == ST_SALESINVOICE && round2($row['TotalAmount'] - $row['Allocated'], 2) > 0.01) {
         $link = "/sales/customer_payments.php?customer_id=" . $row["debtor_no"] . "&SInvoice=" . $row["trans_no"];
         $title = _("Payment");
-        $icon = 'fa-money';
+        $icon = 'attach_money';
         //         return pager_link(_("Payment"), "/sales/customer_payments.php?customer_id=" . $row["debtor_no"] . "&SInvoice=" . $row["trans_no"], ICON_MONEY);
     }
 
-    return anchor($link,"<li class=\"fa $icon\"></li>",array('title'=>$title,'class'=>'button text-danger'));
+    return anchor($link,"<li class=\"material-icons\">$icon</li>",array('title'=>$title,'class'=>'button text-danger'));
 
 }
 
@@ -238,7 +238,8 @@ function icon_submit($name, $value, $button_type = 'secondary', $icon='save', $a
         'id'=>$name,
         'value'=>$value,
         'title'=>$title,
-        'class'=>"btn btn-$button_type",
+        // 'class'=>"btn btn-$button_type",
+        'class'=>"btn-floating btn-small waves-effect waves-light blue",
     );
 
     if( $async ){
@@ -280,7 +281,7 @@ function tbl_remove($name,$value= 'Delete',$td_inclue=true,$async=true){
     return icon_submit_cells($name, $value , 'danger', 'delete', $async, _('Remove line from document'));
 }
 function tbl_update($name,$value= 'Update'){
-    return icon_submit_cells($name, $value , 'success', 'fa-save', true, _('Confirm changes'));
+    return icon_submit_cells($name, $value , 'success', 'save', true, _('Confirm changes'));
 }
 function tbl_cancel($name,$value= 'Cancel'){
     return icon_submit_cells($name, $value , 'info', 'refresh', true, _('Cancel changes'));

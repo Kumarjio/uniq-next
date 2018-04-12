@@ -202,13 +202,13 @@ function print_link($link_text, $rep, $pars = array(), $dir = '',
     if( $icon == ICON_PRINT ){
         $class = NULL;
         $icon = 'fa-file-pdf-o';
-        $attributes['class'] = 'button text-success';
+        $attributes['class'] = 'btn-floating btn-small waves-effect waves-light blue';
     }
 	if( ( $icon ) AND $class != 'printlink' ){
 	    if (user_graphic_links() && $icon)
 	        $pars[0] = set_icon($icon, $pars[0]);
 // 	    return "<a target='_blank' href='$url'$id$class $pars[1]></a>";
-	    return anchor($url,'<i class="fa '.$icon.' "></i>',$attributes);
+	    return anchor($url,'<center><i class="fa '.$icon.' "></i></center>',$attributes);
 	} else {
 	    return anchor($url,$pars[0],$attributes);
 	}
