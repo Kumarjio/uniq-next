@@ -41,7 +41,7 @@ function button($name, $value, $title=false, $icon=false,  $aspect='')
         if ($value == _("Delete")) // Helper during implementation
             $icon = ICON_DELETE;
 
-        return "<button type='submit' class='editbutton table_actions button' name='"
+        return "<button type='submit' class='btn waves-effect waves-light btn-small' name='"
             .htmlentities(strtr($name, array('.'=>'=2E', '='=>'=3D',// ' '=>'=20','['=>'=5B'
             )))
             ."' value='1'" . ($title ? " title='$title'":" title='$value'")
@@ -52,7 +52,7 @@ function button($name, $value, $title=false, $icon=false,  $aspect='')
         $icon = "";
         if($value == "Delete") $icon = "trash";
         if($value == "Edit") $icon = "pencil";
-        return "<button type='submit' class='editbutton button' name='"
+        return "<button type='submit' class='btn btn-floating waves-effect waves-light btn-small' name='"
             .htmlentities(strtr($name, array('.'=>'=2E', '='=>'=3D',// ' '=>'=20','['=>'=5B'
             )))
             ."' value='$value'"

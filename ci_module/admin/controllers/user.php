@@ -106,25 +106,31 @@ class AdminUser
             // $option_html.
             // '</div></div></div>';
 
+            // $option_html =
+            // '<button type="button" class="button operation-button"><i class="fa fa-ellipsis-v"></i></button>
+            // <!-- Option Structure -->
+            // <div class="operation-modal modal bottom-sheet">
+            //   <div class="modal-content">
+            //     <h4><span synlang="syncard-language">Option Menu</span></h4>
+            //     <!--ul class="collection">
+            //       <li class="collection-item avatar">
+            //         <i class="material-icons circle red">play_arrow</i>
+            //         <span class="title">Title</span>
+            //         <p>First Line <br>
+            //            Second Line
+            //         </p>
+            //         <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+            //       </li>
+            //     </ul-->
+            //     '.$option_html.'
+            //   </div>
+            // </div>'; edited 13 04 18
+
             $option_html =
-            '<button type="button" class="button operation-button"><i class="fa fa-ellipsis-v"></i></button>
-            <!-- Option Structure -->
-            <div class="operation-modal modal bottom-sheet">
+            '
               <div class="modal-content">
-                <h4><span synlang="syncard-language">Option Menu</span></h4>
-                <!--ul class="collection">
-                  <li class="collection-item avatar">
-                    <i class="material-icons circle red">play_arrow</i>
-                    <span class="title">Title</span>
-                    <p>First Line <br>
-                       Second Line
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                  </li>
-                </ul-->
                 '.$option_html.'
-              </div>
-            </div>';
+              </div>';
 
             label_cell($option_html, "align='center'");
             end_row();

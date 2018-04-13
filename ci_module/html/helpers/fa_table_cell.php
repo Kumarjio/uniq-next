@@ -62,7 +62,7 @@ function edit_button_cell($name, $value, $title = false)
 
 function button_cell($name, $value, $title = false, $icon = false, $aspect = '')
 {
-    echo "<td align='center' width='5%'>";
+    echo "<td align='right' width='5%'>";
     echo button($name, $value, $title, $icon, $aspect);
     echo "</td>";
 }
