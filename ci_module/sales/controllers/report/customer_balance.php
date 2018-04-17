@@ -133,10 +133,8 @@ class SalesReportCustomerBalance {
             $bal->debit = (round2($bal->debit));
             $bal->credit = (round2($bal->credit));
 
-            $line_total['balance'] = ($bal->debit- $bal->credit);
-            // $grand_total['balance'] += $line_total['balance'];
+            $line_total['balance'] = $bal->debit - $bal->credit;
             $grand_total['balance'] = $line_total['balance'];
-
 
             $rep->TextCol(6,7,  number_total($bal->debit) );
             // $rep->TextCol(5,6,   number_total($bal->debit) );
@@ -228,7 +226,8 @@ class SalesReportCustomerBalance {
         $rep->fontSize -= 2;
         $rep->TextNum(5, 6, $grand_total['debit']);
         $rep->TextNum(6, 7, $grand_total['credit']);
-        $rep->TextNum(7, 8, $grand_total['balance']);
+        // $rep->TextNum(7, 8, $grand_total['balance']);
+        $rep->TextNum(7, 8, $grand_total['debit'] - $grand_total['credit']);
         $rep->Line($rep->row  - 4);
         $rep->NewLine();
         $rep->End();
