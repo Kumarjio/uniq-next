@@ -3,12 +3,12 @@
 class SalesReportCustomerBalance {
     function __construct() {
         $ci = get_instance();
+
+        $this->db = $ci->db;
         $this->input = $ci->input;
 //         $this->report = $ci->module_control_load('report',null,true);
         $this->customer_model = module_model_load('customer','sales');
         $this->customer_trans_model = module_model_load('customer_trans','sales');
-
-        $this->db = $ci->db;
     }
     function index(){
         if( get_instance()->uri->segment(4)=='test' ){
@@ -22,7 +22,6 @@ class SalesReportCustomerBalance {
     }
 
     var $balance_report_table = array(
-        //'type'      =>array( 'Journal'      ,150 ,'left'),
         'type'      =>array( 'Journal'      ,100 ,'left'),
         'trans_no'      =>array( '#'      ,150 ,'left'),
         'reference' =>array( 'Reference No.',230 ,'left'),
@@ -128,14 +127,21 @@ class SalesReportCustomerBalance {
 //                 $bal->credit = abs($bal->TotalAmount);
 
 //             }
-            $bal->debit = abs(round2($bal->debit));
-            $bal->credit = abs(round2($bal->credit));
+            // $bal->debit = abs(round2($bal->debit));
+            // $bal->credit = abs(round2($bal->credit));
+
+            $bal->debit = (round2($bal->debit));
+            $bal->credit = (round2($bal->credit));
 
             $line_total['balance'] = ($bal->debit- $bal->credit);
-            $grand_total['balance'] += $line_total['balance'];
+            // $grand_total['balance'] += $line_total['balance'];
+            $grand_total['balance'] = $line_total['balance'];
 
-            $rep->TextCol(5,6,  number_total($bal->debit) );
-            $rep->TextCol(6,7,  number_total($bal->credit,true) );
+
+            $rep->TextCol(6,7,  number_total($bal->debit) );
+            // $rep->TextCol(5,6,   number_total($bal->debit) );
+            $rep->TextCol(5,6,  number_total($bal->credit,true) );
+            // $rep->TextCol(6,7,   number_total($bal->credit,true) );
 //             $rep->TextCol(7,8,   number_total($line_total['balance']) );
             $rep->TextCol(7,8,  number_total($grand_total['balance']) );
             $rep->NewLine(1, 2);
@@ -217,7 +223,6 @@ class SalesReportCustomerBalance {
             $rep->NewLine(2);
 
         }
-
         $rep->fontSize += 2;
         $rep->TextCol(0, 3, _('Grand Total'));
         $rep->fontSize -= 2;
