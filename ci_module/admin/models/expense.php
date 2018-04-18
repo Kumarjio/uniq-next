@@ -32,7 +32,7 @@ class Admin_Expense_Model extends CI_Model {
         if( !is_numeric($id) ){
             $id = 0;
         }
-        $this->db->where('t.id',$id)->from('sys_expense_type AS t')->select('t.*');
+        $this->db->where('t.id',$id)->from('sys_revenue_type AS t')->select('t.*');
         $this->db->join('chart_master AS gl','gl.account_code=t.gl_account','LEFT')->select('gl.account_name AS gl_description');
 
         $result = $this->db->get();
