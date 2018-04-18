@@ -1,10 +1,11 @@
 <?php
+$datana = array();
 class DocumentsBookkeepers  {
     function __construct() {
         $this->db = get_instance()->db;
         $this->input = get_instance()->input;
         $this->datatable = module_control_load('datatable','html');
-//         $this->modal = module_control_load('modal','html');
+        // $this->modal = module_control_load('modal','html');
 
         $this->mobile_model = module_model_load('mobile');
     }
@@ -38,16 +39,16 @@ class DocumentsBookkeepers  {
     }
     function table_document_posting($row=NULL){
         if( $row['status']==1 ){
-            return icon_submit('Posting'.$row['id'], '1' , 'info', 'fa-send-o', true, _('Posting Item'),'Post');
+            return icon_submit('Posting'.$row['id'], '1' , 'info', 'send', true, _('Posting Item'),'Post');
         }
-        return icon_submit('Detail'.$row['id'], '1' , 'success', 'fa-newspaper-o', true, _('View File'),'View');
+        return icon_submit('Detail'.$row['id'], '1' , 'success', 'news', true, _('View File'),'View');
 
     }
     function table_document_file($row=NULL){
-        return icon_submit('ViewFile'.$row['id'], $row['id'], 'success', 'fa-file-image-o', true, _('View File'),'File');
+        return icon_submit('ViewFile'.$row['id'], $row['id'], 'success', 'image', true, _('View File'),'File');
     }
     function table_document_delete($row=NULL){
-        return icon_submit("SelectDelete".$row['id'], 1 , 'danger', 'icon-trash', true, _('Remove line from document'));
+        return icon_submit("SelectDelete".$row['id'], 1 , 'danger', 'delete', true, _('Remove line from document'));
     }
 
     var $fields = array(
@@ -254,11 +255,11 @@ class DocumentsBookkeepers  {
         return false;
     }
 
-    private function view_file(){
+    function view_file(){
         $view_file_id = post_edit('ViewFile');
+        // $datana = $view_file_id;
         if ( is_numeric($view_file_id) AND $view_file_id > 0 AND in_ajax() ){
             $data = $this->db->where('id',$view_file_id)->get('documents_bookkeepers')->row();
-
             $dialog = array();
             if( file_exists(config_item('assets_path').$data->file) ){
                 $dialog['img_src'] = config_item('assets_domain').$data->file;
@@ -267,9 +268,9 @@ class DocumentsBookkeepers  {
             }
             show_dialog('_dialog_span',$dialog);
             return $view_file_id;
+
         }
         return false;
-
     }
 
     private function item_delete($id=0){
@@ -317,8 +318,8 @@ class DocumentsBookkeepers  {
                 case 'customer_receipt':$uri = site_url('sales/customer_payments.php').'?document='.$data->id; break;
                 case 'customer_bill':
                     $uri = site_url("sales/invoice")."?NewInvoice=1&document=".$data->id;
-                    display_notification(_('This function is under construction'));
-                    return FALSE;
+                    // display_notification(_('This function is under construction'));
+                    // return FALSE;
                     break;
 
                 case 'expense_bill':    $uri = site_url('gl/gl_bank.php').'?NewPayment=Yes&document='.$data->id; break;
@@ -336,5 +337,11 @@ class DocumentsBookkeepers  {
         }
         return FALSE;
     }
-
+    public function getdata(){
+      $val = $_POST['datana'];
+      $data = $this->db->where('id',$val)->get('documents_bookkeepers')->row();
+      $imgurl = config_item('assets_domain').$data->file;
+      echo json_encode($imgurl);
+    }
 }
+?>

@@ -245,6 +245,9 @@ function icon_submit($name, $value, $button_type = 'secondary', $icon='save', $a
     if( $async ){
         $attributes['class'] .= " ajaxsubmit";
     }
+    if( $title == "View File"){
+      $attributes['class'] .= " showimage";
+    }
 
 
     if ( !is_string($icon) ){

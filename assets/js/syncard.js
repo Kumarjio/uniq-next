@@ -2,8 +2,12 @@
 var allText = '';
 $("html").attr('style', 'opacity:1');
 
-
 $(function(){
+// Modal
+ $('.modal').modal();
+ createmodal();
+ getdatapicture();
+
 /* title button */
 $(".fa.fa-plus").attr({
             "title" : "Add New"
@@ -1465,12 +1469,12 @@ function additemOnQuotation(){
 
 function selectOnTableQuotation(){
 
-	// $("[name=stock_id]").on("change", function(){
+	$("[name=stock_id]").on("change", function(){
 	// 	setTimeout(function(){
 	// 		$("[name=stock_id]").prepend("<option value=''>Select Item</option>");
 	// 	},500);
 		additemOnQuotation();
-	// });
+	});
 }
 
 
@@ -1485,4 +1489,50 @@ function pasloadQuotation(){
 	// iki selectbox tax //
 	$("[name=tax_type_id] optgroup option").removeAttr("selected");
 	$("[name=tax_type_id]").prepend("<option value='' selected></option>");
+}
+
+// for modal view modal mobile
+function viewmodal(data){
+  console.log(data);
+}
+function createmodal(){
+    $('form').append("<input type='hidden' name='dataid' id='dataid' value=0>");
+    html = '<div id="modal1" class="modal">'+
+            '<div class="modal-content">'+
+            '<h4>Picture</h4>'+
+            '<p></p>'+
+            '</div>'+
+            '<div class="modal-footer">'+
+            '</div>'+
+            '</div>';
+    $(".main").append(html);
+}
+function getdatapicture(){
+  $(".showimage").on("click",function(){
+  var url = window.location.hostname;
+
+  var url1 = window.location;
+  var id = $(this).val();
+     $.ajax({
+          // url: "./bookkeepers/getdata",
+          url: url1+"/getdata",
+          type: 'POST',
+          dataType : 'json',
+          async: false,
+          data:({
+                  datana : id
+          }),
+          error: function (xhr, ajaxOptions, thrownError) {
+            console.log(xhr);
+          },
+          success: function (data){
+              // localStorage['visited'] = data;
+              console.log(data);
+              $('#modal1 p').html("");
+              $('#modal1 p').append("<img src='"+data+"'>");
+              $(".modal").modal();
+              $('#modal1').modal('open');
+          }
+      });
+   });
 }
