@@ -248,8 +248,8 @@ class PurchasesOrder
                 // amount_cell($line_total);
                 label_cell(number_format2($line_total, user_amount_dec()), "nowrap align=right ", 'line_total');
                 if ($editable) {
-                    $option_html = icon_submit("Edit$line_no", _("Edit"), 'warning', 'icon-pencil', true , _('Edit document line')).
-                                   icon_submit("Delete$line_no", _("Delete"), 'danger', 'icon-trash', true , _('Remove line from document'));
+                    $option_html = icon_submit("Edit$line_no", _("Edit"), 'warning', 'edit', true , _('Edit document line')).
+                                   icon_submit("Delete$line_no", _("Delete"), 'danger', 'delete', true , _('Remove line from document'));
 
                 // edited temporary 12 04 18-------------------
                  //    $option_html =
@@ -260,13 +260,7 @@ class PurchasesOrder
                  //    $option_html.
                  //    '</div></div></div>';
 
-                    $option_html =
-                    '<div class="operation-modal"><div class="operation-content">'.
-                        '<h4><span synlang="syncard-language">Option menu</span></h4>'.
-                        '<hr/>'.
-                        '<div class="operation-dumb">'.
-                    $option_html.
-                    '</div></div></div>';
+                    $option_html = $option_html;
 
                     label_cell($option_html, "align='center'");
                     // icon_submit_cells("Edit$line_no", _("Edit"), 'warning', 'icon-pencil', true , _('Edit document line'));

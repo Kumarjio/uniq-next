@@ -246,9 +246,9 @@ class SalesTranOrder
         $order_no = $_GET['AddedQU'];
         display_notification(sprintf(_("Quotation # %d has been entered."), $order_no));
 
+        echo '<div class="card-panel">';
         box_start();
         row_start();
-
         col_start(6, "col-md-6");
         mt_list_start('Actions', '', 'blue');
 
@@ -263,12 +263,14 @@ class SalesTranOrder
         row_end();
         box_footer();
         box_end();
+        echo "</div>";
     }
 
     private function quotation_update_finish($order_no = 0)
     {
         display_notification(sprintf(_("Quotation # %d has been updated."), $order_no));
 
+        echo '<div class="card-panel">';
         box_start();
         row_start();
 
@@ -290,11 +292,13 @@ class SalesTranOrder
         row_end();
         box_footer();
         box_end();
+        echo "</div>";
     }
 
     private function order_finish($order_no = 0)
     {
         display_notification_centered(sprintf(_("Order # %d has been entered."), $order_no));
+        echo '<div class="card-panel">';
         box_start();
         row_start();
 
@@ -314,9 +318,11 @@ class SalesTranOrder
         row_end();
         box_footer();
         box_end();
+        echo "</div>";
     }
 
     private function order_update_finish($order_no=0){
+        echo '<div class="card-panel">';
         box_start();
         row_start();
 
@@ -335,9 +341,11 @@ class SalesTranOrder
         row_end();
         box_footer();
         box_end();
+        echo "</div>";
     }
 
     private function delivery_finish($delivery=0){
+        echo '<div class="card-panel">';
         box_start();
         row_start();
 
@@ -363,6 +371,7 @@ class SalesTranOrder
         row_end();
         box_footer();
         box_end();
+        echo "</div>";
     }
 
     private function invoice_finish($invoice=0){
@@ -371,6 +380,7 @@ class SalesTranOrder
         $result = db_query($sql, "could not retrieve customer allocation");
         $row = db_fetch($result);
 
+        echo '<div class="card-panel">';
         box_start();
         row_start();
 
@@ -404,6 +414,7 @@ class SalesTranOrder
         row_end();
         box_footer();
         box_end();
+        echo "</div>";
 
     }
 }

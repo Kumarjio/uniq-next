@@ -28,11 +28,11 @@ class PurchasesTranEntry
         row_end();
 
         div_start('controls', 'items_table');
-        box_footer_start();
+        // box_footer_start();
 
-        $process_txt = _("Place Order");
-        $update_txt = _("Update Order");
-        $cancel_txt = _("Cancel Order");
+        // $process_txt = _("Place Order");
+        // $update_txt = _("Update Order");
+        // $cancel_txt = _("Cancel Order");
         if ($_SESSION['PO']->trans_type == ST_SUPPRECEIVE) {
             $process_txt = _("Process GRN");
             $update_txt = _("Update GRN");
@@ -54,8 +54,9 @@ class PurchasesTranEntry
             submit('CancelOrder', $cancel_txt);
         } else
             submit('CancelOrder', $cancel_txt, true, false, 'cancel');
+        
+        // box_footer_end();
         div_end();
-        box_footer_end();
         //---------------------------------------------------------------------------------------------------
         box_end();
         echo "</div>";
@@ -71,6 +72,7 @@ class PurchasesTranEntry
             display_notification(_("Purchase Order has been entered"));
         else
             display_notification(_("Purchase Order has been updated") . " #$order_no");
+        echo '<div class="card-panel">';
 
         box_start();
         row_start();
@@ -89,9 +91,11 @@ class PurchasesTranEntry
         row_end();
         box_footer();
         box_end();
+        echo "</div>";
     }
     private function grn_finish(){
         $trans_no = intval($_GET['AddedGRN']);
+        echo '<div class="card-panel">';
 
         box_start();
         row_start();
@@ -135,9 +139,11 @@ class PurchasesTranEntry
 
         box_footer();
         box_end();
+        echo "</div>";
     }
     private function pi_finish(){
         $trans_no = $_GET['AddedPI'];
+        echo '<div class="card-panel">';
 
         box_start();
         row_start();
@@ -146,7 +152,7 @@ class PurchasesTranEntry
         if( is_numeric($trans_no) ){
             $trans_type = ST_SUPPINVOICE;
             display_notification(_("Direct Purchase Invoice has been entered"));
-
+            echo "string";
             col_start(6, "col l6");
             mt_list_start('Printing', null, 'red');
             mt_list_tran_view(_("View this Invoice"),$trans_type, $trans_no);
@@ -174,7 +180,7 @@ class PurchasesTranEntry
         row_end();
         box_footer();
         box_end();
-
+        echo "</div>";
     }
     private function check_input_get(){
 
