@@ -15,11 +15,12 @@
 // $amount is in $currency
 // $date_ is display date (non-sql)
 
-function add_bank_trans($type, $trans_no, $bank_act, $ref, $date_,
+function add_bank_trans($type, $trans_no=0, $bank_act, $ref, $date_,
 	$amount, $person_type_id, $person_id, $currency="", $err_msg="", $rate=0,$tax_inclusive=false,$cheque=null)
 {
+// 	$sqlDate = date2sql($date_);
     $sqlDate = date('Y-m-d',strtotime($date_));
-
+// bug('date='.$date_.' sqldate='.$sqlDate );die;
 	// convert $amount to the bank's currency
 	if ($currency != "")
 	{
@@ -36,17 +37,39 @@ function add_bank_trans($type, $trans_no, $bank_act, $ref, $date_,
 
 	// Also store the rate to the home
 	//$BankToHomeCurrencyRate = get_exchange_rate_to_home_currency($bank_account_currency, $date_);
+	if (selectid($trans_no)=="" || selectid($trans_no) == null) {
+		$modify == "null";
+	}else{
+		$modify = ( isset($_SESSION['pay_items']) AND isset($_SESSION['pay_items']->modify) AND $_SESSION['pay_items']->modify == 'yes' );
+	}
 
-	$sql = "INSERT INTO ".TB_PREF."bank_trans (type, trans_no, bank_act, ref,
+    if( $modify == "yes" ) {
+        $sql = "UPDATE ".TB_PREF."bank_trans SET bank_act='$bank_act', ref = ".db_escape($ref).",
+		trans_date='$sqlDate', amount=".db_escape($amount_bank).", person_type_id=".db_escape($person_type_id)."
+	    , person_id=". db_escape($person_id).", tax_inclusive=".db_escape($tax_inclusive).", cheque=".db_escape($cheque)."
+            WHERE type=$type AND trans_no = $trans_no
+        ";
+    } else {
+        $sql = "INSERT INTO ".TB_PREF."bank_trans (type, trans_no, bank_act, ref,
 		trans_date, amount, person_type_id, person_id, tax_inclusive, cheque) ";
 
-	$sql .= "VALUES ($type, $trans_no, '$bank_act', ".db_escape($ref).", '$sqlDate',
-		".db_escape($amount_bank).", ".db_escape($person_type_id)
-		.", ". db_escape($person_id).", ".db_escape($tax_inclusive).", ".db_escape($cheque)." )";
+        $sql .= "VALUES ($type, $trans_no, '$bank_act', ".db_escape($ref).", '$sqlDate',
+        ".db_escape($amount_bank).", ".db_escape($person_type_id)
+        .", ". db_escape($person_id).", ".db_escape($tax_inclusive).", ".db_escape($cheque)." )";
+    }
 
 	if ($err_msg == "")
 		$err_msg = "The bank transaction could not be inserted";
 	db_query($sql, $err_msg);
+}
+
+function selectid($trans_no){
+	// return $this->trans->select('*')
+	// 			->where('trans_no', $trans_no)
+	// 			->get('bank_trans')->result();
+
+	$sql = "SELECT trans_no FROM bank_trans WHERE trans_no='$trans_no'";
+	db_query($sql);
 }
 
 //----------------------------------------------------------------------------------------
@@ -102,7 +125,6 @@ function get_bank_trans_for_bank_account($bank_account, $from, $to)
 		AND t.trans_date <= '$to'
 		AND ABS(t.amount) > 0
 		ORDER BY trans_date, t.id";
-
 	return db_query($sql,"The transactions for '" . $bank_account . "' could not be retrieved");
 }
 

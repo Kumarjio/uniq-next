@@ -283,7 +283,7 @@ function add_bank_transfer($from_account, $to_account, $date_, $amount, $ref, $m
 function write_bank_transaction($trans_type, $trans_no, $from_account, $items, $date_, $person_type_id, $person_id, $person_detail_id, $ref, $gst, $memo_, $use_transaction = true, $settled_amount = null, $tax_inclusive = false, $cheque = null)
 {
     global $Refs, $SysPrefs, $ci;
-    $db = get_instance()->db;
+
     $bank_trans_model = $ci->model('bank_trans', true);
     $tax_model = $ci->model('tax', true);
 
@@ -293,14 +293,17 @@ function write_bank_transaction($trans_type, $trans_no, $from_account, $items, $
 
     $do_exchange_variance = false;
     $exchanged = false;
-    if ($use_transaction)
+    
+    if ($use_transaction){
         begin_transaction();
+    }
 
     $args = func_get_args();
-    if (count($args) < 11)
+    if (count($args) < 11){
         $args[] = true;
+    }
 
-        /*
+    /*
      * QuanNH fix bug 150718
      */
     foreach ($args as $k => $val) {
@@ -308,6 +311,7 @@ function write_bank_transaction($trans_type, $trans_no, $from_account, $items, $
             unset($args[$k]);
         }
     }
+    
     $args = (object) array_combine(array(
         'trans_type',
         'trans_no',
@@ -333,7 +337,7 @@ function write_bank_transaction($trans_type, $trans_no, $from_account, $items, $
         $Refs->restore_last($trans_type, $trans_no);
         $aid = has_attachment($trans_type, $trans_no);
     }
-    
+
     $currency = get_bank_account_currency($from_account);
 
     $bank_gl_account = get_bank_gl_account($from_account);
@@ -341,71 +345,75 @@ function write_bank_transaction($trans_type, $trans_no, $from_account, $items, $
     // the gl items are already inversed/negated for type 2 (deposit)
     $total_amount = $items->gl_items_total();
 
-    $tran_no_update = $modify ? $trans_no: 0;
-
-    if( $modify ){
-        $db->where(array('type' => $trans_type,'type_no' => $trans_no))->delete('gl_trans');
-
-        $db->where(array(
-                'type' => $trans_type,
-                'trans_no' => $trans_no
-        ))->delete('bank_trans_detail');
-         
-        
-        
-    }
+    // $tran_no_update = $modify ? $trans_no: 0;
+    $tran_no_update = $trans_no;
 
     if ($person_type_id == PT_CUSTOMER) {
         // we need to add a customer transaction record
         // convert to customer currency
-        if (! isset($settled_amount)) // leaved for backward/ext compatibility
+        if (! isset($settled_amount)){ // leaved for backward/ext compatibility
             $cust_amount = exchange_from_to(abs($total_amount), $currency, get_customer_currency($person_id), $date_);
-        else
+        }else{
             $cust_amount = $settled_amount;
+        }
 
-        if ($trans_type == ST_BANKPAYMENT)
-            $cust_amount = - $cust_amount;
-
+        if ($trans_type == ST_BANKPAYMENT){
+            $cust_amount = -$cust_amount;
+        }
 
         $trans_no = write_customer_trans($trans_type, $tran_no_update, $person_id, $person_detail_id, $date_, $ref, $cust_amount);
+
     } elseif ($person_type_id == PT_SUPPLIER) {
         // we need to add a supplier transaction record
         // convert to supp currency
-        if (! isset($settled_amount)) // leaved for for backward/ext compatibility
+        if (! isset($settled_amount)){ // leaved for for backward/ext compatibility
             $supp_amount = exchange_from_to(abs($total_amount), $currency, get_supplier_currency($person_id), $date_);
-        else
+        }else{
             $supp_amount = $settled_amount;
+        }
 
-        if ($trans_type == ST_BANKPAYMENT)
+        if ($trans_type == ST_BANKPAYMENT){
             $supp_amount = - $supp_amount;
+        }
 
         $trans_no = write_supp_trans($trans_type, $tran_no_update, $person_id, $date_, '', $ref, "", $supp_amount, 0, 0);
+
     } else {
-        if ($trans_no and in_array($trans_type, array(
-            ST_BANKPAYMENT,
-            ST_BANKDEPOSIT
-        ))) {
+
+        if ($trans_no && in_array($trans_type, array(ST_BANKPAYMENT, ST_BANKDEPOSIT))) {
             $do_void = false;
-            $db->where(array(
-                    'type' => $trans_type,
-                    'id' => $trans_no
+            get_instance()->db->where(array(
+                'type' => $trans_type,
+                'id' => $trans_no
             ))->delete('bank_trans');
-            
-            $db->where(array(
-                    'type' => $trans_type,
-                    'trans_no' => $trans_no
+
+            get_instance()->db->where(array(
+                'type' => $trans_type,
+                'trans_no' => $trans_no
+            ))->delete('bank_trans_detail');
+
+            get_instance()->db->where(array(
+                'type' => $trans_type,
+                'type_no' => $trans_no
+            ))->delete('gl_trans');
+
+            get_instance()->db->where(array(
+                'type' => $trans_type,
+                'trans_no' => $trans_no
             ))->delete('supp_trans');
-            $db->where(array(
-                    'type' => $trans_type,
-                    'trans_no' => $trans_no
+
+            get_instance()->db->where(array(
+                'type' => $trans_type,
+                'trans_no' => $trans_no
             ))->delete('debtor_trans');
-            $trans_no = $tran_no_update;
+
         } else {
-           
+
             $trans_no = get_next_trans_no($trans_type);
             $do_exchange_variance = $SysPrefs->auto_currency_revaluation();
-            if ($do_exchange_variance)
+            if ($do_exchange_variance){
                 $trans_no1 = get_next_trans_no(ST_JOURNAL);
+            }
         }
     }
 
@@ -494,10 +502,10 @@ function write_bank_transaction($trans_type, $trans_no, $from_account, $items, $
     // bug($items);die('$total_amount='.$total_amount);
     add_bank_trans($trans_type, $trans_no, $from_account, $ref, $date_,
         // -$total,
-        - $total_amount, $person_type_id, $person_id, $currency, "Cannot insert a source bank transaction", 0, $tax_inclusive, $cheque);
+        -$total_amount, $person_type_id, $person_id, $currency, "Cannot insert a source bank transaction", 0, $tax_inclusive, $cheque);
 
     // do the source account postings
-    add_gl_trans($trans_type, $trans_no, $date_, $bank_gl_account, 0, 0, $memo_, - $total, $currency, $person_type_id, $person_id, NULL, 1, 0);
+    add_gl_trans($trans_type, $trans_no, $date_, $bank_gl_account, 0, 0, $memo_, -$total, $currency, $person_type_id, $person_id, NULL, 1, 0);
 
     if ($do_exchange_variance) {
         if ($exchanged || add_exchange_variation($trans_no1, $date_, $from_account, $bank_gl_account, $currency, $person_type_id, $person_id)) {
@@ -511,7 +519,6 @@ function write_bank_transaction($trans_type, $trans_no, $from_account, $items, $
         add_comments($trans_type, $trans_no, $date_, $memo_);
     }
 
-
     $Refs->save($trans_type, $trans_no, $ref);
     add_audit_trail($trans_type, $trans_no, $date_);
     // die('end add audit');
@@ -524,8 +531,9 @@ function write_bank_transaction($trans_type, $trans_no, $from_account, $items, $
 
     $args->trans_no = $trans_no;
     hook_db_postwrite($args, $trans_type);
-    if ($use_transaction)
+    if ($use_transaction){
         commit_transaction();
+    }
 
     return array(
         $trans_type,
