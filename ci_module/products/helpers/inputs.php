@@ -2,7 +2,7 @@
 
 function stock_items_bootstrap($label, $name, $selected_id = null, $all_option = false, $submit_on_change = false, $all = false, $editkey = false)
 {
-    $input = stock_items_list($name, $selected_id, $all_option, $submit_on_change, array(
+    $input = stock_items_list($name, $selected_id, $submit_on_change, array(
         'cells' => false,
         'show_inactive' => $all,
         'class'=>'show-tick form-control',
@@ -13,7 +13,7 @@ function stock_items_bootstrap($label, $name, $selected_id = null, $all_option =
 
 //     $input .= '<input name="_stock_id_edit" id="_stock_id_edit" size="10" maxlength="50" value="" class="combo ui-autocomplete-input" rel="stock_id" autocomplete="off" title="" type="text">';
 
-    $input = "<div class=\"input_stocks\">$input</div>";
+    // $input = "<div class=\"input_stocks\">$input</div>";
 
     form_group_bootstrap($label, $input);
 }

@@ -12,7 +12,10 @@ body {
   /* font-family: Quicksand !important;
   background-color: #f0f0f0; */
 }
-
+label{
+  color: #000000 !important;
+  font-size: medium;
+}
 /* hr { border-top: 1px dashed #ccc; }
 hr.clear { margin: 0; } */
 

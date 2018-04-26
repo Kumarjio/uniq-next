@@ -2,6 +2,7 @@
 $datana = array();
 class DocumentsBookkeepers  {
     function __construct() {
+        include_once("includes/session.inc");
         $this->db = get_instance()->db;
         $this->input = get_instance()->input;
         $this->datatable = module_control_load('datatable','html');
@@ -48,7 +49,7 @@ class DocumentsBookkeepers  {
         return icon_submit('ViewFile'.$row['id'], $row['id'], 'success', 'image', true, _('View File'),'File');
     }
     function table_document_delete($row=NULL){
-        return icon_submit("SelectDelete".$row['id'], 1 , 'danger', 'delete', true, _('Remove line from document'));
+        return icon_submit("SelectDelete".$row['id'],$row['id'], 'danger', 'delete', true, _('Remove line from document'));
     }
 
     var $fields = array(
@@ -338,10 +339,21 @@ class DocumentsBookkeepers  {
         return FALSE;
     }
     public function getdata(){
+      $session =  new SessionManager();
+      $accountbook = $session->compname();
       $val = $_POST['datana'];
       $data = $this->db->where('id',$val)->get('documents_bookkeepers')->row();
-      $imgurl = config_item('assets_domain').$data->file;
+      $imgurl = "http://resource.uniq365.com/".$accountbook.$data->file;
       echo json_encode($imgurl);
+    }
+    public function deldata(){
+      $val = $_POST['datana'];
+      $data = $this->db->where('id',$val)->delete('documents_bookkeepers');
+      if($data){
+        echo json_encode("ok");
+      }else{
+        echo json_encode("failed");
+      }
     }
 }
 ?>

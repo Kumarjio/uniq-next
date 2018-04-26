@@ -102,7 +102,7 @@ class SalesInquirySalesOrders
 
 
         col_start(12,'col s6 m6 l6');
-        stock_items_bootstrap( _("Product"), 'SelectStockFromList', null, true, true);
+        stock_items_bootstrap( _("Product"), 'SelectStockFromList', null, true, false);
 
         if (! @$_GET['popup']){
             col_start(12,'col s6 m6 l6');

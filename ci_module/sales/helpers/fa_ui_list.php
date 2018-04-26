@@ -18,32 +18,31 @@ function customer_list($name, $selected_id = null, $spec_option = false, $submit
         $class_of_input = get_instance()->bootstrap->input_class;
     }
 
-    $ret = combo_input($name, $selected_id, $sql, 'debtor_no', 'debtor_ref',
-
-    array(
-        'format' => '_format_add_curr',
-        'order' => array(
-            'debtor_ref'
-        ),
-        'search_box' => $mode != 0,
-        'type' => 1,
-        'size' => 20,
-        'search' => array(
-            "debtor_ref",
-            "name",
-            "tax_id"
-        ),
-        'spec_option' => $spec_option === true ? _("All Customers") : $spec_option,
-        'spec_id' => $all_items,
-        'select_submit' => $submit_on_change,
-        'async' => false,
-//         'sel_hint' => $mode ? _('Press Space tab to filter by name fragment; F2 - entry new customer') : $hit,
-        'show_inactive' => $show_inactive,
-//         'class' => $class_of_input
-    ));
+    $ret = combo_input($name, $selected_id, $sql, 'debtor_no', 'debtor_ref');
+//     array(
+//         'format' => '_format_add_curr',
+//         'order' => array(
+//             'debtor_ref'
+//         ),
+//         'search_box' => $mode != 0,
+//         'type' => 1,
+//         'size' => 20,
+//         'search' => array(
+//             "debtor_ref",
+//             "name",
+//             "tax_id"
+//         ),
+//         'spec_option' => $spec_option === true ? _("All Customers") : $spec_option,
+//         'spec_id' => $all_items,
+//         'select_submit' => "",
+//         'async' => false,
+// //         'sel_hint' => $mode ? _('Press Space tab to filter by name fragment; F2 - entry new customer') : $hit,
+//         'show_inactive' => "",
+//         'class' => ""
+//     ));
 
     if ($editkey)
-        $ret .= add_edit_combo('customer');
+        // $ret .= add_edit_combo('customer');
     return $ret;
 }
 
