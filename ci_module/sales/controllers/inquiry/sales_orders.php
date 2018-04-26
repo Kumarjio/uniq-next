@@ -86,32 +86,32 @@ class SalesInquirySalesOrders
 
 
         row_start('inquiry-filter');
-        col_start(12,'col s6 m6 l6');
+        col_start(12,'col s4 m4 l4');
         input_text_bootstrap( 'Order Numb.', 'OrderNumber', '', null, true);
-        col_start(12,'col s6 m6 l6');
+        col_start(12,'col s4 m4 l4');
         input_text_bootstrap(_("Ref"), 'OrderReference', '', null,true);
 
         if ($show_dates) {
-            col_start(12,'col s6 m6 l6');
+            col_start(12,'col s4 m4 l4');
             input_date_bootstrap("From", 'OrdersAfterDate', NULL, false, false, - 30);
-            col_start(12,'col s6 m6 l6');
+            col_start(12,'col s4 m4 l4');
             input_date_bootstrap( "To", 'OrdersToDate', NULL);
         }
-        col_start(12,'col s6 m6 l6');
+        col_start(12,'col s4 m4 l4');
         locations_bootstrap( _("Location"), 'StockLocation', null, true, true);
 
 
-        col_start(12,'col s6 m6 l6');
+        col_start(12,'col s4 m4 l4');
         stock_items_bootstrap( _("Product"), 'SelectStockFromList', null, true, false);
 
         if (! @$_GET['popup']){
-            col_start(12,'col s6 m6 l6');
+            col_start(12,'col s4 m4 l4');
             customer_list_bootstrap( _("Customer"), 'customer_id', input_val('customer_id'), true, true);
         }
 
 
         if ($trans_type == ST_SALESQUOTE){
-            col_start(12,'col s6 m6 l6');
+            col_start(12,'col s4 m4 l4');
             // if( !isMobile() ){
             //     bootstrap_set_label_column(6);
             // }
