@@ -169,7 +169,7 @@ $login_cek = "";
 					        <label for="email">Email</label>
 					        <input type='hidden' id=ui_mode name='ui_mode' value="<?php echo $_SESSION["wa_current_user"]->ui_mode;?>" />
 					    </div>
-					
+
 			            <div class="input-field">
 			            	<?php $pass_name = (isset($_COOKIE['pass_name'])) ? $_COOKIE['pass_name'] : null; ?>
 			                <input id="password" type="password" class="validate" class="touch" name="password" value='<?=$pass_name?>' <?=$login_cek?>/>
@@ -200,7 +200,7 @@ $login_cek = "";
  						    <!-- <div class="content"> -->
  						      <div class="input-field">
  						      <!-- <hr> -->
- 						        <p>Select accountbook. (Scroll)</p>
+ 						        <p>Select Account Books. (Scroll)</p>
  						      <!-- </div> -->
  						      <div class="body" style="overflow-y:scroll; height:150px; background-color: transparent;">&nbsp;</div>
  						    </div>
@@ -437,9 +437,9 @@ $login_cek = "";
 						var html = "<p>Accountbook undetected!</p>";
 
 						if(data.length > 0){
-							html = "<ul class='accountbook-list collection'>";
+							html = "<ul class='accountbook-list collection '>";
 							for(var loop=0; loop<data.length; loop++){
-								html = html + "<li class='collection-item'><button type='button' class='btn waves-effect waves-light form-control access-list-button' onclick='getAccount(this)' value='" + data[loop].id + "'>" + data[loop].name + "</button></li>";
+								html = html + "<li class='collection-item transparent'><button type='button' class='btn waves-effect waves-light form-control access-list-button transparent' onclick='getAccount(this)' value='" + data[loop].id + "'>" + data[loop].name + "</button></li>";
 							}
 
 							html = html +  "</ul>";
