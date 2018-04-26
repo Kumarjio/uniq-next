@@ -7,8 +7,8 @@ class renderer
         $this->theme_img_uri = '//' . $_SERVER['HTTP_HOST'] . '/themes/syncard/images';
         $this->add_resource();
         add_document_ready_js("$.map(ajax_fun, function(value, key) { fn = ajax_fun[key]; if(typeof fn === 'function') { fn(); } });");
-        $this->setup_wizard = module_control_load('wizard','setup');
-        $this->setup_wizard->run();
+        // $this->setup_wizard = module_control_load('wizard','setup');
+        // $this->setup_wizard->run();
         // $this->setup_wizard->status_show();
     }
 
@@ -48,7 +48,7 @@ class renderer
             echo
             '<div class="page-head white z-depth-1">
               <h5><span class="badge"><a href="#!" class="grey-text dropdown-button" data-activates="account-options"><i class="material-icons">settings</i></a></span><b>UNIQ365 BUSINESS SYSTEM</b></h5>
-              <p>COMPANY: '.get_company_Pref('coy_name').'</p>
+              <!--p>COMPANY: '.get_company_Pref('coy_name').'</p-->
             </div>';
         }
 

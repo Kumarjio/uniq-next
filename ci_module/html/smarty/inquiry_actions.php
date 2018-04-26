@@ -10,7 +10,11 @@ class HtmlInquiryActionsSmarty{
 
             $icon = '<i class="material-icons">add</i>';
             // return anchor($button_add_new['uri'],$icon,'class="btn green ajaxsubmit waves-effect"');
-            return anchor($button_add_new['uri'],$icon,'class="btn-floating yellow darken-3 halfway-fab btn-large waves-effect waves-light"');
+
+            $html = '<div class="fixed-action-btn">';
+            $html .= anchor($button_add_new['uri'],$icon,'class="btn-floating yellow darken-3 btn-large waves-effect waves-light"');
+            $html .= '</div>';
+            return $html;
         }
     }
 

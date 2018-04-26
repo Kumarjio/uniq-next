@@ -1,9 +1,27 @@
 /* Global */
-.main { padding-left:300px; margin-bottom: 65px; }
+.main { padding-left:0; margin-bottom: 65px; }
 .main nav { padding-right:300px }
 .page-footer { position: fixed; bottom: 0; left: 0; width: 100%; padding-top: 0; padding-left: 300px; z-index: 990; }
 
 .card-panel { display: inline-block; width: 100%; }
+
+.container { padding-left: 235px !important; }
+/* side nav custom */
+.side-nav {
+
+}
+.side-nav.fixed {
+  width: 232px;
+  padding-top: 56px;
+  background-color: unset;
+  -webkit-box-shadow: unset;
+  box-shadow: unset;
+}
+
+.side-nav .collapsible-body, .side-nav.fixed .collapsible-body,
+.side-nav li.active {
+  background-color: unset;
+}
 
 /* RESPONSIVE ================================================================ */
 /* mobile size */
