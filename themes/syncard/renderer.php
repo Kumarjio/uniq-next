@@ -47,8 +47,8 @@ class renderer
         } else {
             echo
             '<div class="page-head white z-depth-1">
-              <h5><span class="badge"><a href="#!" class="grey-text dropdown-button" data-activates="account-options"><i class="material-icons">settings</i></a></span><b>WELCOME</b></h5>
-              <p>UNIQ365 Best cloud accounting ever.</p>
+              <h5><span class="badge"><a href="#!" class="grey-text dropdown-button" data-activates="account-options"><i class="material-icons">settings</i></a></span><b>UNIQ365 BUSINESS SYSTEM</b></h5>
+              <p>COMPANY: '.get_company_Pref('coy_name').'</p>
             </div>';
         }
 
@@ -59,7 +59,7 @@ class renderer
             $dashboard = module_control_load('dashboard','dashboard');
             $dashboard->home();
         }
-        
+
         $this->setup_wizard->status_show();
     }
 

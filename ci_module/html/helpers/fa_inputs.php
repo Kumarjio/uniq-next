@@ -174,8 +174,8 @@ function locations_list($name, $selected_id = null, $all_option = false, $submit
     return combo_input($name, $selected_id, $sql, 'loc_code', 'location_name', array(
         'spec_option' => $all_option === true ? _("All Locations") : $all_option,
         'spec_id' => $all_items,
-        'select_submit' => $submit_on_change,
-        'class' => $class_of_input
+        'select_submit' => "",
+        'class' => ""
     ));
 }
 

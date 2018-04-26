@@ -246,7 +246,12 @@ function icon_submit($name, $value, $button_type = 'secondary', $icon='save', $a
         $attributes['class'] .= " ajaxsubmit";
     }
     if( $title == "View File"){
-      $attributes['class'] .= " showimage";
+      $attributes['class'] = "btn-floating btn-small waves-effect waves-light blue showimage";
+      $attributes['type'] = "button";
+    }
+    if( $title == "Remove line from document"){
+      $attributes['class'] = "btn-floating btn-small waves-effect waves-light blue deletedata";
+      $attributes['type'] = "button";
     }
 
 

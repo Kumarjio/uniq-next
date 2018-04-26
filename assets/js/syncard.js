@@ -3,11 +3,12 @@ var allText = '';
 $("html").attr('style', 'opacity:1');
 
 $(function(){
+
 // Modal
- $('.modal').modal();
+ // $('.modal').modal();
  createmodal();
  getdatapicture();
-
+ deletedatapicture();
 /* title button */
 $(".fa.fa-plus").attr({
             "title" : "Add New"
@@ -1504,11 +1505,24 @@ function createmodal(){
             '</div>'+
             '<div class="modal-footer">'+
             '</div>'+
+            '</div>'+
+
+            '<div id="modal2" class="modal modal-fixed-footer">'+
+            '<div class="modal-content">'+
+            '<h4>Delete Data</h4>'+
+            '<p>Do you want to delete this data?</p>'+
+            '</div>'+
+            '<div class="modal-footer">'+
+
+            '</div>'+
             '</div>';
     $(".main").append(html);
 }
 function getdatapicture(){
-  $(".showimage").on("click",function(){
+  $(".showimage").on("click",function(e){
+    // e.preventDefault();
+    //  alert('it works!');
+    //  return  false;
   var url = window.location.hostname;
 
   var url1 = window.location;
@@ -1526,13 +1540,46 @@ function getdatapicture(){
             console.log(xhr);
           },
           success: function (data){
-              // localStorage['visited'] = data;
-              console.log(data);
               $('#modal1 p').html("");
               $('#modal1 p').append("<img src='"+data+"'>");
               $(".modal").modal();
               $('#modal1').modal('open');
           }
       });
+   });
+}
+function deletedatapicture(){
+  $(".deletedata").on("click",function(e){
+  var url = window.location.hostname;
+  var url1 = window.location;
+  var id = $(this).val();
+  console.log("ada");
+  var buttonna = '<a class="modal-close waves-effect waves-green btn-flat " onclick="deletedatapicture_exe('+id+')">yes</a>';
+      $("#modal2 .modal-footer").html("");
+      $("#modal2 .modal-footer").append(buttonna);
+      $(".modal").modal();
+      $("#modal2").modal("open");
+   });
+}
+function deletedatapicture_exe(id){
+  var url1 = window.location;
+  $.ajax({
+       // url: "./bookkeepers/getdata",
+       url: url1+"/deldata",
+       type: 'POST',
+       dataType : 'json',
+       async: false,
+       data:({
+               datana : id
+       }),
+       error: function (xhr, ajaxOptions, thrownError) {
+         console.log(xhr);
+       },
+       success: function (data){
+         if(data == 'ok'){
+           location.reload();
+         }
+         // M.toast({html: 'I am a toast!'});
+       }
    });
 }

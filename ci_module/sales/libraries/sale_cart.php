@@ -86,7 +86,7 @@ class SalesSaleCartLib
         $change_prices = 0;
 
         // row_start();
-        col_start(12,'col s6 m6');
+        col_start(12,'col s4 m4 l4');
         if( !isMobile() ){
             bootstrap_set_label_column(4);
         }
@@ -210,7 +210,7 @@ class SalesSaleCartLib
             locations_bootstrap(_("Deliver from Location"), 'Location2', null, false, true);
         }
 
-        col_start(12,'col s6 l6');
+        col_start(12,'col s4 m4 l4');
         if( !isMobile() ){
             bootstrap_set_label_column(3);
         }
