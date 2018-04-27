@@ -36,7 +36,6 @@ button[disabled], html input[disabled] {
   position: relative;
 	padding: 0 25px;
   display: inline-block;
-  width: 100%;
   margin-bottom: 25px;
 }
 
@@ -65,10 +64,10 @@ button[disabled], html input[disabled] {
 
 .container{
 	/*background: #4684A3;*/
-	margin: unset;
+	/* margin: unset;
 	display: block;
-	width: 100%;
-	padding: 10px;
+	width: 100%;*/
+	padding-top: 15px;
 }
 
 .text-center { text-align: center; }

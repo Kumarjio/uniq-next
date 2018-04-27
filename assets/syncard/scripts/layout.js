@@ -1,6 +1,6 @@
 $( document ).ready(function() {
     $(".dropdown-button").dropdown();
-    $(".button-menu").sideNav();
+    // $(".button-menu").sideNav();
     $('select').material_select();
     $('.operation-modal').modal();
 
