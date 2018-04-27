@@ -5,7 +5,7 @@
 .card-panel { display: inline-block; width: 100%; }
 
 /* header nav */
-nav .brand-logo { font-size: 1.5rem; font-weight: 300; }
+nav .brand-logo { font-size: 1.3rem; font-weight: 300; }
 .navbar-fixed {
   z-index: 999;
 }
