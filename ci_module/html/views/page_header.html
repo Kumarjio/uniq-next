@@ -1,10 +1,29 @@
 <!-- <div class="page-head white z-depth-1 hide-on-med-and-down"> -->
-<div class="page-head blue darken-4 white-text z-depth-1 hide-on-med-and-down">
-	<h4><span synlang="syncard-language">{$title}</span><span class="badge"><a href="#!" class="white-text dropdown-button" data-activates="account-options"><i class="material-icons">settings</i></a></span></h4>
-	{if $page_description}<p>{$page_description}</p>{/if}
-	{if isset($button_add_new)}
+<!-- <div class="page-head blue darken-4 white-text z-depth-1 hide-on-med-and-down"> -->
+	<!-- <h4><span synlang="syncard-language">{$title}</span><span class="badge"><a href="#!" class="white-text dropdown-button" data-activates="account-options"><i class="material-icons">settings</i></a></span></h4> -->
+	<!-- {if $page_description}<p>{$page_description}</p>{/if}
+	{if isset($button_add_new)} -->
 		<!-- <div class="fixed-action-btn"> -->
-			{inquiry_addnew_button}
+			<!-- {inquiry_addnew_button} -->
 		<!-- </div> -->
-	{/if}
+	<!-- {/if} -->
+<!-- </div> -->
+
+<div class="navbar-fixed z-depth-2">
+	<nav class="blue accent-2">
+		<div class="row">
+		<div class="col s12">
+		<div class="nav-wrapper">
+			<ul>
+				<li><a href="#" data-target="slide-out" class="button-menu"><i class="material-icons">menu</i></a></li>
+				<li><a href="#" class="brand-logo">{$title}</a></li>
+			</ul>
+			<ul class="right account-menu">
+				<li><a href="#"><i class="material-icons">notifications</i></a></li>
+				<li><a href="#!" data-activates="account-options" class="img-container dropdown-button"><img src="/assets/images/default-avatar.png"/></a></li>
+			</ul>
+		</div>
+		</div>
+		</div>
+	</nav>
 </div>
