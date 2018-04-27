@@ -7,9 +7,9 @@ class renderer
         $this->theme_img_uri = '//' . $_SERVER['HTTP_HOST'] . '/themes/syncard/images';
         $this->add_resource();
         add_document_ready_js("$.map(ajax_fun, function(value, key) { fn = ajax_fun[key]; if(typeof fn === 'function') { fn(); } });");
-        // $this->setup_wizard = module_control_load('wizard','setup');
-        // $this->setup_wizard->run();
-        // $this->setup_wizard->status_show();
+        $this->setup_wizard = module_control_load('wizard','setup');
+        $this->setup_wizard->run();
+        $this->setup_wizard->status_show();
     }
 
     function wa_header() {page(_($help_context = "Main Menu"), false, true); }
@@ -41,39 +41,39 @@ class renderer
         // echo '<div class="row">';
 
         /*breadcrumb*/
-        if ($title && ! $is_index) {
+        // if ($title && ! $is_index) {
             $page_description = NULL;
             module_view('page_header',array('title'=>$title,'page_description'=>$page_description),true, false,'html' );
-        } else {
+        // } else {
             // echo
             // '<div class="page-head white z-depth-1">
             //   <h5><span class="badge"><a href="#!" class="grey-text dropdown-button" data-activates="account-options"><i class="material-icons">settings</i></a></span><b>UNIQ365 BUSINESS SYSTEM</b></h5>
             //   <!--p>COMPANY: '.get_company_Pref('coy_name').'</p-->
             // </div>';
 
-            echo '
-            <div class="navbar-fixed z-depth-2">
-              <nav class="blue accent-2">
-                <div class="row">
-                <div class="col s12">
-                <div class="nav-wrapper">
-                  <ul>
-                    <li><a href="#" data-target="slide-out" class="button-menu"><i class="material-icons">menu</i></a></li>
-                    <li><a href="#" class="brand-logo">Home</a></li>
-                  </ul>
-                  <ul class="right account-menu">
-                    <li><a href="#"><i class="material-icons">notifications</i></a></li>
-                    <li><a href="#!" data-activates="account-options" class="img-container dropdown-button"><img src="/assets/images/default-avatar.png"/></a></li>
-                  </ul>
-                </div>
-                </div>
-                </div>
-              </nav>
-            </div>';
-        }
+            // echo '
+            // <div class="navbar-fixed z-depth-2">
+            //   <nav class="blue accent-2">
+            //     <div class="row">
+            //     <div class="col s12">
+            //     <div class="nav-wrapper">
+            //       <ul>
+            //         <li><a href="#" data-target="slide-out" class="button-menu"><i class="material-icons">menu</i></a></li>
+            //         <li><a href="#" class="brand-logo">Home</a></li>
+            //       </ul>
+            //       <ul class="right account-menu">
+            //         <li><a href="#"><i class="material-icons">notifications</i></a></li>
+            //         <li><a href="#!" data-activates="account-options" class="img-container dropdown-button"><img src="/assets/images/default-avatar.png"/></a></li>
+            //       </ul>
+            //     </div>
+            //     </div>
+            //     </div>
+            //   </nav>
+            // </div>';
+        // }
 
         echo '<div class="clearfix"></div>';
-        echo '<div class="container">';
+        echo '<div class="container inner">';
         echo '<div class="page-content row">';
         if (isset($_GET['application']) && $_GET['application'] == 'H') {
             $dashboard = module_control_load('dashboard','dashboard');

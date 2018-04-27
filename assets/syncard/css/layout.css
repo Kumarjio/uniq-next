@@ -40,6 +40,12 @@ ul.account-menu li img{
   border-radius: 50%;
 }
 
+/* container */
+.container.inner {
+  margin: unset;
+  margin-left: 250px;
+}
+
 /* RESPONSIVE ================================================================ */
 /* mobile size */
 @media (max-width: 600px) {
