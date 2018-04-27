@@ -38,39 +38,9 @@ class renderer
         }
 
         /*content*/
-        // echo '<div class="row">';
+        $page_description = NULL;
+        module_view('page_header',array('title'=>$title,'page_description'=>$page_description),true, false,'html' );
 
-        /*breadcrumb*/
-        // if ($title && ! $is_index) {
-            $page_description = NULL;
-            module_view('page_header',array('title'=>$title,'page_description'=>$page_description),true, false,'html' );
-        // } else {
-            // echo
-            // '<div class="page-head white z-depth-1">
-            //   <h5><span class="badge"><a href="#!" class="grey-text dropdown-button" data-activates="account-options"><i class="material-icons">settings</i></a></span><b>UNIQ365 BUSINESS SYSTEM</b></h5>
-            //   <!--p>COMPANY: '.get_company_Pref('coy_name').'</p-->
-            // </div>';
-
-            // echo '
-            // <div class="navbar-fixed z-depth-2">
-            //   <nav class="blue accent-2">
-            //     <div class="row">
-            //     <div class="col s12">
-            //     <div class="nav-wrapper">
-            //       <ul>
-            //         <li><a href="#" data-target="slide-out" class="button-menu"><i class="material-icons">menu</i></a></li>
-            //         <li><a href="#" class="brand-logo">Home</a></li>
-            //       </ul>
-            //       <ul class="right account-menu">
-            //         <li><a href="#"><i class="material-icons">notifications</i></a></li>
-            //         <li><a href="#!" data-activates="account-options" class="img-container dropdown-button"><img src="/assets/images/default-avatar.png"/></a></li>
-            //       </ul>
-            //     </div>
-            //     </div>
-            //     </div>
-            //   </nav>
-            // </div>';
-        // }
 
         echo '<div class="clearfix"></div>';
         echo '<div class="container inner">';

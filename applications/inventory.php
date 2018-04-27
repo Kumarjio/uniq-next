@@ -15,7 +15,7 @@ class inventory_app extends application
 	{
 		$mainmodule = $_SESSION['apidumm'];
         if($mainmodule['INVENTORY']['status'] == "1"){
-			$this->application("stock", _($this->help_context = "Products"),true,'local_shipping');
+			$this->application("stock", _($this->help_context = "Products"),true,'local_shipping', 'green-text darken-4');
 
 			if($mainmodule['INVENTORY']['OPERATIONS']['status'] == "1"){
 				$this->add_module(_("Operations"), '');

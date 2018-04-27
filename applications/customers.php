@@ -15,7 +15,7 @@ class customers_app extends application
 	{
 		$mainmodule = $_SESSION['apidumm'];
         if($mainmodule['SALES']['status'] == "1"){
-			$this->application("orders", _($this->help_context = "Sales"),true,'receipt');
+			$this->application("orders", _($this->help_context = "Sales"),true,'receipt', 'purple-text accent-2');
 			$this->add_module(_("Dashboard"),'','sales/dashboard');
 
 			if ($mainmodule['SALES']['OPERATIONS']['status'] == "1"){

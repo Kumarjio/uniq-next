@@ -16,7 +16,7 @@ class accountantarea_app extends application
         $mainmodule = $_SESSION['apidumm'];
 
         if(isset($mainmodule['ACCOUNTANT']['MOBILE ACCOUNTANT']['status']) == "1"){
-            $this->application("AC", _($this->help_context = "Accountant"), true, 'book');
+            $this->application("AC", _($this->help_context = "Accountant"), true, 'book', 'cyan-text accent-2');
             if (isset($mainmodule['ACCOUNTANT']['MOBILE ACCOUNTANT'][116]['name']) == "Mobile Accountant" && isset($mainmodule['ACCOUNTANT']['MOBILE ACCOUNTANT'][116]['active']) == "1"){
 
                 $this->add_module(_("Mobile Accountant"), '', "documents/bookkeepers");

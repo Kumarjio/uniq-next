@@ -54,7 +54,7 @@
 		{if isset($app->modules)}
 		<ul class="collapsible collapsible-accordion">
 			<li>
-				{if $app->name != 'Home'} <a class="collapsible-header waves-effect"><span synlang="syncard-language"><i class="material-icons left">{$app->icon}</i>{$app->name}</span></a>
+				{if $app->name != 'Home'} <a class="collapsible-header waves-effect"><span synlang="syncard-language"><i class="material-icons {$app->color} left">{$app->icon}</i>{$app->name}</span></a>
 					<div class="collapsible-body">
 						<ul class="collapsible collapsible-accordion">
 							{foreach $app->modules AS $module} {if isset($module->name) AND $module->name|count_characters > 0 }
