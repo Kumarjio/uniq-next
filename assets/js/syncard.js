@@ -5,6 +5,7 @@ $("html").attr('style', 'opacity:1');
 $(function(){
 
 // Modal
+input_fiscal_year();
  // $('.modal').modal();
  createmodal();
  getdatapicture();
@@ -1583,4 +1584,43 @@ function deletedatapicture_exe(id){
          // M.toast({html: 'I am a toast!'});
        }
    });
+}
+function input_fiscal_year(){
+  $("[name=ok_fiscal_years]").on("click",function(){
+  // var url = window.location.hostname;
+  // var url1 = window.location;
+  dbegin = $("[name=date-from]").val();
+  dbegint = new Date(dbegin.replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3"));
+  // dendt  = Date.parse(dend);
+  dend = $("[name=date-end]").val();
+  dendt = new Date(dend.replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3"));
+  if(dbegint > dendt){
+    $("[name=msg-alert]").html("BEGIN date cannot less than END date");
+    console.log("gaboleh");
+  }else if(dbegin == dend){
+    $("[name=msg-alert]").html("BEGIN date and END date cannot be same");
+    console.log("date cannot same");
+  }else{
+    $("[name=msg-alert]").html("");
+     $.ajax({
+          // url: "./bookkeepers/getdata",
+          url: "./admin/fiscal_years/addfiscalyear",
+          type: 'POST',
+          dataType : 'json',
+          async: false,
+          data:{
+                  d_begin : dbegin,
+                  d_end   : dend
+          },
+          error: function (xhr, ajaxOptions, thrownError) {
+            console.log(xhr);
+          },
+          success: function (data){
+              console.log(data);
+              // console.log("sok");
+          }
+      });
+   }
+     // console.log(dbegin+" "+dend);
+  });
 }
