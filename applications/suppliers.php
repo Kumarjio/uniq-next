@@ -15,7 +15,7 @@ class suppliers_app extends application
 	{
 		$mainmodule = $_SESSION['apidumm'];
         if($mainmodule['PURCHASE']['status'] == "1"){
-			$this->application("AP", _($this->help_context = "Purchases"),true,'shopping_basket');
+			$this->application("AP", _($this->help_context = "Purchases"),true,'shopping_basket', 'brown-text accent-2');
 			$this->add_module(_("Dashboard"),'', "/purchases/dashboard");
 
 			$submenu = $mainmodule['PURCHASE'];

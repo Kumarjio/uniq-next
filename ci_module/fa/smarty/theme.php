@@ -16,8 +16,8 @@ class FaThemeSmarty{
     }
 
     static function app_logo(){
-        $logo = '<img src="'.AT_ASSEETS.'images/logo.png" class="responsive-img" />';
+        $logo = '<img src="'.AT_ASSEETS.'images/logo.png" />';
 
-        return anchor(site_url(),$logo);
+        return $logo;
     }
 }

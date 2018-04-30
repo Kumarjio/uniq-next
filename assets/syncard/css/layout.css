@@ -6,8 +6,18 @@
 
 /* header nav */
 nav .brand-logo { font-size: 1.3rem; font-weight: 300; }
+nav .brand-logo img { height: 20px; margin-top: 7px; }
 .navbar-fixed {
   z-index: 999;
+}
+
+nav select {
+  height: 42px;
+  border-radius: 0px;
+  margin-top: 11px;
+  background-color: rgba(255,255,255,0.2);
+  -webkit-border-radius: 0px;
+  border: none;
 }
 
 /* side nav custom */
@@ -28,14 +38,14 @@ nav .brand-logo { font-size: 1.3rem; font-weight: 300; }
 }
 
 /* account menu */
-ul.account-menu li a.img-container{
+nav .img-container {
   height: 32px;
   margin-top: 15px;
   padding: 0;
   margin-right: 15px;
 }
+nav .img-container img { height: inherit; }
 ul.account-menu li img{
-  height: inherit;
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }

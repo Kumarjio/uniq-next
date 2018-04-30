@@ -37,7 +37,7 @@ class FaPermissionSmarty{
                 $label = $lnk[0];
                 if( isset($app->icon) AND strlen($app->icon) > 0 ){
                     // $label = '<i class="caret"></i> '. $label;
-                    $label = '<i class="material-icons left">'.$app->icon.'</i>'. $label;
+                    $label = '<i class="material-icons blue-text accent-2 left">'.$app->icon.'</i>'. $label;
                     $label =  $label;
                 }
 

@@ -16,7 +16,7 @@ class general_ledger_app extends application
 		$mainmodule = $_SESSION['apidumm'];
         if( $mainmodule['CASH and GL']['status'] == "1"){
 
-			$this->application("GL", _($this->help_context = "Cash and GL"),true,'monetization_on');
+			$this->application("GL", _($this->help_context = "Cash and GL"),true,'monetization_on', 'orange-text accent-2');
 			$this->add_module(_("Dashboard"), "", "gl/dashboard");
 
 			if( $mainmodule['CASH and GL']['OPERATIONS']['status'] == "1"){

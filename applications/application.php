@@ -114,12 +114,13 @@ class application
 
     var $id, $name, $help_context, $modules, $enabled, $icon;
 
-    function application($id, $name, $enabled = true, $icon = NULL)
+    function application($id, $name, $enabled = true, $icon = NULL, $color = NULL)
     {
         $this->id = $id;
         $this->name = $name;
         $this->enabled = $enabled;
         $this->icon = $icon;
+        $this->color = $color;
         $this->modules = array();
     }
 
