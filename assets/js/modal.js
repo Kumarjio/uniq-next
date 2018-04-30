@@ -19,4 +19,9 @@ $(document).ready(function(){
   $('.modal').modal();
   $('#setup-wizard').modal({ 'dismissible' : false });
   $('#setup-wizard').modal('open');
+  $("[name=msg-allert]").html("");
+  $('ul.tabs').tabs({
+    // swipeable : true,
+    // responsiveThreshold : 1920
+  });
 });
