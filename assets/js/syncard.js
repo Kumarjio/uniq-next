@@ -14,6 +14,7 @@ $(".fa.fa-plus").attr({
             "title" : "Add New"
         });
 $('.tabs').tabs();
+$("select[name=customer_tax_id]").val(26).attr("selected");
 getItemSelect();
 autocomplete();
 getAccountSelect();
