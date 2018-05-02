@@ -44,7 +44,7 @@ class renderer
 
         echo '<div class="clearfix"></div>';
         echo '<div class="container inner">';
-        echo '<div class="page-content row">';
+        echo '<div class="page-content">';
         if (isset($_GET['application']) && $_GET['application'] == 'H') {
             $dashboard = module_control_load('dashboard','dashboard');
             $dashboard->home();

@@ -11,14 +11,27 @@ nav .brand-logo img { height: 20px; margin-top: 7px; }
   z-index: 999;
 }
 
-nav select {
+nav .select-wrapper {
   height: 42px;
   border-radius: 0px;
   margin-top: 11px;
-  background-color: rgba(255,255,255,0.2);
-  -webkit-border-radius: 0px;
   border: none;
+  background-color: rgba(255,255,255,0.15);
+  -webkit-border-radius: 0px;
 }
+
+nav .select-wrapper input.select-dropdown {
+  border: none;
+  margin: 0;
+  padding-left: 8px;
+}
+
+nav .select-wrapper span.caret {
+  color: #fff;
+  right: 10px;
+}
+
+
 
 /* side nav custom */
 .side-nav {

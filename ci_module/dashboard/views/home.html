@@ -28,27 +28,26 @@
 	<!-- {/foreach}{/if} -->
 <!-- </div> -->
 
+<!-- <div class="col s12 m6 l4">
+	<a href="{site_url uri=$a[0]}" class="black-text">
+		<div class="card home white col s12 waves-effect hoverable">
+			<div class="card-content">
+				<p><i class="material-icons medium orange-text"><span class="syncard-language">{$a[3]}</span></i></p>
+				<span class="card-title syncard-language">{$a[1]}</span>
+				<p><span synlang="syncard-language">{$a[2]}</span></p>
+			</div>
+		</div>
+	</a>
+</div> -->
+<p><span synlang="syncard-language">Quick Menu</span></p>
+<ul class="collection row home-dashboard">
 {$b = 1}
 {if isset($app) AND $app|count > 0}{foreach $app AS $name=>$a}
-<div class="col s12 m6 l4">
-		<!-- <ul class="collection waves-effect col s12 white z-depth-1">
-		    <li class="collection-item avatar">
-		      <i class="material-icons circle orange">{$a[3]}</i>
-		      <p><span class="title syncard-language">{$a[1]}</span></p>
-					<p><span synlang="syncard-language">{$a[2]}</span></p>
-		    </li>
-		</ul> -->
-		<a href="{site_url uri=$a[0]}" class="black-text">
-		<div class="card home white col s12 waves-effect hoverable">
-      <div class="card-content">
-				<p><i class="material-icons medium orange-text">{$a[3]}</i></p>
-        <span class="card-title syncard-language">{$a[1]}</span>
-        <p><span synlang="syncard-language">{$a[2]}</span></p>
-      </div>
-      <!-- <div class="card-action">
-        <span synlang="syncard-language">Go</span>
-      </div> -->
-    </div>
-		</a>
-</div>
+    <li class="collection-item avatar waves-effect col s12 m6">
+      <a href="{site_url uri=$a[0]}" class="black-text"><i class="material-icons circle {$a[4]}">{$a[3]}</i>
+	      <span class="title syncard-language">{$a[1]}</span>
+	      <p><span synlang="syncard-language">{$a[2]}</span></p>
+			</a>
+    </li>
 {/foreach}{/if}
+</ul>

@@ -51,7 +51,7 @@ class setup_app extends application
 						}
 			        }
 			    if ($mainmodule['SETUP']['COMPANY'][124]['name'] == "System & GL Setup" && $mainmodule['SETUP']['COMPANY'][124]['active'] == "1"){
-					$this->add_rapp_function(0, _("System and General GL Setup"),
+					$this->add_rapp_function(0, _("System & GL Setup"),
 						"admin/gl_setup.php?", 'SA_GLSETUP', MENU_SETTINGS,'');
 				}
 				if ($mainmodule['SETUP']['COMPANY'][125]['name'] == "Fiscal Years" && $mainmodule['SETUP']['COMPANY'][125]['active'] == "1"){
