@@ -276,38 +276,22 @@ class AdminFiscalYears {
     }
     // fiscal_year New
     public function addfiscalyear(){
-      // $data = array(
-      //     'id'=>$this->ci->input->post('id'),
-      //     'begin'=>$this->ci->input->post('begin'),
-      //     'end'=>$this->ci->input->post('end'),
-      //     'closed'=> ( $this->ci->input->post('closed') || $this->ci->input->post('closed')=='on' ) ? true : false
-      // );
-      //
-      // if (!is_date($data['begin']) || $this->model->in_fiscalyears($data['begin'])) {
-      //     display_error( _("Invalid BEGIN date in fiscal year."));
-      //     set_focus('from_date');
-      //     return false;
-      // }
-      //
-      // if ( !is_date($data['end']) || $this->model->in_fiscalyears($data['end'])) {
-      //     display_error( _("Invalid END date in fiscal year."));
-      //     set_focus('to_date');
-      //     return false;
-      // }
-      //
-      // if (! $this->model->check_begin_end_date($data['begin'], $data['end'])) {
-      //     display_error( _("Invalid BEGIN or END date in fiscal year."));
-      //     set_focus('from_date');
-      //     return false;
-      // }
-      //
-      // if ( strtotime($data['begin']) >= strtotime($data['end']) ) {
-      //     display_error( _("BEGIN date bigger than END date."));
-      //     set_focus('from_date');
-      //     return false;
-      // }
-      // $this->data = $data;
-      // return true;
-      echo json_encode("ada");
+      $begin = $_POST['d_begin'];
+      $end = $_POST['d_end'];
+      $data = array(
+
+          'begin'=>$begin,
+          'end'=>$end,
+          'closed'=>0
+
+      );
+      $result = $this->model->addfiscal($data);
+      echo json_encode($result);
+    }
+
+    // nitip
+    public function updatecoafinish(){
+      $result = $this->model->updatecoafinish();
+      echo json_encode($result);
     }
 }

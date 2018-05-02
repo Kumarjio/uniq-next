@@ -24,6 +24,21 @@ class Admin_Fiscalyear_Model extends CI_Model {
         }
         return $id;
     }
+    function addfiscal($data) {
+        $this->db->insert('fiscal_year',$data);
+        $id = $this->db->insert_id();
+
+        $current_year = get_current_fiscalyear();
+        if( !$current_year ){
+            update_company_prefs(array('f_year'=>$id));
+        }
+        log_add('fiscal_year',1,$id);
+        if( !$id ){
+            display_error( _("could not add fiscal year"));
+            return false;
+        }
+        return $id;
+    }
 
     function update($id,$data=array()){
         if( !$id || !is_array($data) )
@@ -613,6 +628,14 @@ class Admin_Fiscalyear_Model extends CI_Model {
         }
         $this->db->delete('comments',array('type'=>$type_no,'id'=>$trans_no));
         $this->db->delete('refs',array('type'=>$type_no,'id'=>$trans_no));
+    }
+
+    function updatecoafinish(){
+      $data = array('value' =>1);
+      $result = $this->db->update('sys_prefs',$data,array('name'=>"setup-finish"));
+      if($result){
+        return "ok";
+      }
     }
 
 

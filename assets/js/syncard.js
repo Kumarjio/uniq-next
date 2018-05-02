@@ -6,6 +6,7 @@ $(function(){
 
 // Modal
 input_fiscal_year();
+finishsetup();
  // $('.modal').modal();
  createmodal();
  getdatapicture();
@@ -1594,6 +1595,16 @@ function input_fiscal_year(){
   // dendt  = Date.parse(dend);
   dend = $("[name=date-end]").val();
   dendt = new Date(dend.replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3"));
+
+// change Format date
+  dbegin_2 = dbegin.split("-");
+  dbegin = dbegin_2[2] + "-" + dbegin_2[1] + "-" + dbegin_2[0];
+
+  dend_2 = dend.split("-");
+  dend = dend_2[2] + "-" + dend_2[1] + "-" + dend_2[0];
+// change Format date end
+
+
   if(dbegint > dendt){
     $("[name=msg-alert]").html("BEGIN date cannot less than END date");
     console.log("gaboleh");
@@ -1622,5 +1633,27 @@ function input_fiscal_year(){
       });
    }
      // console.log(dbegin+" "+dend);
+  });
+}
+
+function finishsetup(){
+  $("[name=finishsetup]").on("click", function(){
+    $.ajax({
+         // url: "./bookkeepers/getdata",
+         url: "./admin/fiscal_years/updatecoafinish",
+         type: 'GET',
+         dataType : 'json',
+         async: false,
+         error: function (xhr, ajaxOptions, thrownError) {
+           console.log(xhr);
+         },
+         success: function (data){
+             console.log(data);
+             if(data != null){
+               $("[id=setup-wizard]").modal("close");
+             }
+             // console.log("sok");
+         }
+     });
   });
 }
