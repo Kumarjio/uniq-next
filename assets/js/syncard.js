@@ -1638,22 +1638,29 @@ function input_fiscal_year(){
 
 function finishsetup(){
   $("[name=finishsetup]").on("click", function(){
-    $.ajax({
-         // url: "./bookkeepers/getdata",
-         url: "./admin/fiscal_years/updatecoafinish",
-         type: 'GET',
-         dataType : 'json',
-         async: false,
-         error: function (xhr, ajaxOptions, thrownError) {
-           console.log(xhr);
-         },
-         success: function (data){
-             console.log(data);
-             if(data != null){
-               $("[id=setup-wizard]").modal("close");
-             }
-             // console.log("sok");
-         }
-     });
+    $("[name=loading]").html('<div class="col s6 m6 l6 progress"><div class="indeterminate"></div></div>Please wait');
+    setTimeout(function(){
+
+      $.ajax({
+        // url: "./bookkeepers/getdata",
+        url: "./admin/fiscal_years/updatecoafinish",
+        type: 'GET',
+        dataType : 'json',
+        async: false,
+        // beforeSend: function() {
+        // },
+        error: function (xhr, ajaxOptions, thrownError) {
+          console.log(xhr);
+        },
+        success: function (data){
+          console.log(data);
+          if(data != null){
+            $("[name=loading]").html('');
+            $("[id=setup-wizard]").modal("close");
+          }
+          // console.log("sok");
+        }
+      });
+    }, 5000);
   });
 }
