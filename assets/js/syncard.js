@@ -7,6 +7,7 @@ $(function(){
 // Modal
 input_fiscal_year();
 finishsetup();
+seefiscal();
  // $('.modal').modal();
  createmodal();
  getdatapicture();
@@ -1629,6 +1630,8 @@ function input_fiscal_year(){
           success: function (data){
               console.log(data);
               // console.log("sok");
+              $("[name=coa]").parent().removeClass("disabled");
+              $('ul.tabs').tabs('select_tab', 'swipe-3');
           }
       });
    }
@@ -1637,16 +1640,26 @@ function input_fiscal_year(){
 }
 
 function finishsetup(){
+  $("[name=group1]").on("click", function(){
+    if($("[name=group1]:checked").val() == "no"){
+      $("[name=terms]").html("If you choose 'NO' you should setup COA manually");
+    }else{
+      $("[name=terms]").html("");
+    }
+  });
   $("[name=finishsetup]").on("click", function(){
     $("[name=loading]").html('<div class="col s6 m6 l6 progress"><div class="indeterminate"></div></div>Please wait');
+    choose = $("[name=group1]:checked").val();
     setTimeout(function(){
-
       $.ajax({
         // url: "./bookkeepers/getdata",
         url: "./admin/fiscal_years/updatecoafinish",
-        type: 'GET',
+        type: 'POST',
         dataType : 'json',
         async: false,
+        data:({
+          choose : choose
+        }),
         // beforeSend: function() {
         // },
         error: function (xhr, ajaxOptions, thrownError) {
@@ -1661,6 +1674,31 @@ function finishsetup(){
           // console.log("sok");
         }
       });
-    }, 5000);
+    }, 4000);
+  });
+}
+function seefiscal(){
+  $.ajax({
+    // url: "./bookkeepers/getdata",
+    url: "./admin/fiscal_years/seefiscal",
+    type: 'GET',
+    dataType : 'json',
+    async: false,
+    // beforeSend: function() {
+    // },
+    error: function (xhr, ajaxOptions, thrownError) {
+      console.log(xhr);
+    },
+    success: function (data){
+      // if(data != "gaada"){
+        begin_t = data[0]['begin'].split("-");
+        begin = begin_t[2]+"-"+begin_t[1]+"-"+begin_t[0];
+        end_t = data[0]['end'].split("-");
+        end = end_t[2]+"-"+end_t[1]+"-"+end_t[0];
+        $("#date-from").val(begin);
+        $('#date-end').val(end);
+        $("[name=coa]").parent().removeClass("disabled");
+      // }
+    }
   });
 }

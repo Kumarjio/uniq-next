@@ -288,10 +288,15 @@ class AdminFiscalYears {
       $result = $this->model->addfiscal($data);
       echo json_encode($result);
     }
-
-    // nitip
-    public function updatecoafinish(){
-      $result = $this->model->updatecoafinish();
+    public function seefiscal(){
+      $result = $this->model->seefiscal();
       echo json_encode($result);
     }
+    // nitip
+    public function updatecoafinish(){
+      $choose = $_POST['choose'];
+      $result = $this->model->updatecoafinish($choose);
+      echo json_encode($result);
+    }
+
 }

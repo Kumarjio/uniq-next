@@ -630,12 +630,19 @@ class Admin_Fiscalyear_Model extends CI_Model {
         $this->db->delete('refs',array('type'=>$type_no,'id'=>$trans_no));
     }
 
-    function updatecoafinish(){
+    function updatecoafinish($choose){
+      if($choose == 'no'){
+        $this->db->empty_table('chart_master');
+      }
       $data = array('value' =>1);
       $result = $this->db->update('sys_prefs',$data,array('name'=>"setup-finish"));
       if($result){
         return "ok";
       }
+    }
+
+    function seefiscal(){
+      return $this->db->get("fiscal_year")->result();
     }
 
 

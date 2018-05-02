@@ -16,7 +16,7 @@
     <ul id="tabs-swipe-demo" class="tabs">
       <li class="tab col s3"><a class="black-text" href="#swipe-1">Welcome</a></li>
       <li class="tab col s3"><a class="black-text" href="#swipe-2">Fiscal Years</a></li>
-      <li class="tab col s3"><a class="black-text" href="#swipe-3">COA</a></li>
+      <li class="tab col s3 disabled"><a class="black-text" href="#swipe-3" name="coa">COA</a></li>
     </ul>
   </br>
     <div id="swipe-1" class="col s12">
@@ -51,7 +51,7 @@
         </button>
       </center>
     </div>
-    <div id="swipe-3" class="col s12">
+    <div id="swipe-3" class="col s12 ">
       <center>
         <div class="col s12">
           <h4><b>COA</b></h4>
@@ -59,18 +59,21 @@
       </center>
       <p>Do you want to use default COA</p>
       <p>
-        <input name="group1" type="radio" id="iya" />
+        <input name="group1" type="radio" id="iya" value="iya"/>
         <label for="iya">YES</label>
-        <input name="group1" type="radio" id="tidak" />
+        <input name="group1" type="radio" id="tidak" value="no" />
         <label for="tidak">NO</label>
+      </p>
+      <p name="terms">
+
       </p>
       <div class="col l12 m12 s12">
         <center>
           <button class="btn waves-effect waves-light" type="button" name="finishsetup">Finish
-            <i class="material-icons right">send</i>
+            <i class="material-icons right"></i>
           </button>
           <div class="col s6 m6 l6" name="loading">
-            
+
           </div>
         </center>
       </div>
