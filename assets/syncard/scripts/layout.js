@@ -1,6 +1,6 @@
 $( document ).ready(function() {
+    $(".button-menu").unbind().on('click', function() { side_nav_toggle(); });
     $(".dropdown-button").dropdown();
-    // $(".button-menu").sideNav();
     $('select').material_select();
     $('.operation-modal').modal();
 
@@ -26,3 +26,9 @@ $( document ).ready(function() {
       aftershow: function(){} //Function for after opening timepicker
     });
 });
+
+// SIDE NAV
+function side_nav_toggle(){
+  if($('#slide-out').hasClass('active')) $('#slide-out').addClass('hide').removeClass('active');
+  else $('#slide-out').removeClass('hide').addClass('active');
+}

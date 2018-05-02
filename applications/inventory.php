@@ -21,7 +21,7 @@ class inventory_app extends application
 				$this->add_module(_("Operations"), '');
 
 				if ($mainmodule['INVENTORY']['OPERATIONS'][57]['name'] == "Inventory Location Transfers" && $mainmodule['INVENTORY']['OPERATIONS'][57]['active'] == "1"){
-					$this->add_lapp_function(0, _("Inventory Location Transfers"),
+					$this->add_lapp_function(0, _("Inventory Loc.Transfers"),
 						"inventory/transfers.php?NewTransfer=1", 'SA_LOCATIONTRANSFER', MENU_TRANSACTION,'');
 				}
 
@@ -78,7 +78,7 @@ class inventory_app extends application
 				}
 
 				if ($mainmodule['INVENTORY']['REPORTS'][66]['name'] == "Inventory Purchasing Report" && $mainmodule['INVENTORY']['REPORTS'][66]['active'] == "1"){
-					$this->add_rapp_function(2, _("Inventory Purchasing Report"),
+					$this->add_rapp_function(2, _("Inventory Purchasing Rpt"),
 						"reporting/reports_main.php?Class=2&REP_ID=306", 'SA_ITEMSTRANSVIEW', MENU_REPORT,'');
 				}
 
@@ -88,7 +88,7 @@ class inventory_app extends application
 				}
 
 				if ($mainmodule['INVENTORY']['REPORTS'][68]['name'] == "Costed Inventory Report" && $mainmodule['INVENTORY']['REPORTS'][68]['active'] == "1"){
-					$this->add_rapp_function(2, _("Costed Inventory Movement Report"),
+					$this->add_rapp_function(2, _("Costed Inventory Movement"),
 						"reporting/reports_main.php?Class=2&REP_ID=308", 'SA_ITEMSTRANSVIEW', MENU_REPORT,'');
 				}
 

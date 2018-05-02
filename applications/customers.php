@@ -42,12 +42,12 @@ class customers_app extends application
 				}
 
 				if ($mainmodule['SALES']['OPERATIONS'][5]['name'] == "Deliveries Against Sales Order" && $mainmodule['SALES']['OPERATIONS'][5]['active'] == "1"){
-					$this->add_lapp_function(1, _("Delivery Against Sales Orders"),
+					$this->add_lapp_function(1, _("Del. Against Sales Orders"),
 					"sales/inquiry/sales_orders_view.php?OutstandingOnly=1", 'SA_SALESDELIVERY', MENU_TRANSACTION,'');
 				}
 
 				if ($mainmodule['SALES']['OPERATIONS'][6]['name'] == "Invoice Against D/O" && $mainmodule['SALES']['OPERATIONS'][6]['active'] == "1"){
-					$this->add_lapp_function(1, _("Invoice Against Sales Delivery"),
+					$this->add_lapp_function(1, _("Inv. Against Sales Delivery"),
 					"sales/inquiry/sales_deliveries_view.php?OutstandingOnly=1", 'SA_SALESINVOICE', MENU_TRANSACTION,'');
 				}
 
@@ -63,7 +63,7 @@ class customers_app extends application
 
 				if ($mainmodule['SALES']['OPERATIONS'][12]['name'] == "Allocate Customer Payments" && $mainmodule['SALES']['OPERATIONS'][12]['active'] == "1"){
 					// $this->add_rapp_function(1, _("Allocate Customer Payments or Credit Notes"),
-					$this->add_rapp_function(1, _("Allocate Customer Payments"),
+					$this->add_rapp_function(1, _("Alloc. Customer Payments"),
 					"sales/allocations/customer_allocation_main.php?", 'SA_SALESALLOC', MENU_TRANSACTION,'');
 				}
 

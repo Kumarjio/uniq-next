@@ -152,7 +152,7 @@ class general_ledger_app extends application
 				}
 				if ( $mainmodule['CASH and GL']['DOC PRINTING'][142]['name'] == "Bank Account Transfer Voucher" &&  $mainmodule['CASH and GL']['DOC PRINTING'][142]['active'] == "1"){
 
-					$this->add_lapp_function(4, _("Bank Account Transfer Voucher"), "reporting/reports_bank.php?type=".ST_BANKTRANSFER, 'SA_BANKACCOUNT', MENU_MAINTENANCE,'');
+					$this->add_lapp_function(4, _("Bank Acc. Transfer Voucher"), "reporting/reports_bank.php?type=".ST_BANKTRANSFER, 'SA_BANKACCOUNT', MENU_MAINTENANCE,'');
 				}
 				if ( $mainmodule['CASH and GL']['DOC PRINTING'][143]['name'] == "Bank Reconcile" &&  $mainmodule['CASH and GL']['DOC PRINTING'][143]['active'] == "1"){
 
@@ -206,7 +206,7 @@ class general_ledger_app extends application
 				}
 				if ( $mainmodule['CASH and GL']['HOUSEKEEPING'][112]['name'] == "Revaluation of Currency Accounts" &&  $mainmodule['CASH and GL']['HOUSEKEEPING'][112]['active'] == "1"){
 
-					$this->add_rapp_function(5, _("Revaluation of Currency Accounts"),
+					$this->add_rapp_function(5, _("Revaluation of Curr. Acc."),
 						"gl/manage/revaluate_currencies.php?", 'SA_EXCHANGERATE', MENU_MAINTENANCE,'');
 				}
 			}else{

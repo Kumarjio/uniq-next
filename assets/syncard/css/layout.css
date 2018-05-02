@@ -11,6 +11,7 @@ nav .brand-logo img { height: 20px; margin-top: 7px; }
   z-index: 999;
 }
 
+nav ul li { padding: 0 5px; }
 nav .select-wrapper {
   height: 42px;
   border-radius: 0px;
@@ -29,6 +30,35 @@ nav .select-wrapper input.select-dropdown {
 nav .select-wrapper span.caret {
   color: #fff;
   right: 10px;
+}
+
+
+/* side nav */
+.side-nav {
+  animation-duration: 0.2s;
+}
+
+.side-nav.hide {
+  animation-name: side_nav_hide;
+}
+
+.side-nav.active {
+  animation-name: side_nav_show;
+}
+
+.side-nav li>a>i.material-icons {
+  margin: 0;
+}
+
+/* side nav animation */
+@keyframes side_nav_hide {
+    from { transform: translateX(0); -webkit-transform: translateX(0); }
+    to { transform: translateX(-100%); -webkit-transform: translateX(-100%); }
+}
+
+@keyframes side_nav_show {
+    from { transform: translateX(-100%); -webkit-transform: translateX(-100%); }
+    to { transform: translateX(0); -webkit-transform: translateX(0); }
 }
 
 

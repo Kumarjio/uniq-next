@@ -33,7 +33,8 @@ class Dashboard
                     '/sales/inquiry/sales_orders_view.php?type=32',
                     'Create a Quote',
                     'Send a quotation to your customer',
-                    'format_quote'
+                    'format_quote',
+                    'teal darken-2'
                 );
         }
 
@@ -42,7 +43,8 @@ class Dashboard
                     '/sales/sales_order_entry.php?NewInvoice=0',
                     'Create an Invoice',
                     'Sell items or service to your customer',
-                    'receipt'
+                    'receipt',
+                    'purple accent-2'
                 );
         }
 
@@ -51,7 +53,8 @@ class Dashboard
                     '/sales/customer_payments.php',
                     'Customer Payment',
                     'Receive payment from your customers',
-                    'attach_money'
+                    'attach_money',
+                    'orange darken-2'
                 );
         }
 
@@ -60,7 +63,8 @@ class Dashboard
                     '/sales/credit_note_entry.php?NewCredit=Yes',
                     'Create a Credit Note',
                     'Credit your customer for goods returned',
-                    'mail'
+                    'mail',
+                    'indigo accent-2'
                 );
         }
 
@@ -69,7 +73,8 @@ class Dashboard
                     '/purchasing/po_entry_items.php?NewInvoice=Yes',
                     'Create a Supplier Invoice',
                     'Purchase items from supplier',
-                    'local_shipping'
+                    'local_shipping',
+                    'brown darken-2'
                 );
         }
 
@@ -78,7 +83,8 @@ class Dashboard
                     '/purchasing/supplier_payment.php',
                     'Supplier Payment',
                     'Pay your suppliers',
-                    'money_off'
+                    'money_off',
+                    'cyan darken-2'
                 );
         }
         if ($home['CASH and GL']['OPERATIONS'][84]['name'] == "Reconcile Bank Account" && $home['CASH and GL']['OPERATIONS'][84]['active'] == "1"){
@@ -86,7 +92,8 @@ class Dashboard
                     '/gl/bank_account_reconcile.php',
                     'Bank Reconciliation',
                     'View and reconcile your bank statement',
-                    'account_balance'
+                    'account_balance',
+                    'red accent-2'
                 );
         }
 
@@ -95,7 +102,8 @@ class Dashboard
                     '/gl/gl_bank.php?NewPayment=Yes',
                     'Pay Expenses',
                     'Manually capture expenses into your bank',
-                    'account_balance_wallet'
+                    'account_balance_wallet',
+                    'yellow darken-2'
                 );
         }
 
@@ -104,7 +112,8 @@ class Dashboard
                     '/gl/inquiry/bank_inquiry.php',
                     'View Bank Transaction',
                     'View payments, receipts and bank tranfer',
-                    'assignment'
+                    'assignment',
+                    'blue darken-4'
                 );
         }
 
@@ -113,7 +122,8 @@ class Dashboard
                     '/reporting/reports_main.php?Class=0&REP_ID=108',
                     'Send Customer Statements',
                     'Email ( print) statements to all your customer',
-                    'send'
+                    'send',
+                    'green darken-2'
                 );
         }
 
@@ -122,7 +132,8 @@ class Dashboard
                     '/gl/inquiry/profit_loss.php',
                     'Profit and Loss',
                     'View your Profit and Loss report',
-                    'search'
+                    'search',
+                    'blue-grey lighten-3'
                 );
         }
 
@@ -131,7 +142,8 @@ class Dashboard
                     '/gl/inquiry/balance_sheet.php',
                     'Balance Sheet',
                     'Statement of Assets and Liabilities report',
-                    'assessment'
+                    'assessment',
+                    'deep-orange darken-5 accent-2'
                 );
         }
 
@@ -140,7 +152,8 @@ class Dashboard
                     'gst/form-5',
                     'Prepare GST Return',
                     'Tax returns and Tax reporting',
-                    'compare_arrows'
+                    'compare_arrows',
+                    'green'
                 );
         }
 
@@ -149,7 +162,8 @@ class Dashboard
                     '/admin/company_preferences.php',
                     'Company Maintenance',
                     'Manage branding, financial years, Tax and so on',
-                    'settings'
+                    'settings',
+                    'purple darken-2'
                 );
         }
 
