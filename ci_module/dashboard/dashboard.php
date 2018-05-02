@@ -64,7 +64,7 @@ class Dashboard
                 );
         }
 
-        if ($home['PURCHASE']['OPERATIONS'][40]['name'] == "Customer Credit Notes" && $home['PURCHASE']['OPERATIONS'][40]['active'] == "1"){
+        if ($home['PURCHASE']['OPERATIONS'][40]['name'] == "Direct Invoice" && $home['PURCHASE']['OPERATIONS'][40]['active'] == "1"){
             $home_shoft['supplier-invoice'] = array(
                     '/purchasing/po_entry_items.php?NewInvoice=Yes',
                     'Create a Supplier Invoice',
@@ -144,7 +144,7 @@ class Dashboard
                 );
         }
 
-        if ($home['SETUP']['COMPANY'][122]['name'] == "Company Setup" && $home['SETUP']['COMPANY'][122]['active'] == "1"){
+        if ($home['SETUP']['COMPANY'][118]['name'] == "Company Setup" && $home['SETUP']['COMPANY'][122]['active'] == "1"){
             $home_shoft['setup'] = array(
                     '/admin/company_preferences.php',
                     'Company Maintenance',
